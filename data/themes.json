@@ -1,0 +1,59 @@
+{
+  "themes": [
+    {
+      "id": 1,
+      "name": "Institutional Structure and Stakeholders",
+      "description": "Relates to government bodies, ministries, organizational frameworks involved in school eye health"
+    },
+    {
+      "id": 2,
+      "name": "Operationalization Strategies",
+      "description": "Covers implementation approaches, operational plans, and strategies for delivering school eye health programs"
+    },
+    {
+      "id": 3,
+      "name": "Coordination and Integration",
+      "description": "Addresses inter-agency coordination, integration of eye health into broader health and education systems"
+    },
+    {
+      "id": 4,
+      "name": "Funding",
+      "description": "Concerns financial resources, budgets, funding mechanisms, and fiscal sustainability of school eye health programs"
+    },
+    {
+      "id": 5,
+      "name": "Local Capacity and Service Delivery",
+      "description": "Relates to community-level capacity, local service provision, training, and delivery of eye health services in schools"
+    },
+    {
+      "id": 6,
+      "name": "Accessibility and Inclusivity",
+      "description": "Concerns equitable access to eye health services, inclusivity for marginalized groups, and geographic reach"
+    },
+    {
+      "id": 7,
+      "name": "Cost, Availability and Affordability",
+      "description": "Relates to costs of services and products, availability of resources, and affordability for end users"
+    },
+    {
+      "id": 8,
+      "name": "Data Considerations",
+      "description": "Covers data collection, monitoring and evaluation, information systems, and evidence-based decision making"
+    },
+    {
+      "id": 9,
+      "name": "Sociocultural Factors and Compliance",
+      "description": "Covers cultural beliefs, social norms, stigma, awareness, and compliance with eye health recommendations"
+    },
+    {
+      "id": 10,
+      "name": "Services at Higher Levels of Health System",
+      "description": "Addresses referral pathways, secondary and tertiary care, specialist services beyond primary school-level screening"
+    },
+    {
+      "id": 11,
+      "name": "Procuring Eyeglasses",
+      "description": "Addresses procurement, distribution, and supply of corrective eyeglasses for school children"
+    }
+  ]
+}

@@ -1,0 +1,720 @@
+{
+  "item_scores": [
+    {
+      "item_id": "O10",
+      "question_text": "Are there any standalone school \neye health programmes or initiatives \nwithin the intervention area \n(i.e., not part of another school\nbased health programme)?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "O11",
+      "question_text": "Does a curriculum for teacher \ntraining exist for school \nhealth and/or eye health?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O12",
+      "question_text": "Does a curriculum for nursing \ntraining exist for school \nhealth and/or eye health?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "O13",
+      "question_text": "Do any policies or regulations limit \nvision screening by teachers?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O17",
+      "question_text": "Are eye drops \nof eye ointment \navailable at the School nurse level?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "O18",
+      "question_text": "Are eye drops \nof eye ointment \navailable at the Community health level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O19",
+      "question_text": "Are eye drops \nof eye ointment \navailable at the Primary health level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O20",
+      "question_text": "Are eye drops \nof eye ointment \navailable at the Secondary health level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O21",
+      "question_text": "Are eye drops \nof eye ointment \navailable at the Tertiary health level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O22",
+      "question_text": "Are eye drops \nof eye ointment \navailable at the Private pharmacies?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O24",
+      "question_text": "Does a referral pathway exist for \nschool health/school eye health",
+      "binary_score": 1
+    },
+    {
+      "item_id": "O29",
+      "question_text": "Coverage of children for eye health \nin National Health Insurance",
+      "binary_score": 0
+    },
+    {
+      "item_id": "S1",
+      "question_text": "Is school health included in national legislation frameworks?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S2",
+      "question_text": "Is school health/school eye health included in the National Education Policy?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S3",
+      "question_text": "s school health/school eye health included in the Education Sector Plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S4",
+      "question_text": "Is there a dedicated school health policy or plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S5",
+      "question_text": "Is school health/school eye health \nincluded in the national health policy?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S6",
+      "question_text": "Is school health/school eye health included \nin the national health strategic plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S7",
+      "question_text": "s school health included in the Eye \nHealth Policy or Strategic Plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S8",
+      "question_text": "Is school health included in the Integrated \nPeople-Centred Eye Care (IPEC) Plan?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "S9",
+      "question_text": "s school health included in any of the \nfollowing policies, strategies or plans:\n • Primary health care\n • Community health \n• Non-Communicable Diseases\n • Neglected Tropical Diseases\n • Ear and Hearing Care\n • Human Resources for Health\n • Mother and child health\n • Sexual and Reproductive Health\n • Nutrition\n •  Social behavioral change \nand communication\n • Water, Sanitation and Hygiene for Schools\n • Other (e.g. Gender and Equity)",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S10",
+      "question_text": "Is school health/school eye health included \nin the Disability Policy/Strategy/Plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S11",
+      "question_text": "Is school health/school eye health included \nin the Rehabilitation Policy/Strategy/plan?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "S12",
+      "question_text": "Is school health/school eye health \nincluded in the assistive technology \nPolicy/Strategy/Plan?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "S13",
+      "question_text": "Is school health/school eye health included \nin the Special Needs / Special Education (for \nprimary/secondary) Policy/Strategy/Plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S14",
+      "question_text": "Is school health/school eye health \nincluded in the Social Protection \nPolicy or Strategy or Plan?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S16",
+      "question_text": "Is there an allocated budget for \nschool health / school eye health?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S17",
+      "question_text": "Is there an allocated budget \nfor assistive products?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S18",
+      "question_text": "Is there an allocated budget for eye health?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S20",
+      "question_text": "Are eye health or eyeglasses \nincluded in a national health or social \nprotection insurance scheme?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S22",
+      "question_text": "Is there a designated unit or officer \nfor school health and/or school eye \nhealth within the ministry structure?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "S20",
+      "question_text": "Is there any mechanism for \ncoordination of school health and/\n or school eye health between the \nministries of health and education?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I15",
+      "question_text": "Is there a coordination mechanism \nfor school health and/or school eye \nhealth within the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I26",
+      "question_text": "Are there any school-based specific \nhealth programmes or initiatives within \nthe intervention area? (e.g, , deworming, \nNTDs, Water, Sanitation and Hygiene, \nhandwashing, NCDs, nutrition)?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I27",
+      "question_text": "If ‘Yes’: \nDoes the program \ninclude school \neye health?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I28",
+      "question_text": "Is primary eye care available \nin the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I29",
+      "question_text": "Is there a cadre available at the \nprimary care level who have the skill \nset required to provide refraction \nservices to school age children?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I30",
+      "question_text": "Is there a cadre available at the \nprimary care level who have the skill \nset required to detect other eye health \nconditions in school age children?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I31",
+      "question_text": "Are primary eye care services, if \nany, linked with school health or \na school health program?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I32",
+      "question_text": "Are health screening programmes \ncurrently being undertaken in the \ncommunity (outside of schools)?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I33",
+      "question_text": "Is secondary eye care available \nin the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I34",
+      "question_text": "Is tertiary eye care available in \nthe intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I39",
+      "question_text": "Are there any known factors that \nfacilitate (enablers) referral uptake for \nchildren with eye health conditions?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I40",
+      "question_text": "Are there any indicators related to the \nhealth of children within the Education \nManagement Information System (EMIS)?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "I41",
+      "question_text": "Are there any indicators related to the \neye health within the Health Management \nInformation System (HMIS) or District \nHealth Information System (DHIS)?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "I42",
+      "question_text": "Is there any coordination or data school \nhealth sharing between education \nand health authorities regarding data \nabout health of school children?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "I43",
+      "question_text": "Does a monitoring, evaluation, and/\n or supportive supervision framework \nfor school health and/or school eye \nhealth exist in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "H1",
+      "question_text": "Are essential health human resources (listed \nbelow for ease of reference) available to \nimplement school health and/or school \neye health in the intervention area",
+      "binary_score": 0
+    },
+    {
+      "item_id": "H2",
+      "question_text": "Does a curriculum exist to train them / \nare they trained on school eye health?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "H85",
+      "question_text": "Are there any capacity development needs \nof local health administration personnel \nregarding school health/school eye health?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "H86",
+      "question_text": "Are there any capacity development needs \nof local education administration personnel \nregarding school health/school eye health?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "H87",
+      "question_text": "Does a supportive supervision system exist \nfor school health and/or school eye health?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C1",
+      "question_text": "Are there any policy, regulations or \ndirectives that guide or inform the \nimport, production, procurement or sale \nof spectacle frames and lenses?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C2",
+      "question_text": "Are eyeglasses included on the Ministry \nof Health Essential Supplies List or \nEssential List of Assistive Technologies?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "C3",
+      "question_text": "Are eyeglasses already included in \nthe government supply chain?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "C4",
+      "question_text": "Are there other supply chains for \noptical products in the intervention \narea? (i.e. what is the supply mechanism \nfrom wholesaler to retail)",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C5",
+      "question_text": "Are Children's frames available in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C6",
+      "question_text": "Are the children's frames manufactured \nLocally/Imported \nor Both",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C7",
+      "question_text": "Is a Local distributor \navailable for the Children's frames?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C8",
+      "question_text": "Are Spherical lenses available in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C9",
+      "question_text": "Are the Spherical lenses manufactured \nLocally/Imported \nor Both",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C10",
+      "question_text": "Is a Local distributor \navailable for the Spherical lenses?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C11",
+      "question_text": "Are Cylindrical lenses available in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C12",
+      "question_text": "Are the Cylindrical lenses manufactured \nLocally/Imported \nor Both",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C13",
+      "question_text": "Is a Local distributor \navailable for the Cylindrical lenses?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C14",
+      "question_text": "Are Ready-made distance eyeglasses available in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C15",
+      "question_text": "Are the Ready-made distance eyeglasses manufactured \nLocally/Imported \nor Both",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C16",
+      "question_text": "Is a Local distributor \navailable for the Ready-made distance eyeglasses?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C17",
+      "question_text": "Are Ready-to-clip lenses and frames available in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C18",
+      "question_text": "Are the Ready-to-clip lenses and frames manufactured \nLocally/Imported \nor Both",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C19",
+      "question_text": "Is a Local distributor \navailable for the Ready-to-clip lenses and frames?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C20",
+      "question_text": "Are frame sizes adapted to local ethnic facial features available?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C45",
+      "question_text": "Is there any information on willingness \nor capacity to pay for eyeglasses \nin the intervention area?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "C46",
+      "question_text": "Does social/national health insurance or \nany other government mechanism cover the \ncost of vision screening and/or refraction?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "C47",
+      "question_text": "Does social/national health insurance \nor any other government mechanism \ncover the cost of eyeglasses?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "C48",
+      "question_text": "Are anti-biotic eyedrops/ointment part of the \nMinistry of Health Essential Medicines List?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C49",
+      "question_text": "Are anti-biotic eyedrops/ointment \navailable in the public sector at \nthe primary health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C50",
+      "question_text": "Are anti-biotic eyedrops/ointment \navailable in the public sector at the \nsecondary health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C51",
+      "question_text": "Are anti-biotic eyedrops/ointment \navailable in the public sector at \nthe tertiary health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C52",
+      "question_text": "To detect or diagnose and treat school \nage children at school level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C53",
+      "question_text": "To detect eye conditions at the community health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C54",
+      "question_text": "To detect and manage simple eye conditions \nat the primary health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C55",
+      "question_text": "To diagnose and manage eye conditions at \nthe secondary health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "C56",
+      "question_text": "To diagnose and manage eye conditions \nat the tertiary health care level?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B1",
+      "question_text": "Is there any evidence that the health of children \nis not prioritised in the intervention area?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B2",
+      "question_text": "Is there any evidence that the health \nneeds of girls are not prioritised?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B3",
+      "question_text": "Is there any evidence that the health needs of specific \nethnic groups in the intervention area are not prioritised?",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B4",
+      "question_text": "Is information available on barriers faced by \nchildren and/or their carers which limit to \nspectacle wear among children which that may \nbe applicable to the intervention area?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B5",
+      "question_text": "Fears about wearing eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B6",
+      "question_text": "Unacceptable colour, style or quality",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B7",
+      "question_text": "Low literacy levels of parents",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B8",
+      "question_text": "Lack of information about screening \nand use of eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B9",
+      "question_text": "No felt need by parents",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B10",
+      "question_text": "Misinformation and misconceptions about eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B11",
+      "question_text": "Cultural beliefs and practices about",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B12",
+      "question_text": "Eye health and use of eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B13",
+      "question_text": "Traditional/religious beliefs prevent or delay \ntreatment of children who need eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B14",
+      "question_text": "Child’s vision affected by witchcraft",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B15",
+      "question_text": "Bullying and teasing",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B16",
+      "question_text": "Other stigma",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B17",
+      "question_text": "Lack of clear messaging on the benefits of eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B18",
+      "question_text": "Lack of clear communication on the processes \ninvolved in a school eye health programme",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B19",
+      "question_text": "Fear of loss of earning/daily wages by \nparents to access eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B20",
+      "question_text": "Limited availability of financial resources \nin family to procure eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B21",
+      "question_text": "Travel cost to point of referral",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B22",
+      "question_text": "Cost of eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B23",
+      "question_text": "Cost of eye care treatment",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B24",
+      "question_text": "Long distance to point of referral to obtain eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B25",
+      "question_text": "Long distance to point of referral for eye care treatment",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B26",
+      "question_text": "Delay in dispensing of eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B27",
+      "question_text": "Lack of person to accompany child to referral \ncentre for eyeglasses or eye care treatment",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B28",
+      "question_text": "Waiting time between screening and eye care \ntreatment or provision of eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B29",
+      "question_text": "Seasonal variation that limits access \nto eye health services",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B30",
+      "question_text": "Lack of trust by parents in personnel \nconducting screening",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B31",
+      "question_text": "Lack of trust by parents in eye care \nservice provider at referral centre",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B32",
+      "question_text": "Children with disabilities cannot access screening",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B33",
+      "question_text": "Children with disabilities cannot access referral centre",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B34",
+      "question_text": "Other",
+      "binary_score": null
+    },
+    {
+      "item_id": "B35",
+      "question_text": "Are there barriers within the health or education \nsystem that prevent uptake of eyeglasses and / \nor eye health services by school age children?",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B36",
+      "question_text": "Screeners (e.g. teachers or nurses) inadequately trained",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B37",
+      "question_text": "Teachers do not have time to screen",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B38",
+      "question_text": "Lack of eye care professionals to \nreceive and attend to referrals",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B39",
+      "question_text": "Poor attitude / behaviours of education \npersonnel at the point of screening",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B40",
+      "question_text": "Poor attitude and behaviours of eye health \npersonnel at referral centres",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B41",
+      "question_text": "No eyeglasses suitable for children \navailable within the intervention area",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B42",
+      "question_text": "Inadequate state investment in school health services",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B43",
+      "question_text": "Eyeglasses not included in health insurance \nor other state financing mechanism",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B44",
+      "question_text": "Poor integration of school eye health in \nother health screening programmes",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B45",
+      "question_text": "Lack of support services for children \nwith vision impairment",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B46",
+      "question_text": "Inadequate referral pathway between \nschools and eye health services",
+      "binary_score": 1
+    },
+    {
+      "item_id": "B47",
+      "question_text": "Delays in providing eyeglasses",
+      "binary_score": 0
+    },
+    {
+      "item_id": "B48",
+      "question_text": "Other",
+      "binary_score": null
+    }
+  ],
+  "summary_rows": [
+    {
+      "row": 4,
+      "data": {
+        "col_1": "Context",
+        "O10": "O_Enablers",
+        "O11": 8,
+        "O29": "Strategy",
+        "S1": "S_Enablers",
+        "S2": 17,
+        "S20": "institutional and service delivery",
+        "I15": "I_Enablers",
+        "I26": 13,
+        "H1": "HR",
+        "H2": "H_Enablers",
+        "H85": 2,
+        "C3": "Supply chain",
+        "C4": "C_Enablers",
+        "C5": 27,
+        "B3": "Barriers",
+        "B4": "B_Enablers",
+        "B5": 10
+      }
+    },
+    {
+      "row": 5,
+      "data": {
+        "O10": "O_Barriers",
+        "O11": 4,
+        "S1": "S_Barriers",
+        "S2": 3,
+        "I15": "I_Barriers",
+        "I26": 2,
+        "H2": "H_Barriers",
+        "H85": 3,
+        "C4": "C_Barriers",
+        "C5": 5,
+        "B4": "B_Barriers",
+        "B5": 38
+      }
+    },
+    {
+      "row": 17,
+      "data": {
+        "O10": "reverse scoring"
+      }
+    }
+  ],
+  "metadata": {
+    "description": "Binary scoring data for determinants analysis",
+    "row_1": "Item IDs",
+    "row_2": "Question text",
+    "row_3": "Binary scores (0=no/barrier, 1=yes/enabler)",
+    "rows_4_5": "Summary counts by component (enablers/barriers)",
+    "row_17": "Notes"
+  }
+}

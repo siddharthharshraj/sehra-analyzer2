@@ -1,0 +1,2783 @@
+[
+  {
+    "section": "Context",
+    "item_number": "O1",
+    "item": "Total population",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O2",
+    "item": "Number of children in the following age groups",
+    "type_of_variable": "Categorical",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O3",
+    "item": "Number of schools by level and school type:",
+    "type_of_variable": "Categorical",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O4",
+    "item": "School enrolment by school type and gender (where school census data is available, enter Net Enrolment Rate):",
+    "type_of_variable": "Categorical",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O5",
+    "item": "School attendance rate by school type and gender (where school census data is available):",
+    "type_of_variable": "Categorical",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O6",
+    "item": "Important school dates  School Year (start and end)",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O7",
+    "item": "Important school dates: Exam Periods",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O8",
+    "item": "Important school dates:  Seasonality considerations",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O9",
+    "item": "Primary ethnic groups (please list):",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O10",
+    "item": "Are there any standalone school eye health programmes or initiatives within the intervention area (i.e., not part of another school based health programme)?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O11",
+    "item": "Does a curriculum for teacher training exist for school  health and/or eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O12",
+    "item": "Does a curriculum for nursing \ntraining exist for school \nhealth and/or eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O13",
+    "item": "Do any policies or regulations limit \nvision screening by teachers?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O14",
+    "item": "How many teachers have been \ntrained on school health or school \neye health in the intervention area?",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O15",
+    "item": "Prevalence of refractive errors in children of school going age in the implementation area / similar area:",
+    "type_of_variable": "Categorical",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O16",
+    "item": "Specify area (Implementation area)",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O17",
+    "item": "Are eye drops \nof eye ointment \navailable at the School nurse level?",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O18",
+    "item": "Are eye drops \nof eye ointment \navailable at the Community health level?",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O19",
+    "item": "Are eye drops \nof eye ointment \navailable at the Primary health level?",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O20",
+    "item": "Are eye drops \nof eye ointment \navailable at the Secondary health level?",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O21",
+    "item": "Are eye drops \nof eye ointment \navailable at the Tertiary health level?",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O22",
+    "item": "Are eye drops \nof eye ointment \navailable at the Private pharmacies?",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O23",
+    "item": "Availability or access to eye \nhealth counselling and advice",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O24",
+    "item": "Does a referral pathway exist for \nschool health/school eye health",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O25",
+    "item": "Availability of medical treatment \nfor child eye conditions",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O26",
+    "item": "Availability of surgical treatment \nfor child eye conditions",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O27",
+    "item": "Low vision care",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O28",
+    "item": "Other care or cross-referral for children",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Context",
+    "item_number": "O29",
+    "item": "Coverage of children for eye health \nin National Health Insurance",
+    "type_of_variable": "Categorical",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S1",
+    "item": "Is school health included in national legislation frameworks?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S2",
+    "item": "Is school health/school eye health included in the National Education Policy?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S3",
+    "item": "s school health/school eye health included in the Education Sector Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S4",
+    "item": "Is there a dedicated school health policy or plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S5",
+    "item": "Is school health/school eye health \nincluded in the national health policy?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S6",
+    "item": "Is school health/school eye health included \nin the national health strategic plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S7",
+    "item": "s school health included in the Eye \nHealth Policy or Strategic Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S8",
+    "item": "Is school health included in the Integrated \nPeople-Centred Eye Care (IPEC) Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S9",
+    "item": "s school health included in any of the \nfollowing policies, strategies or plans:\n • Primary health care\n • Community health \n• Non-Communicable Diseases\n • Neglected Tropical Diseases\n • Ear and Hearing Care\n • Human Resources for Health\n • Mother and child health\n • Sexual and Reproductive Health\n • Nutrition\n •  Social behavioral change \nand communication\n • Water, Sanitation and Hygiene for Schools\n • Other (e.g. Gender and Equity)",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S10",
+    "item": "Is school health/school eye health included \nin the Disability Policy/Strategy/Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S11",
+    "item": "Is school health/school eye health included \nin the Rehabilitation Policy/Strategy/plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S12",
+    "item": "Is school health/school eye health \nincluded in the assistive technology \nPolicy/Strategy/Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S13",
+    "item": "Is school health/school eye health included in the Special Needs / Special Education (for primary/secondary) Policy/Strategy/Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S14",
+    "item": "Is school health/school eye health \nincluded in the Social Protection \nPolicy or Strategy or Plan?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S15",
+    "item": "Any additional notes (200 words maximum):",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S16",
+    "item": "Is there an allocated budget for \nschool health / school eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S17",
+    "item": "Is there an allocated budget \nfor assistive products?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S18",
+    "item": "Is there an allocated budget for eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S19",
+    "item": "What are the major health financing mechanisms (e.g., national budget, bilateral/ multilateral funding, NGO support, etc)?  Name these mechanisms and describe  if and how school health, eye health disability and/or special needs is included",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S20",
+    "item": "Are eye health or eyeglasses \nincluded in a national health or social \nprotection insurance scheme?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S21",
+    "item": "Which ministry/ministries is/are responsible for school health and/or school eye health in the country?  If multiple, is there a primary or lead Ministry?",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S22",
+    "item": "Is there a designated unit or officer \nfor school health and/or school eye \nhealth within the ministry structure?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S23",
+    "item": "Is there any mechanism for coordination of school health and/ or school eye health between the ministries of health and education?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S24",
+    "item": "Reflections: 3 key points which may make implementing \nschool eye health programmes challenging",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Sectoral Legislation, Policy and Strategy",
+    "item_number": "S25",
+    "item": "Reflections: 3 key points which support \nthe implementation of school \neye health programmes",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I1",
+    "item": "Main stakeholder, policy level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I2",
+    "item": "Main stakeholder, planning level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I3",
+    "item": "Main stakeholder, operational level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I4",
+    "item": "Main stakeholder, what is their role?",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I5",
+    "item": "Organizational structure in health,  Central or Federal level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I6",
+    "item": "Organizational structure in health,Regional/Provincial/\n County/Governorate level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I7",
+    "item": "Organizational structure in health,District level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I8",
+    "item": "Organizational structure in health, Sub-district level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I9",
+    "item": "Organizational structure in health, Community level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I10",
+    "item": "Organizational structure in Education,  Central or Federal level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I11",
+    "item": "Organizational structure in Education,Regional/Provincial/\n County/Governorate level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I12",
+    "item": "Organizational structure in Education,District level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I13",
+    "item": "Organizational structure in Education, Sub-district level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I14",
+    "item": "Organizational structure in Education, Community level",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I15",
+    "item": "Is there a coordination mechanism \nfor school health and/or school eye \nhealth within the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I16",
+    "item": "Educational sector infrastructure in public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I17",
+    "item": "Educational sector infrastructure in NGO",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I18",
+    "item": "Educational sector infrastructure in private",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I19",
+    "item": "Educational sector infrastructure in charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I20",
+    "item": "Educational sector infrastructure in Faith-based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I21",
+    "item": "Health sector infrastructure in public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I22",
+    "item": "Health sector infrastructure in NGO",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I23",
+    "item": "Health sector infrastructure in private",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I24",
+    "item": "Health sector infrastructure in charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I25",
+    "item": "Health sector infrastructure in Faith-based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I26",
+    "item": "Are there any school-based specific \nhealth programmes or initiatives within \nthe intervention area? (e.g, , deworming, \nNTDs, Water, Sanitation and Hygiene, \nhandwashing, NCDs, nutrition)?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I27",
+    "item": "If ‘Yes’: \nDoes the program \ninclude school \neye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I28",
+    "item": "Is primary eye care available \nin the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I29",
+    "item": "Is there a cadre available at the \nprimary care level who have the skill \nset required to provide refraction \nservices to school age children?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I30",
+    "item": "Is there a cadre available at the \nprimary care level who have the skill \nset required to detect other eye health \nconditions in school age children?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I31",
+    "item": "Are primary eye care services, if \nany, linked with school health or \na school health program?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I32",
+    "item": "Are health screening programmes \ncurrently being undertaken in the \ncommunity (outside of schools)?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I33",
+    "item": "Is secondary eye care available \nin the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I34",
+    "item": "Is tertiary eye care available in \nthe intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I35",
+    "item": "Does a referral pathway exist from: school",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I36",
+    "item": "Does a referral pathway exist from:  Community to primary \nhealth care",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I37",
+    "item": "Does a referral pathway exist from: Primary health care to \nsecondary health care",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I38",
+    "item": "Does a referral pathway exist from:  Secondary health care \nto tertiary health care",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I39",
+    "item": "Are there any known factors that \nfacilitate (enablers) referral uptake for \nchildren with eye health conditions?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I40",
+    "item": "Are there any indicators related to the \nhealth of children within the Education \nManagement Information System (EMIS)?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I41",
+    "item": "Are there any indicators related to the \neye health within the Health Management \nInformation System (HMIS) or District \nHealth Information System (DHIS)?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I42",
+    "item": "Is there any coordination or data school \nhealth sharing between education \nand health authorities regarding data \nabout health of school children?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I43",
+    "item": "Does a monitoring, evaluation, and/\n or supportive supervision framework \nfor school health and/or school eye \nhealth exist in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I44",
+    "item": "Reflections: 3 key points which may make implementing \nschool eye health programmes challenging",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Institutional and Service Delivery Environment",
+    "item_number": "I45",
+    "item": "Reflections: 3 key points which support \nthe implementation of school \neye health programmes",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H1",
+    "item": "Are essential health human resources (listed \nbelow for ease of reference) available to \nimplement school health and/or school \neye health in the intervention area",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H2",
+    "item": "Does a curriculum exist to train them / \nare they trained on school eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H3",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Community health workers that could \nsupport eye health promotion and awareness \nabout school health/school eye health or \nconduct initial screening of children. Public Sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H4",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Community health workers that could \nsupport eye health promotion and awareness \nabout school health/school eye health or \nconduct initial screening of children. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H5",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Community health workers that could \nsupport eye health promotion and awareness \nabout school health/school eye health or \nconduct initial screening of children. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H6",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Community health workers that could \nsupport eye health promotion and awareness \nabout school health/school eye health or \nconduct initial screening of children. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H7",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Community health workers that could \nsupport eye health promotion and awareness \nabout school health/school eye health or \nconduct initial screening of children. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H8",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect \nchildren with vision problems and eye \nconditions and refer for refraction or to \na facility for eye health assessment. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H9",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect \nchildren with vision problems and eye \nconditions and refer for refraction or to \na facility for eye health assessment. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H10",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect \nchildren with vision problems and eye \nconditions and refer for refraction or to \na facility for eye health assessment. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H11",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect \nchildren with vision problems and eye \nconditions and refer for refraction or to \na facility for eye health assessment. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H12",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect \nchildren with vision problems and eye \nconditions and refer for refraction or to \na facility for eye health assessment. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H13",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that \ncould conduct screening and referral \nin school health/school eye health. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H14",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that \ncould conduct screening and referral \nin school health/school eye health. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H15",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that \ncould conduct screening and referral \nin school health/school eye health. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H16",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that \ncould conduct screening and referral \nin school health/school eye health. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H17",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that \ncould conduct screening and referral \nin school health/school eye health. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H18",
+    "item": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and \nreferral in school health/school eye health. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H19",
+    "item": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and \nreferral in school health/school eye health. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H20",
+    "item": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and \nreferral in school health/school eye health. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H21",
+    "item": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and \nreferral in school health/school eye health. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H22",
+    "item": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and \nreferral in school health/school eye health. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H23",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Refractionists/Vision Technicians and \nOptometrists to conduct refraction and \nreferral and provide low vision care. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H24",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Refractionists/Vision Technicians and \nOptometrists to conduct refraction and \nreferral and provide low vision care. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H25",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Refractionists/Vision Technicians and \nOptometrists to conduct refraction and \nreferral and provide low vision care. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H26",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Refractionists/Vision Technicians and \nOptometrists to conduct refraction and \nreferral and provide low vision care. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H27",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Refractionists/Vision Technicians and \nOptometrists to conduct refraction and \nreferral and provide low vision care. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H28",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Optical personnel to fit and dispense glasses. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H29",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Optical personnel to fit and dispense glasses. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H30",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Optical personnel to fit and dispense glasses. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H31",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Optical personnel to fit and dispense glasses. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H32",
+    "item": "What type and how many essential health human \nresources are there in the intervention area:  Optical personnel to fit and dispense glasses. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H33",
+    "item": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage \nchildren with eye conditions. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H34",
+    "item": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage \nchildren with eye conditions. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H35",
+    "item": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage \nchildren with eye conditions. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H36",
+    "item": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage \nchildren with eye conditions. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H37",
+    "item": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage \nchildren with eye conditions. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H38",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint \nspecialists to manage referral of children with \neye conditions requiring tertiary level care. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H39",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint \nspecialists to manage referral of children with \neye conditions requiring tertiary level care. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H40",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint \nspecialists to manage referral of children with \neye conditions requiring tertiary level care. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H41",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint \nspecialists to manage referral of children with \neye conditions requiring tertiary level care. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H42",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint \nspecialists to manage referral of children with \neye conditions requiring tertiary level care. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H43",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise, \nmanage and coordinate a school health/\n school eye health programme. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H44",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise, \nmanage and coordinate a school health/\n school eye health programme. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H45",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise, \nmanage and coordinate a school health/\n school eye health programme. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H46",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise, \nmanage and coordinate a school health/\n school eye health programme. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H47",
+    "item": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise, \nmanage and coordinate a school health/\n school eye health programme. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H48",
+    "item": "What type and how many essential health human resources are there in the intervention area: What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health? Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H49",
+    "item": "What type and how many essential health human resources are there in the intervention area: What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health?. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H50",
+    "item": "What type and how many essential health human resources are there in the intervention area: What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health?. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H51",
+    "item": "What type and how many essential health human resources are there in the intervention area: What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health?. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H52",
+    "item": "What type and how many essential health human resources are there in the intervention area: What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health?. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H53",
+    "item": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H54",
+    "item": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H55",
+    "item": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H56",
+    "item": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H57",
+    "item": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H58",
+    "item": "What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health?",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H59",
+    "item": "What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?",
+    "type_of_variable": "Text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H60",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): Head teachers to facilitate school \nhealth/school eye health. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H61",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): Head teachers to facilitate school \nhealth/school eye health. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H62",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): Head teachers to facilitate school \nhealth/school eye health. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H63",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): Head teachers to facilitate school \nhealth/school eye health. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H64",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): Head teachers to facilitate school \nhealth/school eye health. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H65",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Class teachers and Contact teachers to \nconduct vision screening and referral \nin school health/school eye health. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H66",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Class teachers and Contact teachers to \nconduct vision screening and referral \nin school health/school eye health. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H67",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Class teachers and Contact teachers to \nconduct vision screening and referral \nin school health/school eye health. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H68",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Class teachers and Contact teachers to \nconduct vision screening and referral \nin school health/school eye health. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H69",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Class teachers and Contact teachers to \nconduct vision screening and referral \nin school health/school eye health. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H70",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Special education teachers to conduct screening \nand identification and referral of children \nwith vision problems and eye conditions. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H71",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Special education teachers to conduct screening \nand identification and referral of children \nwith vision problems and eye conditions. NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H72",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Special education teachers to conduct screening \nand identification and referral of children \nwith vision problems and eye conditions. Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H73",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Special education teachers to conduct screening \nand identification and referral of children \nwith vision problems and eye conditions. Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H74",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan):  Special education teachers to conduct screening \nand identification and referral of children \nwith vision problems and eye conditions. Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H75",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health?. Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H76",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health? NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H77",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health? Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H78",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health? Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H79",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What additional capacity development \nneeds are they likely to require for \nschool health/ school eye health? Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H80",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health? Public sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H81",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health? NGO sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H82",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health? Charity",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H83",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health? Faith based",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H84",
+    "item": "What type and how many essential education \nhuman resources are there in the intervention \narea: (If Ministry of Education does not distinguish in \nthis way, then only use categories that are relevant \nto how the Ministry of Education would plan): What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health? Private sector",
+    "type_of_variable": "Numeric",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H85",
+    "item": "Are there any capacity development needs \nof local health administration personnel \nregarding school health/school eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H86",
+    "item": "Are there any capacity development needs \nof local education administration personnel \nregarding school health/school eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H87",
+    "item": "Does a supportive supervision system exist \nfor school health and/or school eye health?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H88",
+    "item": "Reflections: 3 key points which may make implementing \nschool eye health programmes challenging",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Human Resources",
+    "item_number": "H89",
+    "item": "Reflections: 3 key points which support \nthe implementation of school \neye health programmes",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C1",
+    "item": "Are there any policy, regulations or \ndirectives that guide or inform the \nimport, production, procurement or sale \nof spectacle frames and lenses?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C2",
+    "item": "Are eyeglasses included on the Ministry \nof Health Essential Supplies List or \nEssential List of Assistive Technologies?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C3",
+    "item": "Are eyeglasses already included in \nthe government supply chain?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C4",
+    "item": "Are there other supply chains for \noptical products in the intervention \narea? (i.e. what is the supply mechanism \nfrom wholesaler to retail)",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C5",
+    "item": "Are Children's frames available in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C6",
+    "item": "Are the children's frames manufactured \nLocally/Imported \nor Both",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C7",
+    "item": "Is a Local distributor \navailable for the Children's frames?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C8",
+    "item": "Are Spherical lenses available in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C9",
+    "item": "Are the Spherical lenses manufactured \nLocally/Imported \nor Both",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C10",
+    "item": "Is a Local distributor \navailable for the Spherical lenses?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C11",
+    "item": "Are Cylindrical lenses available in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C12",
+    "item": "Are the Cylindrical lenses manufactured \nLocally/Imported \nor Both",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C13",
+    "item": "Is a Local distributor \navailable for the Cylindrical lenses?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C14",
+    "item": "Are Ready-made distance eyeglasses available in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C15",
+    "item": "Are the Ready-made distance eyeglasses manufactured \nLocally/Imported \nor Both",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C16",
+    "item": "Is a Local distributor \navailable for the Ready-made distance eyeglasses?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C17",
+    "item": "Are Ready-to-clip lenses and frames available in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C18",
+    "item": "Are the Ready-to-clip lenses and frames manufactured \nLocally/Imported \nor Both",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C19",
+    "item": "Is a Local distributor \navailable for the Ready-to-clip lenses and frames?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C20",
+    "item": "Are frame sizes adapted to local ethnic facial features available?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C21",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Custom prescription glasses. Simple prescriptions \n(e.g. up to -/+ 2D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C22",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Custom prescription glasses. Simple prescriptions \n(e.g. up to -/+ 2D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C23",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Custom prescription glasses.  High-power prescription \n(e.g. over -/+ 5D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C24",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Custom prescription glasses.  High-power prescription \n(e.g. over -/+ 5D) Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C25",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Custom prescription glasses.   Complex prescription (e.g. any \npower with astigmatism). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C26",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Custom prescription glasses.   Complex prescription (e.g. any \npower with astigmatism). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C27",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made distance glasses. Simple prescriptions \n(e.g. up to -/+ 2D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C28",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made distance glasses. Simple prescriptions \n(e.g. up to -/+ 2D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C29",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made distance glasses. High-power prescription \n(e.g. over -/+ 5D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C30",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made distance glasses. High-power prescription \n(e.g. over -/+ 5D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C31`",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made distance glasses. Complex prescription (e.g. any \npower with astigmatism). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C32",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made distance glasses. Complex prescription (e.g. any \npower with astigmatism). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C33",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made reading glasses. Simple prescriptions \n(e.g. up to -/+ 2D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C34",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made reading glasses. Simple prescriptions \n(e.g. up to -/+ 2D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C35",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made reading glasses.High-power prescription \n(e.g. over -/+ 5D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C36",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made reading glasses. High-power prescription \n(e.g. over -/+ 5D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C37",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made reading glasses.  Complex prescription (e.g. any \npower with astigmatism). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C38",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is):  Ready-made reading glasses.  Complex prescription (e.g. any \npower with astigmatism). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C39",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is): Ready-to-clip lenses and frames. Simple prescriptions \n(e.g. up to -/+ 2D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C40",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is): Ready-to-clip lenses and frames. Simple prescriptions \n(e.g. up to -/+ 2D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C41",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is): Ready-to-clip lenses and frames. High-power prescription \n(e.g. over -/+ 5D). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C42",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is): Ready-to-clip lenses and frames. High-power prescription \n(e.g. over -/+ 5D). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C43",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is): Ready-to-clip lenses and frames. Complex prescription (e.g. any \npower with astigmatism). Public sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C44",
+    "item": "Costing of eyeglasses in local currency. What is the average retail cost of the \nfollowing in the intervention area (use \nlocal currency stating what this is): Ready-to-clip lenses and frames. Complex prescription (e.g. any \npower with astigmatism). Private sector",
+    "type_of_variable": "Numeric and text",
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C45",
+    "item": "Is there any information on willingness \nor capacity to pay for eyeglasses \nin the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": "Assumption: Yes implies willingness or capacity to pay. No indicates no willingness or no capacity to pay"
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C46",
+    "item": "Does social/national health insurance or \nany other government mechanism cover the \ncost of vision screening and/or refraction?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C47",
+    "item": "Does social/national health insurance \nor any other government mechanism \ncover the cost of eyeglasses?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C48",
+    "item": "Are anti-biotic eyedrops/ointment part of the \nMinistry of Health Essential Medicines List?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C49",
+    "item": "Are anti-biotic eyedrops/ointment \navailable in the public sector at \nthe primary health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C50",
+    "item": "Are anti-biotic eyedrops/ointment \navailable in the public sector at the \nsecondary health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C51",
+    "item": "Are anti-biotic eyedrops/ointment \navailable in the public sector at \nthe tertiary health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C52",
+    "item": "To detect or diagnose and treat school \nage children at school level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C53",
+    "item": "To detect eye conditions at the community health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C54",
+    "item": "To detect and manage simple eye conditions \nat the primary health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C55",
+    "item": "To diagnose and manage eye conditions at \nthe secondary health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C56",
+    "item": "To diagnose and manage eye conditions \nat the tertiary health care level?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=yes;barrier=no",
+    "scoring": "Yes=1;no=0",
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C57",
+    "item": "Reflections: 3 key points which may make implementing \nschool eye health programmes challenging",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Supply Chain",
+    "item_number": "C58",
+    "item": "Reflections: 3 key points which support \nthe implementation of school \neye health programmes",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B1",
+    "item": "Is there any evidence that the health of children \nis not prioritised in the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B2",
+    "item": "Is there any evidence that the health \nneeds of girls are not prioritised?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B3",
+    "item": "Is there any evidence that the health needs of specific \nethnic groups in the intervention area are not prioritised?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B4",
+    "item": "Is information available on barriers faced by \nchildren and/or their carers which limit to \nspectacle wear among children which that may \nbe applicable to the intervention area?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B5",
+    "item": "Fears about wearing eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B6",
+    "item": "Unacceptable colour, style or quality",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B7",
+    "item": "Low literacy levels of parents",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B8",
+    "item": "Lack of information about screening \nand use of eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B9",
+    "item": "No felt need by parents",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B10",
+    "item": "Misinformation and misconceptions about eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B11",
+    "item": "Cultural beliefs and practices about",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B12",
+    "item": "Eye health and use of eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B13",
+    "item": "Traditional/religious beliefs prevent or delay \ntreatment of children who need eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B14",
+    "item": "Child’s vision affected by witchcraft",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B15",
+    "item": "Bullying and teasing",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B16",
+    "item": "Other stigma",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B17",
+    "item": "Lack of clear messaging on the benefits of eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B18",
+    "item": "Lack of clear communication on the processes \ninvolved in a school eye health programme",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B19",
+    "item": "Fear of loss of earning/daily wages by \nparents to access eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B20",
+    "item": "Limited availability of financial resources \nin family to procure eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B21",
+    "item": "Travel cost to point of referral",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B22",
+    "item": "Cost of eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B23",
+    "item": "Cost of eye care treatment",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B24",
+    "item": "Long distance to point of referral to obtain eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B25",
+    "item": "Long distance to point of referral for eye care treatment",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B26",
+    "item": "Delay in dispensing of eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B27",
+    "item": "Lack of person to accompany child to referral \ncentre for eyeglasses or eye care treatment",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B28",
+    "item": "Waiting time between screening and eye care \ntreatment or provision of eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B29",
+    "item": "Seasonal variation that limits access \nto eye health services",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B30",
+    "item": "Lack of trust by parents in personnel \nconducting screening",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B31",
+    "item": "Lack of trust by parents in eye care \nservice provider at referral centre",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B32",
+    "item": "Children with disabilities cannot access screening",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B33",
+    "item": "Children with disabilities cannot access referral centre",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B34",
+    "item": "Other",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B35",
+    "item": "Are there barriers within the health or education \nsystem that prevent uptake of eyeglasses and / \nor eye health services by school age children?",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B36",
+    "item": "Screeners (e.g. teachers or nurses) inadequately trained",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B37",
+    "item": "Teachers do not have time to screen",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B38",
+    "item": "Lack of eye care professionals to \nreceive and attend to referrals",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B39",
+    "item": "Poor attitude / behaviours of education \npersonnel at the point of screening",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B40",
+    "item": "Poor attitude and behaviours of eye health \npersonnel at referral centres",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B41",
+    "item": "No eyeglasses suitable for children \navailable within the intervention area",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B42",
+    "item": "Inadequate state investment in school health services",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B43",
+    "item": "Eyeglasses not included in health insurance \nor other state financing mechanism",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B44",
+    "item": "Poor integration of school eye health in \nother health screening programmes",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B45",
+    "item": "Lack of support services for children \nwith vision impairment",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B46",
+    "item": "Inadequate referral pathway between \nschools and eye health services",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B47",
+    "item": "Delays in providing eyeglasses",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B48",
+    "item": "Other",
+    "type_of_variable": "Categorical and text",
+    "codes": "Enabler=no;Barrier=yes",
+    "scoring": "Yes=0;no=1",
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B49",
+    "item": "Reflections: 3 key points which may make implementing \nschool eye health programmes challenging",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Barriers",
+    "item_number": "B50",
+    "item": "Reflections: 3 key points which support \nthe implementation of school \neye health programmes",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M1",
+    "item": "Key points which may make implementing school eye health programmes challenging:  Component 1: Sectoral Legislation, Policy and Strategy",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M2",
+    "item": "Key points which may make implementing school eye health programmes challenging:  Component 2: Institutional and Service \nDelivery Environment",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M3",
+    "item": "Key points which may make implementing school eye health programmes challenging:  Component 3: Human Resources",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M4",
+    "item": "Key points which may make implementing school eye health programmes challenging:  Component 4: Supply Chain",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M5",
+    "item": "Key points which may make implementing school eye health programmes challenging: Component 5: Barriers",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M6",
+    "item": "Key points which support the implementation of school eye health programmes:  Component 1: Sectoral Legislation, Policy and Strategy",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M7",
+    "item": "Key points which support the implementation of school eye health programmes: Component 2: Institutional and Service \nDelivery Environment",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M8",
+    "item": "Key points which support the implementation of school eye health programmes:  Component 3: Human Resources",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M9",
+    "item": "Key points which support the implementation of school eye health programmes:  Component 4: Supply Chain",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M10",
+    "item": "Key points which support the implementation of school eye health programmes:  Component 5: Barriers",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M11",
+    "item": "Additional items to be filled manually:  Were there any evidence gaps/research questions \nrelevant to school health/school eye health that were \nnoted when the Scoping exercise was conducted?",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M12",
+    "item": "Additional items to be filled manually:  Was any additional information available on parent \nteachers associations; child to child or child to \ncommunity groups/activities; groups which could \nbe useful e.g. girl guides, boys scouts etc",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  },
+  {
+    "section": "Summary",
+    "item_number": "M13",
+    "item": "Additional items to be filled manually:  Did the Scoping exercise identify groups for whom there \nis no eye health screening service e.g. street children? \nIf ‘Yes’, is it possible to estimate the numbers \nof such children in the Intervention Area?",
+    "type_of_variable": null,
+    "codes": null,
+    "scoring": null,
+    "col_h": null
+  }
+]

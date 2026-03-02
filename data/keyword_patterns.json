@@ -1,0 +1,248 @@
+{
+  "themes": [
+    "Institutional Structure and Stakeholders",
+    "Operationalization Strategies",
+    "Coordination and Integration",
+    "Funding",
+    "Local Capacity and Service Delivery",
+    "Accessibility and Inclusivity",
+    "Cost, Availability and Affordability",
+    "Data Considerations",
+    "Sociocultural Factors and Compliance",
+    "Services at Higher Levels of Health System",
+    "Procuring Eyeglasses"
+  ],
+  "patterns": {
+    "context": {
+      "Institutional Structure and Stakeholders": {
+        "keywords": "Ministry",
+        "remarks": "The school eye health program in the intervention areas are implemented by the Ministries of Education and Health with support from Sightsavers. Sightsavers’ school health integrated program (SHIP) objective is to improve the health, and educational outcomes of school aged children in Liberia. Working in partnership with the Ministry of Health and Ministry of Education to trains schoolteachers to deliver eye vision screening and provide deworming tablets to school aged children in the intervention areas. | No, there is no policy or regulation to limit vision screening by teachers in the school."
+      },
+      "Operationalization Strategies": {
+        "keywords": "implement, train, manual",
+        "remarks": "This training manual is designed to help teachers understand and deliver integrated deworming and vision screening as part of the School Health Integrated Program (SHIP) for Liberia. The manual has an integrated approach and is intended to help teachers implement various school health interventions such as vision screening and deworming using available resources. It is not exhaustive but provides an insight for teachers to deliver simple, effective, and efficient integrated school health activities for school age children. It is expected as the Liberian educational system becomes familiar with an integrated approach to school health, additional interventions such as hearing screening, malaria education or oral health may possibly be added in similar manner.\nThe manual consists of two sections, the first section covers content for vision screening while the second section deals with deworming. Each section gives a background information and guidelines for the teacher to conduct vision screening and deworming accordingly using an integrated approach. The sections contain the objectives, strategies, steps and community engagement contents that will enable a teacher to engage their students in the classroom and the school community. \nIn addition to the two sections, we have four appendices. Appendix one is the school register that captures the details of school age children and appendix two is the school summary sheet which will be used to summarize entries from the school register for reporting. Appendices three and four are the district and county summary forms, which are to be completed by the District Education Officers (DEOs) and the County Education Officers (CEOs) respectively. | Over 2000 teachers and support staff working within the Ministries of Education and Health have benefited from the school eye health training on how to to implement screening and deworming in schools throughout in the intervention area. | The school eye health program in the intervention areas are implemented by the Ministries of Education and Health with support from Sightsavers. Sightsavers’ school health integrated program (SHIP) objective is to improve the health, and educational outcomes of school aged children in Liberia. Working in partnership with the Ministry of Health and Ministry of Education to trains schoolteachers to deliver eye vision screening and provide deworming tablets to school aged children in the intervention areas. | The nursing curriculum for nursing training does not include a dedicated section on school health and/or eye health?"
+      },
+      "Coordination and Integration": {
+        "keywords": "integration, support",
+        "remarks": "The school eye health program in the intervention areas are implemented by the Ministries of Education and Health with support from Sightsavers. Sightsavers’ school health integrated program (SHIP) objective is to improve the health, and educational outcomes of school aged children in Liberia. Working in partnership with the Ministry of Health and Ministry of Education to trains schoolteachers to deliver eye vision screening and provide deworming tablets to school aged children in the intervention areas. | This training manual is designed to help teachers understand and deliver integrated deworming and vision screening as part of the School Health Integrated Program (SHIP) for Liberia. The manual has an integrated approach and is intended to help teachers implement various school health interventions such as vision screening and deworming using available resources. It is not exhaustive but provides an insight for teachers to deliver simple, effective, and efficient integrated school health activities for school age children. It is expected as the Liberian educational system becomes familiar with an integrated approach to school health, additional interventions such as hearing screening, malaria education or oral health may possibly be added in similar manner.\nThe manual consists of two sections, the first section covers content for vision screening while the second section deals with deworming. Each section gives a background information and guidelines for the teacher to conduct vision screening and deworming accordingly using an integrated approach. The sections contain the objectives, strategies, steps and community engagement contents that will enable a teacher to engage their students in the classroom and the school community. \nIn addition to the two sections, we have four appendices. Appendix one is the school register that captures the details of school age children and appendix two is the school summary sheet which will be used to summarize entries from the school register for reporting. Appendices three and four are the district and county summary forms, which are to be completed by the District Education Officers (DEOs) and the County Education Officers (CEOs) respectively."
+      },
+      "Accessibility and Inclusivity": {
+        "keywords": "treatment, eye condition",
+        "remarks": "Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. Teachers will also be screened for refractive errors and provided with glasses according to their needs. | Medical treatment for child eye conditions are available, however, children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. | Surgical treatment facilities are available to treat children for eye conditions. Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. | Children who are found to have more serious eye conditions or who require low vision care are referred to an appropriate health facility for advanced treatment and care."
+      },
+      "Services at Higher Levels of Health System": {
+        "keywords": "refer",
+        "remarks": "Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. Teachers will also be screened for refractive errors and provided with glasses according to their needs. | Medical treatment for child eye conditions are available, however, children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. | Surgical treatment facilities are available to treat children for eye conditions. Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. | Children who are found to have more serious eye conditions or who require low vision care are referred to an appropriate health facility for advanced treatment and care. | Other care or cross-referral for Children are available. | The project has trained optometric technicians to add to the additional human resource and supplement the limited number of existing eye health workers in Liberia to process access to eye health counselling and advice which has strengthen the existing referral pathway to ensure children with other eye health conditions can access high quality services at designated referral centers. This includes children with pediatric cataract and other eye conditions identified during vision screening and sight testing."
+      }
+    },
+    "policy": {
+      "Institutional Structure and Stakeholders": {
+        "enabler_keywords": "Ministry, Government, plan, policy + delivered, included, aligned, partnership, stakeholders",
+        "enabler_remarks": "1.1 Legislation: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with both the Liberia Education Sector Plan and the Government of Liberia’s NTD Master Plan. | 1.2 Policies, Sector Strategies and Plans: School health is included in the National Education Policy. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education  and is aligned with the Liberia Education Sector Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education  and is aligned with the School Health Policy. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Health Policy. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Health Strategic plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, The school Health Policy, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan, Nutrition, Sexual and Reproductive Health and Water, Sanitation and Hygiene for Schools. | 1.4 Key stakeholders and coordination:  Which ministry/ministries is/are \nresponsible for school health and/or \nschool eye health in the country?\n If multiple, is there a primary or \nlead Ministry?Ministries of Education and Health. The Ministry of Education is the primary lead. | Is there a designated unit or officer \nfor school health and/or school eye \nhealth within the ministry structure?: The department of school health at both Ministries which is headed by a Director. At the Ministry of Education, this department is under the Student Personnel Services and at the Ministry of Health under Community Health. | 1.4 Key stakeholders and coordination:  Is there any mechanism for  coordination of school health and/\n or school eye health between the \nministries of health and education?: The collaboration of the Eye Health Technical Working Group, which involves the Ministries of Education and Health for integrated eye health services, especially the SHIP project concept, in their respective sectoral plans, ensuring that these plans are robustly monitored in order to reduce the impact of visual ailments for the Liberian population especially in rural communities. | The National Social Protection Policy and Strategy is a 5-year national wide document developed by the Government of Liberia aimed at building a social protection system that tackles extreme poverty, vulnerability and inequality in Liberia whilst contributing to economic growth and peace and security. The Social Protection policy provides a unique opportunity to make a difference in the lives of the extremely poor and most vulnerable segments of the Liberian population, by integrating them into mainstream development. School health is all included in this social protection.",
+        "barrier_keywords": "Does not exist+ plan",
+        "barrier_remarks": "1.2:  Is school health included in the Integrated \nPeople-Centred Eye Care (IPEC) Plan?No IPEC Plan exists | 1.2: Is school health/school eye health included in the Rehabilitation Policy/Strategy/plan?: does not exist | 1.2: Is school health/school eye health included in the assistive technology Policy/Strategy/Plan? : does not exist",
+        "strengths_keywords": "policy",
+        "strengths": "1. The School health policy guides the planning and implementation of  school health programme."
+      },
+      "Operationalization Strategies": {
+        "enabler_keywords": "Sector, sectoral, plan + aligned, partnership, train",
+        "enabler_remarks": "1.1 Legislation: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with both the Liberia Education Sector Plan and the Government of Liberia’s NTD Master Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education  and is aligned with the Liberia Education Sector Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Health Policy. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Health Strategic plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, The school Health Policy, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan, Nutrition, Sexual and Reproductive Health and Water, Sanitation and Hygiene for Schools.",
+        "strengths_keywords": "working group",
+        "strengths": "2. The existence of a technical working group serves as a platform for coordination of school eye health programmes."
+      },
+      "Coordination and Integration": {
+        "enabler_keywords": "coordination, collaboration, working with+ ministry(ies)",
+        "enabler_remarks": "1.4 Key stakeholders and coordination:  Is there any mechanism for  coordination of school health and/\n or school eye health between the \nministries of health and education?: The collaboration of the Eye Health Technical Working Group, which involves the Ministries of Education and Health for integrated eye health services, especially the SHIP project concept, in their respective sectoral plans, ensuring that these plans are robustly monitored in order to reduce the impact of visual ailments for the Liberian population especially in rural communities. | 1.1 Legislation: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with both the Liberia Education Sector Plan and the Government of Liberia’s NTD Master Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education  and is aligned with the Liberia Education Sector Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Health Policy. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Health Strategic plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan. | 1.2 Policies, Sector Strategies and Plans: SHIP is delivered in partnership with the Ministry of Education and Ministry of Health in Liberia and is aligned with the Liberia Education Sector Plan, The school Health Policy, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan, Nutrition, Sexual and Reproductive Health and Water, Sanitation and Hygiene for Schools.",
+        "barrier_keywords": "No plan, does not exist",
+        "barrier_remarks": "1.2:  Is school health included in the Integrated \nPeople-Centred Eye Care (IPEC) Plan?No IPEC Plan exists | 1.2: Is school health/school eye health included in the Rehabilitation Policy/Strategy/plan?: does not exist | 1.2: Is school health/school eye health included in the assistive technology Policy/Strategy/Plan? : does not exist",
+        "strengths_keywords": "coordination, sector",
+        "strengths": "2. The existence of a technical working group serves as a platform for coordination of school eye health programmes. | 3. The alignment of the SHIP programme approach with the Liberia Education Sector Plan, the Government of Liberia’s NTD Master Plan and Eye Health Policy and Strategic Plan, facilitates acceptance and ownership.",
+        "limitations_keywords": "integration",
+        "limitations": "1. Absence of a systematic integrated approach to planning"
+      },
+      "Funding": {
+        "enabler_keywords": "fund, budget, finance+ allocated, working with",
+        "enabler_remarks": "1.3 Finance: allocated budget for SH/SEH: Ministries of Education and Health | 1.3 Finance: allocated budget for assistive products: Ministry of Health/JFK Hospital | 1.3 Finance: allocated budget for eye health: Ministry of Health | 1.3 Finance: The major health financing mechanisms in Liberia are from the National budget, bilateral/multilateral funding and NGO support. Sightsavers, Samaritan Purse, EyeAllaince and other INGO are working with the Ministries of Education and Health to provide school eye health and other services in schools and health facilities throughout Liberia.",
+        "barrier_keywords": "inadequate, not included, limited+ finance(ial), budget, investment",
+        "barrier_remarks": "5.3: Inadequate state investment in school health services: Limited budget allocation | Eyeglasses not included in health insurance or other state financing mechanism: Limited budget allocation | Despite the inclusion of eye health or providing glasses, implementation has been a challenge national wide, dude to limited financial resources and other competing priorities.",
+        "limitations_keywords": "fund, budget",
+        "limitations": "2. Inadequate funding and budgeting for a smooth Implementation of school health"
+      },
+      "Accessibility and Inclusivity": {
+        "enabler_keywords": "included, provide+ disability, special needs, special education, social policy",
+        "enabler_remarks": "1.2 Policies, Sector Strategies and Plans: School health policy is included in the Disability policy. | School health policy is included in the Special Needs/Special Education. | The school health is included in the Social Protection Policy. | The National Social Protection Policy and Strategy is a 5-year national wide document developed by the Government of Liberia aimed at building a social protection system that tackles extreme poverty, vulnerability and inequality in Liberia whilst contributing to economic growth and peace and security. The Social Protection policy provides a unique opportunity to make a difference in the lives of the extremely poor and most vulnerable segments of the Liberian population, by integrating them into mainstream development. School health is all included in this social protection."
+      },
+      "Data Considerations": {
+        "limitations_keywords": "information",
+        "limitations": "3. Lack of  epidemiological information  on eye health  required to plan and evaluate strategies to prevent eye ailments and as a guide to the management of patients in whom eye disease has already developed."
+      },
+      "Procuring Eyeglasses": {
+        "barrier_keywords": "Eyeglasses+ not included",
+        "barrier_remarks": "Eyeglasses not included in health insurance or other state financing mechanism: Limited budget allocation"
+      }
+    },
+    "service_delivery": {
+      "Institutional Structure and Stakeholders": {
+        "enabler_keywords": "(institutional body, departments), national+ comprised, set up",
+        "enabler_remarks": "Is there any coordination or data school \nhealth sharing between education \nand health authorities regarding data \nabout health of school children?: 2.8: Data: Through coordination meeting of a Technical Working Group(TWG) at the national levels where data is share. This is also done between departments(Education and Health)"
+      },
+      "Operationalization Strategies": {
+        "enabler_keywords": "working group+ stakeholder+ set up, comprised",
+        "enabler_remarks": "2.1: Stakeholders: A Technical working group is setup that is comprised of Education, Health worker and the PTA. | Is there any coordination or data school \nhealth sharing between education \nand health authorities regarding data \nabout health of school children?: 2.8: Data: Through coordination meeting of a Technical Working Group(TWG) at the national levels where data is share. This is also done between departments(Education and Health)",
+        "strengths_keywords": "monitor, evaluation, referral pathway",
+        "strengths": "2. Institutionalization of monitoring and evaluation frameworks to understand whether a project or program is on track and achieving its objectives. | 3. Strengthened referral pathways to ensure the continuum of care",
+        "limitations_keywords": "monitor, supervise(ion)",
+        "limitations": "2. Absence of school eye health indicators in the EMIS and HMIS to monitor progress and evaluate effectiveness of the SHIP. | 3. Regulation and supervision of School Health programmes across the range of the main stakeholders or the organisational structure in health and education (government, private, NGO, or faith-based) within the intervention area."
+      },
+      "Coordination and Integration": {
+        "enabler_keywords": "through, done+ coordination, between departments",
+        "enabler_remarks": "Is there any coordination or data school \nhealth sharing between education \nand health authorities regarding data \nabout health of school children?: 2.8: Data: Through coordination meeting of a Technical Working Group(TWG) at the national levels where data is share. This is also done between departments(Education and Health)",
+        "strengths_keywords": "coordination",
+        "strengths": "1. Proper planning and coordination of SHIP activities",
+        "limitations_keywords": "coordination",
+        "limitations": "1. Weak coordination among stakeholders  of school health and/or school eye health within the intervention area."
+      },
+      "Funding": {
+        "barrier_keywords": "no, underfunded",
+        "barrier_remarks": "2.8: Data: At the moment there are no specific indicators on to school health  or eye health of children within the Education Management Information System. The EMIS system is currently under funded which makes it difficult to collect specific information."
+      },
+      "Local Capacity and Service Delivery": {
+        "enabler_keywords": "primary, community+ available, provide+ intervention area\n(HCP)+ school age children",
+        "enabler_remarks": "Primary eye care staff are available in our intervention area have the necessary skills required to provide basic screening and detect other eye health conditions in school age children. | Primary eye care staff are available in our intervention area have the basic skill set required to provide primary screening and detect other eye health conditions in school age children. Optometry Technician, Vision Technician, Ophthalmic Nurses, Cataract Surgeon provide more specialized services at the hospitals. | The primary eye care services are linked with school health services within the intervention area. | Ophthalmic technicians provide refraction services to school age children. | Each intervention area has one secondary eye care facility that provide refractive error (myopia, hypermetropia, and astigmatism ) services in the intervention area. | Health screening activities are currently being undertaken in the community through outreach programs under the leadership of the county health teams working alongside district and community leaders. | 2.4: Community level: We have primary eye care staff available in our intervention area that provide eye health promotion and disease prevention services.",
+        "barrier_keywords": "needs+ intervention area",
+        "barrier_remarks": "2.8: Data: Monitoring and supportive supervision takes place in the intervention area, but needs to be strengthened. In situations where resources for eye health are limited, decisions need to be made to ensure that the programmes not only address public health problems but are also implementing in a way that is effective, efficient and sustainable."
+      },
+      "Cost, Availability and Affordability": {
+        "barrier_keywords": "no+ cost",
+        "barrier_remarks": "No financial cost of eye care service offered"
+      },
+      "Data Considerations": {
+        "enabler_keywords": "data+ is shared, done",
+        "enabler_remarks": "Is there any coordination or data school \nhealth sharing between education \nand health authorities regarding data \nabout health of school children?: 2.8: Data: Through coordination meeting of a Technical Working Group(TWG) at the national levels where data is share. This is also done between departments(Education and Health)",
+        "barrier_keywords": "Data+need(s), limited\ndata+no",
+        "barrier_remarks": "2.8: Data: Monitoring and supportive supervision takes place in the intervention area, but needs to be strengthened. In situations where resources for eye health are limited, decisions need to be made to ensure that the programmes not only address public health problems but are also implementing in a way that is effective, efficient and sustainable. | 2.8: Data: At the moment there are no specific indicators on to school health  or eye health of children within the Education Management Information System. The EMIS system is currently under funded which makes it difficult to collect specific information. | 2.8: Data: Monitoring and supportive supervision takes place in the intervention area, but needs to be strengthened. | 2.8: Data: there are no specific indicators linked to school eye health, however, data collected from school programmes is reported at the district level. Information flow from schools to health authorities from the county>districts>region>national"
+      },
+      "Sociocultural Factors and Compliance": {
+        "enabler_keywords": "health education, reminders+ parents+ enable, sent",
+        "enabler_remarks": "Health education and promotion to teachers and parents enables parents to understand the benefit eye health | Reminders sent to parents on follow up appointments"
+      },
+      "Services at Higher Levels of Health System": {
+        "enabler_keywords": "refer(ed), tertiary, secondary",
+        "enabler_remarks": "2.6: Tertiary level: The Phebe Hospital and Eye Clinic is a referral center within our intervention area. The center has a Ophthalmologists who specializes in the eye care. He performs medical and surgical eye care. This service is also link to the school eye health. Additionally, school children that need peadiatric eye care services that are not currently offered at Phebe are referred to the JFK Hospital in Monrovia, outside the intervention area. | 2.5: Secondary level: Secondary eye care staff are available in our intervention area. They have the necessary skill set required to teat and detect other eye health conditions in school age children. | Each intervention area has one secondary eye care facility that provide refractive error (myopia, hypermetropia, and astigmatism ) services in the intervention area. | 2.7: Referral pathways: Bringing the services to the people by  screening children in the schools",
+        "barrier_keywords": "district+no",
+        "barrier_remarks": "2.8: Data: there are no specific indicators linked to school eye health, however, data collected from school programmes is reported at the district level. Information flow from schools to health authorities from the county>districts>region>national"
+      },
+      "Procuring Eyeglasses": {
+        "barrier_keywords": "Eyeglasses+ not",
+        "barrier_remarks": "The availability of eye glasses for children due to supply chain issue, the glasses are imported and not produce in country"
+      }
+    },
+    "human_resources": {
+      "Operationalization Strategies": {
+        "enabler_keywords": "workshop, seminars, train(ing)+ there is, used+ health worker, teacher",
+        "enabler_remarks": "There is a training manual that is used to train both teachers and health workers participating in the vision screening and deworming program in the school eye health program. | 3.2 What are the opportunities to enhance their \nknowledge, skills and competencies for \nschool health and/or school eye health?: Through workshops and seminars organised /offered by the MoH or MoE or partners.",
+        "barrier_keywords": "plan,monitor,training + (HCP), human resource, health worker+ limited, needed",
+        "barrier_remarks": "Additional  in-service training is needed for Refractionists/Vision Technicians and Optometrists to conduct refraction. | The essential health human resources are limited. In addition, the already limited health workers in the intervention area are aging thus a critical need to train more health workers. | Regular refresher trainings are needed in school health/school eye health for teachers and school administrators.\nTraining on  effectively planning and project implementation\nMonitoring and evaluation | Effective planning of projects/activities. | Monitoring and reporting",
+        "limitations_keywords": "plan",
+        "limitations": "3. Absence of epidemiological to plan and evaluate strategies to prevent/treat eye diseases and as a guide to the management of patients in whom disease has already developed. | 1. Poor Planning"
+      },
+      "Funding": {
+        "limitations_keywords": "fund",
+        "limitations": "2. Inadequate funding and poor Implementation"
+      },
+      "Local Capacity and Service Delivery": {
+        "enabler_keywords": "available, there is, implement+ intervention area",
+        "enabler_remarks": "The essential health human resources are available in the education sector in the intervention area to impliment school health programs.",
+        "barrier_keywords": "limited staff, needed, to conduct, supervision+ intervention area",
+        "barrier_remarks": "The essential health human resources are limited. In addition, the already limited health workers in the intervention area are aging thus a critical need to train more health workers. | Additional  in-service training is needed for Refractionists/Vision Technicians and Optometrists to conduct refraction. | Supportive supervision takes place in the intervention area, but needs to be strengthened for efficiency and sustainability. | Regular refresher trainings are needed in school health/school eye health for teachers and school administrators.\nTraining on  effectively planning and project implementation\nMonitoring and evaluation",
+        "strengths_keywords": "health workers, teachers, HR",
+        "strengths": "2. Capacity development of teachers and health workers based on the capacity gaps identified | 3. Efficient and effective use of human resources."
+      },
+      "Data Considerations": {
+        "strengths_keywords": "information",
+        "strengths": "1. Accurate information on disease burden, the quality and quantity of human resources as well as the distribution of HR provided to policymakers, educational and health care authorities, health planners, eye care delivery organizations and other professionals involved in the planning and implementation of SHIP."
+      }
+    },
+    "supply_chain": {
+      "Institutional Structure and Stakeholders": {
+        "enabler_keywords": "Agency+ regulation",
+        "enabler_remarks": "4.1 Eyeglasses: The Liberia Health Regulatory Agency regulates and direct the import, procurement of eye glasses. There is no specific regulation on the importation, production, procurement or sale of spectacle frames and lenses",
+        "barrier_keywords": "polic(ies)+ do not cover | Ministry+ not included",
+        "barrier_remarks": "4.5: capacity to pay: Most of these policies mechanism do not cover the cost of vision or refraction. | 4.5: capacity to pay: Most of these policies mechanism do not cover the cost of eye glasses | 4.1 Eyeglasses: Eye glasses are not included on the MoH Essential supplies list.",
+        "limitations_keywords": "ministry",
+        "limitations": "The inclusion of eyeglasses  on the Ministry of Health Essential Supplies List  could facilitate importation and influence availability and affordability of spectacles."
+      },
+      "Local Capacity and Service Delivery": {
+        "enabler_keywords": "(consumable), (equipment)+available, there is+ primary, community",
+        "enabler_remarks": "4.6 Consumables: Anti-biotic eye drops/ointment are available at primary health care level. | 4.7 Equipment: There is a standard to detact, diagnose and treat school age children at school level | 4.7 Equipment: here is a standard to detect eye conditions at the community health care level | 4.7 Equipment: There is a standard to detect and manage simple eye conditions at the primary health care level",
+        "barrier_keywords": "center, intervention area+ difficult, struggle",
+        "barrier_remarks": "4.5: capacity to pay: Most of the people who visit the center find it difficult to pay for glasses most especially Custom prescription glasses. In the intervention area, most of the people struggle financially, only those are gainfully employ can afford to pay for glasses.",
+        "limitations_keywords": "facility",
+        "limitations": "Some facilities do not have the equipment required to detect and or treat school age children"
+      },
+      "Accessibility and Inclusivity": {
+        "limitations_keywords": "low income groups",
+        "limitations": "People from the lowest income groups can not afford for spectacles despite efforts made to subsidize the cost."
+      },
+      "Cost, Availability and Affordability": {
+        "barrier_keywords": "cost+ do not cover, difficult to pay",
+        "barrier_remarks": "4.5: capacity to pay: Most of these policies mechanism do not cover the cost of vision or refraction. | 4.5: capacity to pay: Most of these policies mechanism do not cover the cost of eye glasses | 4.5: capacity to pay: Most of the people who visit the center find it difficult to pay for glasses most especially Custom prescription glasses. In the intervention area, most of the people struggle financially, only those are gainfully employ can afford to pay for glasses.",
+        "strengths_keywords": "availability",
+        "strengths": "Availability of ophthalmic equipment to detect and treat school age children | Constant supply of comsumables",
+        "limitations_keywords": "affordable, cost",
+        "limitations": "The inclusion of eyeglasses  on the Ministry of Health Essential Supplies List  could facilitate importation and influence availability and affordability of spectacles. | People from the lowest income groups can not afford for spectacles despite efforts made to subsidize the cost."
+      },
+      "Services at Higher Levels of Health System": {
+        "enabler_keywords": "consumables, equipment+ available, there is+ secondary level, tertiary level",
+        "enabler_remarks": "4.6 Consumables: Anti-biotic eye drops/ointment are available at secondary level | 4.6 Consumables: Anti-biotic eye drops/ointment are available at secondary level | 4.7 Equipment: There is a standard to diagnose and manage eye conditions at the secondary level | 4.7 Equipment: There is a standard to diagnose and manage eye conditions at the tertiary level"
+      },
+      "Procuring Eyeglasses": {
+        "enabler_keywords": "eyeglasses, spectacle frames, lenses, optical product+ procure(ment), set up",
+        "enabler_remarks": "4.1 Eyeglasses: The Liberia Health Regulatory Agency regulates and direct the import, procurement of eye glasses. There is no specific regulation on the importation, production, procurement or sale of spectacle frames and lenses | 4.1 Eyeglasses: other supply chains for opticals: OneSight has set up optical products in health facilities in the intervention area.",
+        "barrier_keywords": "eyeglasses+ not included",
+        "barrier_remarks": "4.1 Eyeglasses: Eye glasses are not included on the MoH Essential supplies list.",
+        "strengths_keywords": "spectacles, frames",
+        "strengths": "Availability of spectacles at public health facilities (with a wide range of frames for children, adults, male, female, boys and girls) could address challenges linked to compliance and cost",
+        "limitations_keywords": "Eyeglasses, spectacles",
+        "limitations": "The inclusion of eyeglasses  on the Ministry of Health Essential Supplies List  could facilitate importation and influence availability and affordability of spectacles. | People from the lowest income groups can not afford for spectacles despite efforts made to subsidize the cost."
+      }
+    },
+    "barriers": {
+      "Funding": {
+        "strengths_keywords": "fund",
+        "strengths": "Adequate funding for  school eye health programmes"
+      },
+      "Local Capacity and Service Delivery": {
+        "keywords": "lack of, limited staff+ No+ intervention area",
+        "remarks": "5.3: No eyeglasses suitable for children available within the intervention area: The availability of eye glasses for children due to supply chain issues",
+        "strengths_keywords": "train",
+        "strengths": "Task reallocation (training os teachers to screen and refer)",
+        "limitations_keywords": "health workers",
+        "limitations": "4. Shortage of skilled eye health workers"
+      },
+      "Cost, Availability and Affordability": {
+        "limitations_keywords": "affordability, cost | cost",
+        "limitations": "3.Availability and affordability of eye health services | 5. Supply chain challenges that affect cost, range (frames) and availability of spectacles"
+      },
+      "Sociocultural Factors and Compliance": {
+        "remarks": "Barriers to wearing eyeglasses by parents and children are the 1. Low literacy levels of parents,  2. Fears about wearing eyeglasses, 3. Misinformation and misconceptions about eyeglasses, 4. Cultural beliefs and practices and more. | There is a need to do more awareness in the community to communicate the processes involved in a school eye health program.",
+        "strengths_keywords": "promotion",
+        "strengths": "1. Health promotion",
+        "limitations_keywords": "information, awareness, perception, culture",
+        "limitations": "Limitations: 1.Lack of information and awareness of the benefits of eye health | 2.Cultural perceptions"
+      },
+      "Services at Higher Levels of Health System": {
+        "keywords": "referrals+ lack of + (HCP), limited staff",
+        "remarks": "5.3: Service are provided to children with vision impairment issues. They are treated and those with serious problem are refer for further treatment | 5.3: Lack of eye care professionals to receive and attend to referrals. Due to limited staff and patient volume"
+      },
+      "Procuring Eyeglasses": {
+        "keywords": "Eyeglasses+ not produce(d)\nNo+ eyeglasses+ available",
+        "remarks": "5.3: No eyeglasses suitable for children available within the intervention area: The availability of eye glasses for children due to supply chain issues | 5.3: The availability of eye glasses for children due to supply chain issue, the glasses are imported and not produce in country",
+        "strengths_keywords": "spectacles",
+        "strengths": "Strengthened supply chain for spectacles",
+        "limitations_keywords": "frames, spectacles",
+        "limitations": "5. Supply chain challenges that affect cost, range (frames) and availability of spectacles"
+      }
+    }
+  }
+}

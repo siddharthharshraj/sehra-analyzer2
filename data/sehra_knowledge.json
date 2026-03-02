@@ -1,0 +1,142 @@
+{
+  "overview": "The School Eye Health Rapid Assessment (SEHRA) is a structured PDF-based assessment tool developed by Peek Vision, used globally to evaluate the readiness of countries, districts, or regions to implement school eye health programmes. It collects both quantitative (yes/no) and qualitative (free-text remarks) data across multiple components of the health and education system.",
+  "purpose": "SEHRA identifies enablers and barriers to school eye health programme implementation, providing evidence-based data for planning, advocacy, and programme design. Analysis involves scoring binary responses and thematically classifying free-text remarks.",
+  "modules": {
+    "scoping": "The Scoping Module provides a rapid overview of the policy, strategy, institutional and service delivery environment. It contains 309 items across 7 sections.",
+    "costing": "The Costing Module estimates financial requirements for programme implementation.",
+    "situational_analysis": "Provides deeper analysis of specific aspects identified in scoping.",
+    "stakeholder_mapping": "Maps key stakeholders and their roles in school eye health.",
+    "capacity_assessment": "Assesses existing human resource and infrastructure capacity.",
+    "barrier_analysis": "In-depth analysis of barriers to programme implementation."
+  },
+  "components": {
+    "context": {
+      "prefix": "O",
+      "display_name": "Context",
+      "description": "Background information about the country/region including population, school enrollment, existing eye health programmes, and the health system structure. Provides foundational data for understanding the operating environment.",
+      "page_range": "10-15",
+      "typical_items": "Population data, school enrollment, existing programmes, health system overview"
+    },
+    "policy": {
+      "prefix": "S",
+      "display_name": "Sectoral Legislation, Policy and Strategy",
+      "description": "Examines whether school health/eye health is included in national legislation, policies, sector strategies, and plans. Covers alignment with education, health, disability, and social protection frameworks.",
+      "page_range": "16-20",
+      "typical_items": "Legislation, education policy, health policy, disability policy, IPEC plans, NTD plans, key stakeholders, coordination mechanisms, finance"
+    },
+    "service_delivery": {
+      "prefix": "I",
+      "display_name": "Institutional and Service Delivery Environment",
+      "description": "Assesses the institutional setup for delivering school eye health services, including stakeholder roles, coordination between health and education, screening protocols, referral systems, and data sharing.",
+      "page_range": "21-26",
+      "typical_items": "Stakeholder setup, screening protocols, referral pathways, data systems, monitoring frameworks"
+    },
+    "human_resources": {
+      "prefix": "H",
+      "display_name": "Human Resources",
+      "description": "Evaluates the availability, training, and capacity of personnel needed for school eye health, from teachers conducting screenings to optometrists and ophthalmologists for referrals.",
+      "page_range": "27-30",
+      "typical_items": "Eye health workforce, teacher training, curriculum inclusion, pre-service training"
+    },
+    "supply_chain": {
+      "prefix": "C",
+      "display_name": "Supply Chain",
+      "description": "Examines the procurement, distribution, availability, and affordability of eye health supplies, particularly eyeglasses, screening tools, and optical equipment.",
+      "page_range": "31-35",
+      "typical_items": "Eyeglasses procurement, screening tools, distribution systems, affordability, quality assurance"
+    },
+    "barriers": {
+      "prefix": "B",
+      "display_name": "Barriers",
+      "description": "Identifies specific barriers to school eye health programme implementation including sociocultural factors, financial barriers, geographic access issues, workforce limitations, and supply chain challenges.",
+      "page_range": "36-41",
+      "typical_items": "Sociocultural barriers, financial barriers, access barriers, workforce barriers, supply barriers, awareness gaps"
+    }
+  },
+  "themes": {
+    "1_institutional_structure": {
+      "name": "Institutional Structure and Stakeholders",
+      "description": "Relates to government bodies, ministries, organizational frameworks, and key stakeholders involved in school eye health. Includes ministry responsibilities, designated units/officers, technical working groups, and partnerships between government and NGOs.",
+      "patterns": ["ministry", "government", "stakeholder", "institution", "department", "director", "partnership", "organization", "unit", "officer", "technical working group"]
+    },
+    "2_operationalization": {
+      "name": "Operationalization Strategies",
+      "description": "Covers implementation approaches, operational plans, training manuals, standard operating procedures, and strategies for delivering school eye health programs. Includes how programmes are rolled out, scaled, and sustained.",
+      "patterns": ["implement", "strategy", "plan", "manual", "training", "protocol", "procedure", "rollout", "scale", "guideline", "operational"]
+    },
+    "3_coordination": {
+      "name": "Coordination and Integration",
+      "description": "Addresses inter-agency coordination between health and education sectors, integration of eye health into broader health and education systems, joint planning, data sharing, and cross-sectoral collaboration.",
+      "patterns": ["coordination", "integration", "collaboration", "cross-sector", "joint", "aligned", "partnership", "between", "interagency", "working together"]
+    },
+    "4_funding": {
+      "name": "Funding",
+      "description": "Concerns financial resources, budget allocation, funding mechanisms, fiscal sustainability, health insurance coverage for eye health services, and financial barriers to programme implementation.",
+      "patterns": ["fund", "budget", "finance", "cost", "allocation", "investment", "insurance", "expenditure", "resource", "sustainability", "donor"]
+    },
+    "5_local_capacity": {
+      "name": "Local Capacity and Service Delivery",
+      "description": "Relates to community-level capacity, local service provision, facility-based services, training of local health workers and teachers, and the actual delivery of eye health services in schools and communities.",
+      "patterns": ["capacity", "service delivery", "local", "community", "facility", "screening", "primary", "health worker", "teacher", "school-based"]
+    },
+    "6_accessibility": {
+      "name": "Accessibility and Inclusivity",
+      "description": "Concerns equitable access to eye health services, inclusivity for marginalized and vulnerable groups (disabilities, girls, rural populations), geographic reach, and social protection mechanisms.",
+      "patterns": ["access", "inclusive", "disability", "equity", "marginalized", "vulnerable", "gender", "rural", "remote", "special needs", "social protection"]
+    },
+    "7_cost_availability": {
+      "name": "Cost, Availability and Affordability",
+      "description": "Relates to costs of eye health services and products (especially eyeglasses), availability of resources and supplies, and affordability for end users including families and government.",
+      "patterns": ["cost", "affordable", "available", "price", "subsidy", "free", "expensive", "procurement", "supply", "equipment"]
+    },
+    "8_data": {
+      "name": "Data Considerations",
+      "description": "Covers data collection systems (HMIS, EMIS), monitoring and evaluation frameworks, information systems, evidence-based decision making, prevalence data, and reporting mechanisms.",
+      "patterns": ["data", "monitoring", "evaluation", "HMIS", "EMIS", "information system", "prevalence", "indicator", "reporting", "evidence", "surveillance"]
+    },
+    "9_sociocultural": {
+      "name": "Sociocultural Factors and Compliance",
+      "description": "Covers cultural beliefs about eye health, social norms, stigma around wearing glasses, awareness levels, community acceptance, and compliance with eye health recommendations and referrals.",
+      "patterns": ["culture", "stigma", "awareness", "belief", "compliance", "acceptance", "norm", "attitude", "behavior", "refusal", "misconception"]
+    },
+    "10_higher_levels": {
+      "name": "Services at Higher Levels of Health System",
+      "description": "Addresses referral pathways from school-level screening to secondary and tertiary care, specialist services (ophthalmology, optometry), availability of advanced diagnostics and treatment beyond primary level.",
+      "patterns": ["referral", "specialist", "secondary", "tertiary", "hospital", "ophthalmologist", "optometrist", "advanced", "surgery", "treatment center"]
+    },
+    "11_eyeglasses": {
+      "name": "Procuring Eyeglasses",
+      "description": "Specifically addresses procurement, distribution, and supply of corrective eyeglasses for school children, including local vs imported supply, quality standards, fitting processes, and replacement mechanisms.",
+      "patterns": ["eyeglasses", "spectacles", "glasses", "lens", "frame", "optical", "refraction", "prescription", "fitting", "procurement"]
+    }
+  },
+  "classification_rules": {
+    "enabler": {
+      "definition": "Conditions, policies, resources, or practices that support, facilitate, or enable school eye health programme implementation.",
+      "indicators": ["Existing policy or legislation that includes school eye health", "Allocated budget or funding", "Trained personnel available", "Functional referral pathways", "Active coordination mechanisms", "Available supplies and equipment", "Strong stakeholder engagement", "Existing programmes that can be leveraged"],
+      "edge_cases": ["A remark about a programme that exists but only in limited areas is still an enabler (with noted limitation)", "Partial implementation counts as enabler if the foundation exists", "External donor support counts as enabler even if not sustainable long-term"]
+    },
+    "barrier": {
+      "definition": "Conditions, policies, gaps, or practices that hinder, prevent, or obstruct school eye health programme implementation.",
+      "indicators": ["Absence of policy/legislation", "No dedicated budget", "Shortage of trained personnel", "Broken or non-existent referral pathways", "Lack of coordination", "Supply chain gaps", "Cultural resistance or stigma", "Geographic inaccessibility"],
+      "edge_cases": ["'Does not exist' clearly indicates barrier", "'Limited' resources is a barrier (not just weakness)", "High cost without subsidy is a barrier", "Absence of data/indicators is a barrier to planning"]
+    },
+    "strength": {
+      "definition": "A subset of enablers emphasizing what is working particularly well - existing capabilities, assets, or achievements that can be built upon.",
+      "indicators": ["Active and well-functioning programmes", "Strong institutional commitment", "Proven training models", "Effective partnerships"],
+      "note": "Use 'strength' when the remark explicitly highlights something working well, not just something that exists"
+    },
+    "weakness": {
+      "definition": "A subset of barriers emphasizing specific gaps, deficiencies, or areas that need improvement.",
+      "indicators": ["Identified gaps in systems", "Known deficiencies in training", "Recognized limitations in coverage", "Acknowledged quality issues"],
+      "note": "Use 'weakness' when the remark acknowledges a deficiency in an otherwise existing system"
+    }
+  },
+  "country_contexts": {
+    "Liberia": "West African country with post-conflict health system. SHIP (School Health Integrated Program) implemented by Sightsavers in partnership with Ministries of Education and Health. Limited eye health workforce. NGO-dependent eye health services.",
+    "Uganda": "East African country with decentralized health system. Eye health integrated into National Health Sector Development Plan. Village Health Teams provide community-level services. Growing optometry training capacity.",
+    "India": "Large, diverse country with varying state-level implementations. National Programme for Control of Blindness. School health screening programmes in many states. Mix of public and private eye care providers.",
+    "Laos": "Southeast Asian country with limited eye health infrastructure. Eye health services concentrated in urban areas. International NGO support for rural eye care. Integration with education sector in early stages."
+  },
+  "report_audience": "SEHRA analysis reports are used by programme planners, Ministry officials, NGO partners (like Sightsavers, Peek Vision), and donors to understand readiness gaps and design evidence-based interventions. Reports should be professional, evidence-based, and actionable."
+}

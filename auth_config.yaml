@@ -3,33 +3,33 @@ credentials:
     sehra@samanvay.org:
       email: sehra@samanvay.org
       name: SEHRA Admin
-      password: $2b$12$Z.CJCBaJ.t0dOzoUW/Uh0evN4PDzBdaVJK8TL5n7yBFuRxemfRWnq
+      password: "$2b$12$Z.CJCBaJ.t0dOzoUW/Uh0evN4PDzBdaVJK8TL5n7yBFuRxemfRWnq"
       role: admin
     sana:
       email: sana@prasho.org
       name: Sana
-      password: $2b$12$MLpQiBvgsFzHivizsERpn..jZyjECnLB7Y1s8xln0LMiNupW3AVni
+      password: "$2b$12$MLpQiBvgsFzHivizsERpn..jZyjECnLB7Y1s8xln0LMiNupW3AVni"
     debangana:
       email: debangana@prasho.org
       name: Debangana
-      password: $2b$12$HYcB1V.VPaazsPILpu9ZtuqK.HvaoA2KxGVGshh1kqudhR2uQJ3AG
+      password: "$2b$12$HYcB1V.VPaazsPILpu9ZtuqK.HvaoA2KxGVGshh1kqudhR2uQJ3AG"
     kavi:
       email: kavi@prasho.org
       name: Kavi
-      password: $2b$12$pfoFirALDUdqCVsmHoxA1ecPqPr3SJVETbu8/t8YBVi15PR4xUCwO
+      password: "$2b$12$pfoFirALDUdqCVsmHoxA1ecPqPr3SJVETbu8/t8YBVi15PR4xUCwO"
     arjun:
       email: arjun@samanvay.org
       name: Arjun
-      password: $2b$12$NZlWazb.vmi1Yk3yCZ.V.eWxQlPsbcAvwcM5Y8xjpNwkxAqS43E0a
+      password: "$2b$12$NZlWazb.vmi1Yk3yCZ.V.eWxQlPsbcAvwcM5Y8xjpNwkxAqS43E0a"
     siddharth@samanvay.org:
       email: siddharth@samanvay.org
       name: Siddharth
-      password: $2b$12$.e30ZhTEIlG7tWDpOupdOuzGbFl7lqqKl7/g1lyNphTYrNEnx6x22
+      password: "$2b$12$.e30ZhTEIlG7tWDpOupdOuzGbFl7lqqKl7/g1lyNphTYrNEnx6x22"
       role: admin
     admin:
       email: admin@samanvay.org
       name: Admin
-      password: $2b$12$.e30ZhTEIlG7tWDpOupdOuzGbFl7lqqKl7/g1lyNphTYrNEnx6x22
+      password: "$2b$12$.e30ZhTEIlG7tWDpOupdOuzGbFl7lqqKl7/g1lyNphTYrNEnx6x22"
 cookie:
   expiry_days: 30
   key: sehra_analyzer_auth_key_2024

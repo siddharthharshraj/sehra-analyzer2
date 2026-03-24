@@ -168,7 +168,11 @@ def _seed_users():
         for username, info in credentials.items():
             role = info.get("role", "admin" if username == "admin" else "analyst")
             existing = session.query(User).filter(User.username == username).first()
-            if not existing:
+            if existing:
+                existing.password_hash = info.get("password", existing.password_hash)
+                existing.name = info.get("name", existing.name)
+                existing.role = role
+            else:
                 user = User(
                     username=username,
                     name=info.get("name", username),

@@ -1,7 +1,12 @@
 "use client";
 
-import { CheckCircle2, XCircle, Loader2 } from "lucide-react";
+import { CheckCircle2, XCircle, Loader2, HelpCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -38,10 +43,20 @@ export function AnalysisProgress({
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-sm font-medium">
+        <CardTitle className="text-sm font-medium inline-flex items-center gap-1.5">
           {status === "running" && "Analyzing..."}
           {status === "complete" && "Analysis Complete"}
           {status === "error" && "Analysis Failed"}
+          {status === "running" && (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <HelpCircle className="h-4 w-4 text-muted-foreground cursor-help" />
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="max-w-[280px] text-sm">
+                <p>The analysis runs in {totalSteps} steps: PDF parsing, scoring, AI classification for each component, and report generation.</p>
+              </TooltipContent>
+            </Tooltip>
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">

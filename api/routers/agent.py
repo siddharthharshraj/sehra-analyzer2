@@ -24,6 +24,8 @@ class AgentChatRequest(BaseModel):
     messages: list[ChatMessage]
     sehra_id: Optional[str] = None
     page_context: Optional[str] = None
+    confirmed_tool_call_id: Optional[str] = None
+    confirmed_args: Optional[dict] = None
 
 
 @router.post("/agent/chat")
@@ -34,14 +36,30 @@ async def agent_chat(
     """Stream copilot responses via Server-Sent Events.
 
     Accepts conversation messages and optional context (sehra_id, page).
-    Returns SSE events: thinking, tool_call, tool_result, message, chart, actions, error, done.
+    Returns SSE events: thinking, message_delta, tool_call, tool_result,
+    confirmation_required, message, chart, actions, error, done.
+
+    Confirmation flow:
+        1. When the agent wants to call a write tool, it emits a
+           confirmation_required event with tool_call_id, description, and preview.
+        2. The frontend displays a confirmation dialog to the user.
+        3. If confirmed, the frontend sends a new request with the same messages
+           plus confirmed_tool_call_id (and optionally confirmed_args to override).
+        4. The agent executes the tool and continues.
     """
-    logger.info(
-        "Copilot chat: user=%s, sehra_id=%s, messages=%d",
-        user.get("sub"),
-        request.sehra_id,
-        len(request.messages),
-    )
+    if request.confirmed_tool_call_id:
+        logger.info(
+            "Copilot confirm: user=%s, tool_call_id=%s",
+            user.get("sub"),
+            request.confirmed_tool_call_id,
+        )
+    else:
+        logger.info(
+            "Copilot chat: user=%s, sehra_id=%s, messages=%d",
+            user.get("sub"),
+            request.sehra_id,
+            len(request.messages),
+        )
 
     messages = [{"role": m.role, "content": m.content} for m in request.messages]
 
@@ -50,6 +68,8 @@ async def agent_chat(
             messages=messages,
             sehra_id=request.sehra_id,
             page_context=request.page_context,
+            confirmed_tool_call_id=request.confirmed_tool_call_id,
+            confirmed_args=request.confirmed_args,
         ),
         media_type="text/event-stream",
     )

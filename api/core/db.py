@@ -10,9 +10,9 @@ from contextlib import contextmanager
 from sqlalchemy import (
     create_engine, Column, String, Integer, Float, Boolean,
     DateTime, Date, Text, JSON, ForeignKey, Enum as SAEnum,
-    text as sa_text, inspect
+    Index, text as sa_text, inspect, func
 )
-from sqlalchemy.orm import declarative_base, sessionmaker, relationship
+from sqlalchemy.orm import declarative_base, sessionmaker, relationship, joinedload
 from sqlalchemy.dialects.postgresql import UUID
 
 logger = logging.getLogger("sehra.db")
@@ -50,6 +50,9 @@ class SEHRA(Base):
 
 class ComponentAnalysis(Base):
     __tablename__ = "component_analyses"
+    __table_args__ = (
+        Index("ix_component_analyses_sehra_id", "sehra_id"),
+    )
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     sehra_id = Column(String, ForeignKey("sehras.id", ondelete="CASCADE"), nullable=False)
@@ -66,6 +69,9 @@ class ComponentAnalysis(Base):
 
 class QualitativeEntry(Base):
     __tablename__ = "qualitative_entries"
+    __table_args__ = (
+        Index("ix_qualitative_entries_component_analysis_id", "component_analysis_id"),
+    )
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     component_analysis_id = Column(String, ForeignKey("component_analyses.id", ondelete="CASCADE"), nullable=False)
@@ -81,6 +87,9 @@ class QualitativeEntry(Base):
 
 class ReportSection(Base):
     __tablename__ = "report_sections"
+    __table_args__ = (
+        Index("ix_report_sections_component_analysis_id", "component_analysis_id"),
+    )
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     component_analysis_id = Column(String, ForeignKey("component_analyses.id", ondelete="CASCADE"), nullable=False)
@@ -192,6 +201,24 @@ class AIFeedback(Base):
     rating = Column(String, nullable=False)  # "up" or "down"
     comment = Column(Text, default="")
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class CopilotAuditLog(Base):
+    """Audit trail for copilot tool actions."""
+    __tablename__ = "copilot_audit_log"
+    __table_args__ = (
+        Index("ix_copilot_audit_log_sehra_id", "sehra_id"),
+    )
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    sehra_id = Column(String, ForeignKey("sehras.id", ondelete="CASCADE"), nullable=True)
+    user = Column(String, nullable=False)
+    tool_name = Column(String, nullable=False)
+    args = Column(JSON, nullable=False)
+    old_value = Column(JSON, nullable=True)
+    new_value = Column(JSON, nullable=True)
+    status = Column(String, default="applied")  # applied | rolled_back
+    created_at = Column(DateTime, default=func.now())
 
 
 # --- Database Operations ---
@@ -327,25 +354,83 @@ def get_executive_summary(sehra_id: str) -> dict:
         return {"executive_summary": "", "recommendations": ""}
 
 
+def _sehra_to_dict(sehra) -> dict:
+    """Convert a SEHRA ORM object to a dict (reusable helper)."""
+    return {
+        "id": sehra.id,
+        "country": sehra.country,
+        "province": sehra.province,
+        "district": sehra.district,
+        "assessment_date": sehra.assessment_date.isoformat() if sehra.assessment_date else None,
+        "upload_date": sehra.upload_date.isoformat() if sehra.upload_date else None,
+        "status": sehra.status,
+        "pdf_filename": sehra.pdf_filename,
+        "raw_extracted_data": sehra.raw_extracted_data,
+        "executive_summary": sehra.executive_summary or "",
+        "recommendations": sehra.recommendations or "",
+    }
+
+
 def get_sehra(sehra_id: str) -> dict | None:
-    """Get a SEHRA with all related data."""
+    """Get a SEHRA by ID (basic fields only)."""
     with get_session() as session:
         sehra = session.query(SEHRA).filter(SEHRA.id == sehra_id).first()
         if not sehra:
             return None
-        return {
-            "id": sehra.id,
-            "country": sehra.country,
-            "province": sehra.province,
-            "district": sehra.district,
-            "assessment_date": sehra.assessment_date.isoformat() if sehra.assessment_date else None,
-            "upload_date": sehra.upload_date.isoformat() if sehra.upload_date else None,
-            "status": sehra.status,
-            "pdf_filename": sehra.pdf_filename,
-            "raw_extracted_data": sehra.raw_extracted_data,
-            "executive_summary": sehra.executive_summary or "",
-            "recommendations": sehra.recommendations or "",
-        }
+        return _sehra_to_dict(sehra)
+
+
+def get_sehra_with_relations(sehra_id: str) -> dict | None:
+    """Get a SEHRA with all related data in a single eager-loaded query.
+
+    Loads SEHRA -> ComponentAnalysis -> QualitativeEntry/ReportSection
+    in one round-trip using joinedload, avoiding N+1 queries.
+    """
+    with get_session() as session:
+        sehra = (
+            session.query(SEHRA)
+            .options(
+                joinedload(SEHRA.components)
+                .joinedload(ComponentAnalysis.qualitative_entries),
+                joinedload(SEHRA.components)
+                .joinedload(ComponentAnalysis.report_sections),
+            )
+            .filter(SEHRA.id == sehra_id)
+            .first()
+        )
+        if not sehra:
+            return None
+        result = _sehra_to_dict(sehra)
+        result["components"] = []
+        for ca in sehra.components:
+            result["components"].append({
+                "id": ca.id,
+                "component": ca.component,
+                "enabler_count": ca.enabler_count,
+                "barrier_count": ca.barrier_count,
+                "items": ca.items or [],
+                "qualitative_entries": [
+                    {
+                        "id": e.id,
+                        "remark_text": e.remark_text,
+                        "item_id": e.item_id,
+                        "theme": e.theme,
+                        "classification": e.classification,
+                        "confidence": e.confidence,
+                        "edited_by_human": e.edited_by_human,
+                    }
+                    for e in ca.qualitative_entries
+                ],
+                "report_sections": {
+                    s.section_type: {
+                        "id": s.id,
+                        "content": s.content,
+                        "edited_by_human": s.edited_by_human,
+                    }
+                    for s in ca.report_sections
+                },
+            })
+        return result
 
 
 def list_sehras() -> list[dict]:
@@ -368,25 +453,19 @@ def list_sehras() -> list[dict]:
 
 
 def get_component_analyses(sehra_id: str) -> list[dict]:
-    """Get all component analyses for a SEHRA."""
+    """Get all component analyses for a SEHRA using eager loading."""
     with get_session() as session:
         cas = (
             session.query(ComponentAnalysis)
+            .options(
+                joinedload(ComponentAnalysis.qualitative_entries),
+                joinedload(ComponentAnalysis.report_sections),
+            )
             .filter(ComponentAnalysis.sehra_id == sehra_id)
             .all()
         )
         results = []
         for ca in cas:
-            entries = (
-                session.query(QualitativeEntry)
-                .filter(QualitativeEntry.component_analysis_id == ca.id)
-                .all()
-            )
-            sections = (
-                session.query(ReportSection)
-                .filter(ReportSection.component_analysis_id == ca.id)
-                .all()
-            )
             results.append({
                 "id": ca.id,
                 "component": ca.component,
@@ -403,14 +482,45 @@ def get_component_analyses(sehra_id: str) -> list[dict]:
                         "confidence": e.confidence,
                         "edited_by_human": e.edited_by_human,
                     }
-                    for e in entries
+                    for e in ca.qualitative_entries
                 ],
                 "report_sections": {
                     s.section_type: {"id": s.id, "content": s.content, "edited_by_human": s.edited_by_human}
-                    for s in sections
+                    for s in ca.report_sections
                 },
             })
         return results
+
+
+def get_qualitative_entry(entry_id: str) -> dict | None:
+    """Get a single qualitative entry by ID."""
+    with get_session() as session:
+        entry = session.query(QualitativeEntry).filter(QualitativeEntry.id == entry_id).first()
+        if not entry:
+            return None
+        return {
+            "id": entry.id,
+            "remark_text": entry.remark_text,
+            "item_id": entry.item_id,
+            "theme": entry.theme,
+            "classification": entry.classification,
+            "confidence": entry.confidence,
+            "edited_by_human": entry.edited_by_human,
+        }
+
+
+def get_report_section(section_id: str) -> dict | None:
+    """Get a single report section by ID."""
+    with get_session() as session:
+        section = session.query(ReportSection).filter(ReportSection.id == section_id).first()
+        if not section:
+            return None
+        return {
+            "id": section.id,
+            "section_type": section.section_type,
+            "content": section.content,
+            "edited_by_human": section.edited_by_human,
+        }
 
 
 def update_qualitative_entry(entry_id: str, theme: str = None,
@@ -433,6 +543,19 @@ def update_report_section(section_id: str, content: str):
         if section:
             section.content = content
             section.edited_by_human = True
+
+
+def update_sehra_fields(sehra_id: str, **kwargs) -> bool:
+    """Partially update SEHRA fields. Returns True if found."""
+    allowed = {"executive_summary", "recommendations", "status"}
+    with get_session() as session:
+        sehra = session.query(SEHRA).filter(SEHRA.id == sehra_id).first()
+        if not sehra:
+            return False
+        for key, value in kwargs.items():
+            if key in allowed and value is not None:
+                setattr(sehra, key, value)
+        return True
 
 
 def update_sehra_status(sehra_id: str, status: str):
@@ -884,3 +1007,125 @@ def get_corrections_for_context(sehra_id: str | None = None,
             }
             for c in corrections
         ]
+
+
+# --- Copilot Audit Log Operations ---
+
+def log_copilot_action(sehra_id: str | None, user: str, tool_name: str,
+                       args: dict, old_value: dict | None,
+                       new_value: dict | None) -> str:
+    """Log a copilot tool action to the audit trail. Returns the audit log ID."""
+    with get_session() as session:
+        entry = CopilotAuditLog(
+            sehra_id=sehra_id,
+            user=user,
+            tool_name=tool_name,
+            args=args,
+            old_value=old_value,
+            new_value=new_value,
+            status="applied",
+        )
+        session.add(entry)
+        session.flush()
+        logger.info("Audit log: user=%s tool=%s sehra=%s", user, tool_name, sehra_id)
+        return entry.id
+
+
+def get_audit_log(sehra_id: str | None = None, user: str | None = None,
+                  limit: int = 50) -> list[dict]:
+    """Get audit log entries, optionally filtered by sehra_id and/or user."""
+    with get_session() as session:
+        query = session.query(CopilotAuditLog)
+        if sehra_id:
+            query = query.filter(CopilotAuditLog.sehra_id == sehra_id)
+        if user:
+            query = query.filter(CopilotAuditLog.user == user)
+        entries = (
+            query.order_by(CopilotAuditLog.created_at.desc())
+            .limit(limit)
+            .all()
+        )
+        return [
+            {
+                "id": e.id,
+                "sehra_id": e.sehra_id,
+                "user": e.user,
+                "tool_name": e.tool_name,
+                "args": e.args,
+                "old_value": e.old_value,
+                "new_value": e.new_value,
+                "status": e.status,
+                "created_at": e.created_at.isoformat() if e.created_at else None,
+            }
+            for e in entries
+        ]
+
+
+def rollback_action(audit_id: str) -> dict:
+    """Rollback a copilot action by restoring old_value and marking as rolled_back.
+
+    Returns a dict with success status and details.
+    """
+    with get_session() as session:
+        entry = session.query(CopilotAuditLog).filter(
+            CopilotAuditLog.id == audit_id
+        ).first()
+        if not entry:
+            return {"success": False, "error": "Audit entry not found"}
+        if entry.status == "rolled_back":
+            return {"success": False, "error": "Action already rolled back"}
+        if entry.old_value is None:
+            return {"success": False, "error": "No old value to restore (read-only action)"}
+
+        tool = entry.tool_name
+        old = entry.old_value
+
+        try:
+            if tool == "edit_entry":
+                entry_id = entry.args.get("entry_id")
+                if entry_id:
+                    qe = session.query(QualitativeEntry).filter(
+                        QualitativeEntry.id == entry_id
+                    ).first()
+                    if qe:
+                        if "theme" in old:
+                            qe.theme = old["theme"]
+                        if "classification" in old:
+                            qe.classification = old["classification"]
+
+            elif tool == "edit_report_section":
+                section_id = entry.args.get("section_id")
+                if section_id:
+                    rs = session.query(ReportSection).filter(
+                        ReportSection.id == section_id
+                    ).first()
+                    if rs and "content" in old:
+                        rs.content = old["content"]
+
+            elif tool == "edit_executive_summary":
+                sehra_id = entry.args.get("sehra_id") or entry.sehra_id
+                if sehra_id:
+                    sehra = session.query(SEHRA).filter(SEHRA.id == sehra_id).first()
+                    if sehra:
+                        if "executive_summary" in old:
+                            sehra.executive_summary = old["executive_summary"]
+                        if "recommendations" in old:
+                            sehra.recommendations = old["recommendations"]
+
+            elif tool == "change_status":
+                sehra_id = entry.args.get("sehra_id") or entry.sehra_id
+                if sehra_id:
+                    sehra = session.query(SEHRA).filter(SEHRA.id == sehra_id).first()
+                    if sehra and "status" in old:
+                        sehra.status = old["status"]
+
+            else:
+                return {"success": False, "error": f"Rollback not supported for tool '{tool}'"}
+
+            entry.status = "rolled_back"
+            logger.info("Rolled back audit entry %s (tool=%s)", audit_id, tool)
+            return {"success": True, "audit_id": audit_id, "tool_name": tool}
+
+        except Exception as e:
+            logger.exception("Rollback failed for audit entry %s", audit_id)
+            return {"success": False, "error": f"Rollback failed: {str(e)}"}

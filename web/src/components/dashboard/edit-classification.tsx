@@ -43,7 +43,7 @@ export function EditClassification({
 
   return (
     <Select value={value} onValueChange={handleChange}>
-      <SelectTrigger className="h-8 w-[130px] text-xs">
+      <SelectTrigger className="h-7 w-[130px] rounded-lg text-xs border-gray-200">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

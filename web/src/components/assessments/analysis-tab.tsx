@@ -10,7 +10,7 @@ const ComponentTabs = dynamic(
     import("@/components/dashboard/component-tabs").then(
       (m) => m.ComponentTabs,
     ),
-  { loading: () => <Skeleton className="h-64 rounded-lg" /> },
+  { loading: () => <Skeleton className="h-64 rounded-xl" /> },
 );
 
 interface AnalysisTabProps {
@@ -21,7 +21,7 @@ interface AnalysisTabProps {
 
 export function AnalysisTab({ sehra, components, onRefresh }: AnalysisTabProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 page-enter">
       <ReviewControls sehra={sehra} onRefresh={onRefresh} />
       <ComponentTabs components={components} onRefresh={onRefresh} />
     </div>

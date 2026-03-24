@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { SWRProvider } from "@/components/swr-provider";
 import "./globals.css";
 
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <SWRProvider>
-          {children}
-        </SWRProvider>
+        <TooltipProvider delayDuration={200}>
+          <SWRProvider>
+            {children}
+          </SWRProvider>
+        </TooltipProvider>
         <Toaster richColors position="top-right" />
       </body>
     </html>

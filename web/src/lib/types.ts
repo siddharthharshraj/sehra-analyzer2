@@ -160,6 +160,14 @@ export interface CopilotToolCall {
   status: "running" | "done" | "error";
 }
 
+export interface ToolResultCard {
+  tool: string;
+  success: boolean;
+  summary: string;
+  details?: Record<string, string>;
+  undoAction?: CopilotAction;
+}
+
 export interface CopilotMessage {
   id: string;
   role: "user" | "assistant";
@@ -167,6 +175,8 @@ export interface CopilotMessage {
   chart?: ChartSpec | null;
   actions?: CopilotAction[];
   tool_calls?: CopilotToolCall[];
+  tool_results?: ToolResultCard[];
+  confirmation?: ConfirmationRequest | null;
   status?: "streaming" | "done" | "error";
   edited?: boolean;
   editedContent?: string;
@@ -178,6 +188,8 @@ export type CopilotSSEEventType =
   | "tool_call"
   | "tool_result"
   | "message"
+  | "message_delta"
+  | "confirmation_required"
   | "chart"
   | "actions"
   | "error"
@@ -187,10 +199,25 @@ export interface CopilotSSEEvent {
   type: CopilotSSEEventType;
   text?: string;
   tool?: string;
+  tool_call_id?: string;
   arguments?: Record<string, unknown>;
   preview?: string;
+  description?: string;
+  confirmation_preview?: {
+    oldValue?: string;
+    newValue?: string;
+    count?: number;
+  };
   spec?: ChartSpec;
   actions?: CopilotAction[];
+}
+
+export interface ConfirmationRequest {
+  toolCallId: string;
+  toolName: string;
+  description: string;
+  args: Record<string, unknown>;
+  preview?: { oldValue?: string; newValue?: string; count?: number };
 }
 
 export interface StoredConversation {

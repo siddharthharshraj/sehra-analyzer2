@@ -6,15 +6,46 @@ Falls back to the on-disk codebook.json as the baseline.
 
 import json
 import logging
+import time
+import threading
 from pathlib import Path
 
 logger = logging.getLogger("sehra.codebook_admin")
 
 CODEBOOK_PATH = Path(__file__).parent.parent / "data" / "codebook.json"
 
+# In-memory codebook cache with TTL
+_codebook_cache: dict | None = None
+_codebook_cache_time: float = 0.0
+_codebook_cache_lock = threading.Lock()
+_CODEBOOK_CACHE_TTL = 30  # seconds
+
 
 def load_codebook() -> dict:
-    """Load codebook: DB override first, then on-disk fallback."""
+    """Load codebook with TTL-based caching.
+
+    Returns cached data if within TTL, otherwise reloads from
+    DB override (preferred) or on-disk fallback.
+    """
+    global _codebook_cache, _codebook_cache_time
+
+    now = time.time()
+    if _codebook_cache is not None and (now - _codebook_cache_time) < _CODEBOOK_CACHE_TTL:
+        return _codebook_cache
+
+    with _codebook_cache_lock:
+        # Double-check inside lock
+        if _codebook_cache is not None and (time.time() - _codebook_cache_time) < _CODEBOOK_CACHE_TTL:
+            return _codebook_cache
+
+        data = _load_codebook_from_source()
+        _codebook_cache = data
+        _codebook_cache_time = time.time()
+        return data
+
+
+def _load_codebook_from_source() -> dict:
+    """Load codebook from DB or disk (uncached)."""
     try:
         from core.db import get_codebook_override
         override = get_codebook_override()
@@ -24,6 +55,14 @@ def load_codebook() -> dict:
         pass  # DB not available, fall back to file
     with open(CODEBOOK_PATH) as f:
         return json.load(f)
+
+
+def invalidate_codebook_cache():
+    """Clear the codebook cache (call after writes)."""
+    global _codebook_cache, _codebook_cache_time
+    with _codebook_cache_lock:
+        _codebook_cache = None
+        _codebook_cache_time = 0.0
 
 
 def save_codebook(codebook: dict):
@@ -42,6 +81,7 @@ def save_codebook(codebook: dict):
     except Exception as e:
         logger.warning("Failed to save codebook to disk: %s", e)
 
+    invalidate_codebook_cache()
     logger.info("Codebook saved: %d items", len(codebook.get("items", [])))
 
 

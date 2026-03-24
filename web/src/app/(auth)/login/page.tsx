@@ -60,13 +60,13 @@ export default function LoginPage() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">Email</Label>
+              <Label htmlFor="username">Username</Label>
               <Input
                 id="username"
-                type="email"
+                type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Enter your username"
                 required
                 autoFocus
               />

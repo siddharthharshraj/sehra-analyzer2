@@ -25,11 +25,33 @@ def _init_db():
         os.remove("test_sehra.db")
 
 
+def _clear_rate_limiter():
+    """Walk the ASGI middleware stack and clear rate limiter buckets."""
+    from api.main import app
+    from api.core.rate_limiter import RateLimitMiddleware
+
+    # The middleware_stack is built when TestClient starts.
+    # Walk the chain of .app references to find the RateLimitMiddleware instance.
+    obj = app.middleware_stack
+    while obj is not None:
+        if isinstance(obj, RateLimitMiddleware):
+            obj._buckets.clear()
+            break
+        obj = getattr(obj, "app", None)
+
+
 @pytest.fixture
 def client(_init_db):
-    """FastAPI test client (skips lifespan to avoid seeding)."""
+    """FastAPI test client (skips lifespan to avoid seeding).
+
+    Resets the rate limiter between tests so rapid test requests
+    are not throttled.
+    """
     from api.main import app
+
     with TestClient(app, raise_server_exceptions=False) as c:
+        # Clear rate limiter after the middleware stack is built
+        _clear_rate_limiter()
         yield c
 
 

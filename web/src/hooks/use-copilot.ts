@@ -18,6 +18,8 @@ import type {
   ChartSpec,
   CopilotToolCall,
   StoredConversation,
+  ConfirmationRequest,
+  ToolResultCard,
 } from "@/lib/types";
 
 const API_BASE =
@@ -35,10 +37,53 @@ function newConversationId() {
   return `conv-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 }
 
+/** Parse tool_result events into rich result cards */
+function buildToolResultCard(
+  tool: string,
+  preview: string | undefined,
+  args: Record<string, unknown>,
+): ToolResultCard {
+  const base: ToolResultCard = {
+    tool,
+    success: true,
+    summary: preview || `${tool} completed`,
+  };
+
+  switch (tool) {
+    case "edit_entry":
+      base.summary = "Entry Updated";
+      base.details = {};
+      if (args.theme) base.details["Theme"] = String(args.theme);
+      if (args.classification) base.details["Classification"] = String(args.classification);
+      if (args.sehra_id) base.details["Assessment"] = String(args.sehra_id);
+      break;
+    case "change_status":
+      base.summary = "Status Changed";
+      base.details = {};
+      if (args.new_status) base.details["New Status"] = String(args.new_status);
+      if (args.sehra_id) base.details["Assessment"] = String(args.sehra_id);
+      break;
+    case "batch_approve":
+      base.summary = `Batch Approved${args.count ? ` (${args.count} entries)` : ""}`;
+      base.details = {};
+      if (args.count) base.details["Count"] = String(args.count);
+      if (args.threshold) base.details["Threshold"] = `${args.threshold}%`;
+      break;
+    case "edit_executive_summary":
+      base.summary = "Executive Summary Updated";
+      base.details = {};
+      if (preview) base.details["Preview"] = preview.slice(0, 120);
+      break;
+  }
+
+  return base;
+}
+
 export function useCopilot() {
   const [messages, setMessages] = useState<CopilotMessage[]>([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [thinkingText, setThinkingText] = useState<string | null>(null);
+  const [pendingConfirmation, setPendingConfirmation] = useState<ConfirmationRequest | null>(null);
   const [conversationId, setConversationId] = useState<string>(newConversationId);
   const [conversations, setConversations] = useState<StoredConversation[]>([]);
   const [conversationsLoading, setConversationsLoading] = useState(true);
@@ -48,6 +93,7 @@ export function useCopilot() {
     sehraLabel: null,
   });
   const prevStreamingRef = useRef(false);
+  const onDataChangedRef = useRef<(() => void) | null>(null);
 
   // Load conversation list on mount via API
   useEffect(() => {
@@ -79,6 +125,170 @@ export function useCopilot() {
     [],
   );
 
+  const setOnDataChanged = useCallback((cb: (() => void) | null) => {
+    onDataChangedRef.current = cb;
+  }, []);
+
+  function updateAssistant(id: string, updates: Partial<CopilotMessage>) {
+    setMessages((prev) =>
+      prev.map((m) => (m.id === id ? { ...m, ...updates } : m)),
+    );
+  }
+
+  /** Shared SSE stream reader for both sendMessage and confirmAction */
+  async function readSSEStream(
+    res: Response,
+    assistantId: string,
+  ) {
+    const reader = res.body?.getReader();
+    if (!reader) return;
+
+    const decoder = new TextDecoder();
+    let buffer = "";
+    const toolCalls: CopilotToolCall[] = [];
+    const toolResults: ToolResultCard[] = [];
+    let finalText = "";
+    let chartSpec: ChartSpec | null = null;
+    let actions: CopilotAction[] = [];
+    let hadWriteOperation = false;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith(":")) continue;
+        if (!trimmed.startsWith("data:")) continue;
+
+        const jsonStr = trimmed.slice(5).trim();
+        if (!jsonStr) continue;
+
+        let event: CopilotSSEEvent;
+        try {
+          event = JSON.parse(jsonStr);
+        } catch {
+          continue;
+        }
+
+        switch (event.type) {
+          case "thinking":
+            setThinkingText(event.text || "Thinking...");
+            break;
+
+          case "tool_call":
+            toolCalls.push({
+              tool: event.tool || "",
+              arguments: event.arguments || {},
+              status: "running",
+            });
+            updateAssistant(assistantId, { tool_calls: [...toolCalls] });
+            break;
+
+          case "tool_result": {
+            // Mark the tool call as done
+            for (let i = toolCalls.length - 1; i >= 0; i--) {
+              if (toolCalls[i].tool === event.tool && toolCalls[i].status === "running") {
+                toolCalls[i].status = "done";
+                toolCalls[i].result_preview = event.preview;
+                break;
+              }
+            }
+            // Build a result card for write operations
+            const writableTools = ["edit_entry", "change_status", "batch_approve", "edit_executive_summary"];
+            if (event.tool && writableTools.includes(event.tool)) {
+              hadWriteOperation = true;
+              const matchingCall = toolCalls.find((tc) => tc.tool === event.tool);
+              const card = buildToolResultCard(
+                event.tool,
+                event.preview,
+                matchingCall?.arguments || {},
+              );
+              toolResults.push(card);
+              updateAssistant(assistantId, {
+                tool_calls: [...toolCalls],
+                tool_results: [...toolResults],
+              });
+            } else {
+              updateAssistant(assistantId, { tool_calls: [...toolCalls] });
+            }
+            break;
+          }
+
+          case "message_delta":
+            // Token-level streaming: append text incrementally
+            setThinkingText(null);
+            setMessages((prev) => {
+              const idx = prev.findIndex((m) => m.id === assistantId);
+              if (idx === -1) return prev;
+              const current = prev[idx];
+              return [
+                ...prev.slice(0, idx),
+                { ...current, content: current.content + (event.text || "") },
+                ...prev.slice(idx + 1),
+              ];
+            });
+            break;
+
+          case "message":
+            finalText = event.text || "";
+            setThinkingText(null);
+            updateAssistant(assistantId, { content: finalText });
+            break;
+
+          case "confirmation_required":
+            // Server is requesting user confirmation before proceeding
+            setPendingConfirmation({
+              toolCallId: event.tool_call_id || "",
+              toolName: event.tool || "",
+              description: event.description || "Confirm this action?",
+              args: event.arguments || {},
+              preview: event.confirmation_preview,
+            });
+            updateAssistant(assistantId, {
+              confirmation: {
+                toolCallId: event.tool_call_id || "",
+                toolName: event.tool || "",
+                description: event.description || "Confirm this action?",
+                args: event.arguments || {},
+                preview: event.confirmation_preview,
+              },
+            });
+            break;
+
+          case "chart":
+            chartSpec = event.spec || null;
+            updateAssistant(assistantId, { chart: chartSpec });
+            break;
+
+          case "actions":
+            actions = event.actions || [];
+            updateAssistant(assistantId, { actions });
+            break;
+
+          case "error":
+            updateAssistant(assistantId, {
+              content: `Error: ${event.text}`,
+              status: "error",
+            });
+            break;
+
+          case "done":
+            updateAssistant(assistantId, { status: "done" });
+            // Trigger data refresh if write operations occurred
+            if (hadWriteOperation && onDataChangedRef.current) {
+              onDataChangedRef.current();
+            }
+            break;
+        }
+      }
+    }
+  }
+
   const sendMessage = useCallback(
     async (
       content: string,
@@ -97,12 +307,14 @@ export function useCopilot() {
         role: "assistant",
         content: "",
         tool_calls: [],
+        tool_results: [],
         status: "streaming",
       };
 
       setMessages((prev) => [...prev, userMsg, assistantMsg]);
       setIsStreaming(true);
       setThinkingText(null);
+      setPendingConfirmation(null);
 
       const allMessages = [
         ...messages
@@ -136,93 +348,7 @@ export function useCopilot() {
           throw new Error(`SSE failed: ${res.status}`);
         }
 
-        const reader = res.body?.getReader();
-        if (!reader) return;
-
-        const decoder = new TextDecoder();
-        let buffer = "";
-        const toolCalls: CopilotToolCall[] = [];
-        let finalText = "";
-        let chartSpec: ChartSpec | null = null;
-        let actions: CopilotAction[] = [];
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split("\n");
-          buffer = lines.pop() || "";
-
-          for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed || trimmed.startsWith(":")) continue;
-            if (!trimmed.startsWith("data:")) continue;
-
-            const jsonStr = trimmed.slice(5).trim();
-            if (!jsonStr) continue;
-
-            let event: CopilotSSEEvent;
-            try {
-              event = JSON.parse(jsonStr);
-            } catch {
-              continue;
-            }
-
-            switch (event.type) {
-              case "thinking":
-                setThinkingText(event.text || "Thinking...");
-                break;
-
-              case "tool_call":
-                toolCalls.push({
-                  tool: event.tool || "",
-                  arguments: event.arguments || {},
-                  status: "running",
-                });
-                updateAssistant(assistantId, { tool_calls: [...toolCalls] });
-                break;
-
-              case "tool_result":
-                for (let i = toolCalls.length - 1; i >= 0; i--) {
-                  if (toolCalls[i].tool === event.tool && toolCalls[i].status === "running") {
-                    toolCalls[i].status = "done";
-                    toolCalls[i].result_preview = event.preview;
-                    break;
-                  }
-                }
-                updateAssistant(assistantId, { tool_calls: [...toolCalls] });
-                break;
-
-              case "message":
-                finalText = event.text || "";
-                setThinkingText(null);
-                updateAssistant(assistantId, { content: finalText });
-                break;
-
-              case "chart":
-                chartSpec = event.spec || null;
-                updateAssistant(assistantId, { chart: chartSpec });
-                break;
-
-              case "actions":
-                actions = event.actions || [];
-                updateAssistant(assistantId, { actions });
-                break;
-
-              case "error":
-                updateAssistant(assistantId, {
-                  content: `Error: ${event.text}`,
-                  status: "error",
-                });
-                break;
-
-              case "done":
-                updateAssistant(assistantId, { status: "done" });
-                break;
-            }
-          }
-        }
+        await readSSEStream(res, assistantId);
       } catch (err) {
         if ((err as Error).name !== "AbortError") {
           updateAssistant(assistantId, {
@@ -239,30 +365,111 @@ export function useCopilot() {
     [messages],
   );
 
-  function updateAssistant(id: string, updates: Partial<CopilotMessage>) {
-    setMessages((prev) =>
-      prev.map((m) => (m.id === id ? { ...m, ...updates } : m)),
-    );
-  }
+  /** Confirm a pending tool call (approve or reject) */
+  const confirmAction = useCallback(
+    async (toolCallId: string, approved: boolean) => {
+      setPendingConfirmation(null);
+
+      if (!approved) {
+        // Add a system-like message noting rejection
+        const rejectMsg: CopilotMessage = {
+          id: nextId(),
+          role: "assistant",
+          content: "Action cancelled by user.",
+          status: "done",
+        };
+        setMessages((prev) => [...prev, rejectMsg]);
+        return;
+      }
+
+      // Create a new streaming assistant message for the confirmation response
+      const assistantId = nextId();
+      const assistantMsg: CopilotMessage = {
+        id: assistantId,
+        role: "assistant",
+        content: "",
+        tool_calls: [],
+        tool_results: [],
+        status: "streaming",
+      };
+      setMessages((prev) => [...prev, assistantMsg]);
+      setIsStreaming(true);
+      setThinkingText("Executing confirmed action...");
+
+      const controller = new AbortController();
+      controllerRef.current = controller;
+
+      try {
+        const token = getToken();
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+
+        const allMessages = messages
+          .filter((m) => m.role === "user" || (m.role === "assistant" && m.content))
+          .map((m) => ({ role: m.role, content: m.content }));
+
+        const res = await fetch(`${API_BASE}/agent/chat`, {
+          method: "POST",
+          headers,
+          body: JSON.stringify({
+            messages: allMessages,
+            sehra_id: sehraContextRef.current.sehraId,
+            confirmed_tool_call_id: toolCallId,
+          }),
+          signal: controller.signal,
+        });
+
+        if (!res.ok) {
+          throw new Error(`Confirmation failed: ${res.status}`);
+        }
+
+        await readSSEStream(res, assistantId);
+      } catch (err) {
+        if ((err as Error).name !== "AbortError") {
+          updateAssistant(assistantId, {
+            content: `Error: ${err instanceof Error ? err.message : "Unknown error"}`,
+            status: "error",
+          });
+        }
+      } finally {
+        setIsStreaming(false);
+        setThinkingText(null);
+        controllerRef.current = null;
+      }
+    },
+    [messages],
+  );
 
   const executeAction = useCallback(async (action: CopilotAction) => {
     const { method, path, body, download } = action.api_call;
     try {
+      let result: unknown;
       if (download) {
         const filename = path.split("/").pop() || "export";
         await apiDownload(path, filename);
-        return { success: true };
+        result = { success: true };
+      } else {
+        switch (method) {
+          case "POST":
+            result = await apiPost(path, body);
+            break;
+          case "PATCH":
+            result = await apiPatch(path, body);
+            break;
+          case "GET":
+            result = await apiGet(path);
+            break;
+          default:
+            result = await apiPost(path, body);
+        }
       }
-      switch (method) {
-        case "POST":
-          return await apiPost(path, body);
-        case "PATCH":
-          return await apiPatch(path, body);
-        case "GET":
-          return await apiGet(path);
-        default:
-          return await apiPost(path, body);
+      // Trigger data refresh after action
+      if (onDataChangedRef.current) {
+        onDataChangedRef.current();
       }
+      return result;
     } catch (err) {
       throw err;
     }
@@ -272,11 +479,13 @@ export function useCopilot() {
     controllerRef.current?.abort();
     setIsStreaming(false);
     setThinkingText(null);
+    setPendingConfirmation(null);
   }, []);
 
   const clearMessages = useCallback(() => {
     setMessages([]);
     setConversationId(newConversationId());
+    setPendingConfirmation(null);
   }, []);
 
   const loadConversation = useCallback(async (id: string) => {
@@ -335,16 +544,19 @@ export function useCopilot() {
     messages,
     isStreaming,
     thinkingText,
+    pendingConfirmation,
     conversationId,
     conversations,
     conversationsLoading,
     sendMessage,
+    confirmAction,
     executeAction,
     cancel,
     clearMessages,
     loadConversation,
     removeConversation,
     setSehraContext,
+    setOnDataChanged,
     setMessageFeedback,
     setMessageEdit,
   };

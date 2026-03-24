@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { apiPost } from "@/lib/api-client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { InfoTooltip } from "@/components/ui/info-tooltip";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, User } from "lucide-react";
@@ -94,6 +95,11 @@ export default function SettingsPage() {
           <CardTitle className="flex items-center gap-2 text-lg">
             <Lock className="h-5 w-5" />
             Change Password
+            <InfoTooltip
+              text="Password must be at least 6 characters. You'll need your current password to change it."
+              side="right"
+              maxWidth="max-w-[260px]"
+            />
           </CardTitle>
         </CardHeader>
         <CardContent>

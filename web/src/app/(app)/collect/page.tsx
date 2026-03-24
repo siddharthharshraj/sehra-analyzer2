@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import useSWR from "swr";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { InfoTooltip } from "@/components/ui/info-tooltip";
 import { apiGet, apiPut } from "@/lib/api-client";
 import { COMPONENTS, COMPONENT_LABELS } from "@/lib/constants";
 import { WizardStepper } from "@/components/collect/wizard-stepper";
@@ -104,7 +105,14 @@ export default function CollectPage() {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
-        <h2 className="text-lg font-semibold">Collect Data</h2>
+        <div className="flex items-center gap-1">
+          <h2 className="text-lg font-semibold">Collect Data</h2>
+          <InfoTooltip
+            text="Enter SEHRA responses manually section by section. Your progress is saved automatically as a draft. You can leave and return anytime."
+            side="right"
+            maxWidth="max-w-[300px]"
+          />
+        </div>
         <p className="text-sm text-muted-foreground">
           Fill in SEHRA assessment data step by step. Your progress is saved automatically.
         </p>

@@ -10,7 +10,7 @@ import {
 } from "react";
 import { usePathname } from "next/navigation";
 import { useCopilot } from "@/hooks/use-copilot";
-import type { CopilotMessage, CopilotAction, StoredConversation } from "@/lib/types";
+import type { CopilotMessage, CopilotAction, StoredConversation, ConfirmationRequest } from "@/lib/types";
 
 interface CopilotContextValue {
   isOpen: boolean;
@@ -24,7 +24,9 @@ interface CopilotContextValue {
   messages: CopilotMessage[];
   isStreaming: boolean;
   thinkingText: string | null;
+  pendingConfirmation: ConfirmationRequest | null;
   sendMessage: (content: string) => void;
+  confirmAction: (toolCallId: string, approved: boolean) => void;
   executeAction: (action: CopilotAction) => Promise<unknown>;
   cancel: () => void;
   clearMessages: () => void;
@@ -36,6 +38,8 @@ interface CopilotContextValue {
   newConversation: () => void;
   setMessageFeedback: (messageId: string, rating: "up" | "down") => void;
   setMessageEdit: (messageId: string, correctedText: string) => void;
+  onDataChanged?: () => void;
+  setOnDataChanged: (cb: (() => void) | null) => void;
 }
 
 const CopilotContext = createContext<CopilotContextValue | null>(null);
@@ -92,7 +96,9 @@ export function CopilotProvider({ children }: { children: ReactNode }) {
         messages: copilot.messages,
         isStreaming: copilot.isStreaming,
         thinkingText: copilot.thinkingText,
+        pendingConfirmation: copilot.pendingConfirmation,
         sendMessage,
+        confirmAction: copilot.confirmAction,
         executeAction: copilot.executeAction,
         cancel: copilot.cancel,
         clearMessages: copilot.clearMessages,
@@ -104,6 +110,7 @@ export function CopilotProvider({ children }: { children: ReactNode }) {
         newConversation,
         setMessageFeedback: copilot.setMessageFeedback,
         setMessageEdit: copilot.setMessageEdit,
+        setOnDataChanged: copilot.setOnDataChanged,
       }}
     >
       {children}

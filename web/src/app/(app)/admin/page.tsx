@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
+import { InfoTooltip } from "@/components/ui/info-tooltip";
 import { apiGet } from "@/lib/api-client";
 import { COMPONENT_LABELS } from "@/lib/constants";
 import { CodebookTable } from "@/components/admin/codebook-table";
@@ -48,13 +49,24 @@ export default function AdminPage() {
 
   return (
     <div className="space-y-6">
-      <Select
-        value={activeSection}
-        onValueChange={(v) => setSelectedSection(v)}
-      >
-        <SelectTrigger className="w-[300px]">
-          <SelectValue placeholder="Select section" />
-        </SelectTrigger>
+      <div>
+        <div className="flex items-center gap-1 mb-3">
+          <h2 className="text-lg font-semibold">Manage Questions</h2>
+          <InfoTooltip
+            text="The codebook defines how each SEHRA question is scored. Enabler=1, Barrier=0. Reverse-scored items flip this. Changes affect future analyses only."
+            side="right"
+            maxWidth="max-w-[320px]"
+          />
+        </div>
+      </div>
+      <div className="flex items-center gap-2">
+        <Select
+          value={activeSection}
+          onValueChange={(v) => setSelectedSection(v)}
+        >
+          <SelectTrigger className="w-[300px]">
+            <SelectValue placeholder="Select section" />
+          </SelectTrigger>
         <SelectContent>
           {(sections || []).map((s) => (
             <SelectItem key={s} value={s}>
@@ -63,6 +75,11 @@ export default function AdminPage() {
           ))}
         </SelectContent>
       </Select>
+      <InfoTooltip
+        text="Select a SEHRA component to view its questions and scoring rules."
+        side="right"
+      />
+      </div>
 
       {activeSection && (
         <>

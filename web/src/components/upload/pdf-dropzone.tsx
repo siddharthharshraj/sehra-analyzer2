@@ -1,9 +1,15 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { Upload, FileText, X } from "lucide-react";
+import { Upload, FileText, X, AlertCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface PDFDropzoneProps {
   onFileSelect: (file: File) => void;
@@ -16,8 +22,15 @@ export function PDFDropzone({ onFileSelect, disabled }: PDFDropzoneProps) {
   const [error, setError] = useState("");
 
   const validate = useCallback((f: File): string | null => {
-    if (f.type !== "application/pdf") return "Only PDF files are accepted.";
-    if (f.size > 50 * 1024 * 1024) return "File size must be under 50 MB.";
+    if (f.type !== "application/pdf" && !f.name.toLowerCase().endsWith(".pdf")) {
+      return "Only PDF files are accepted. Please select a .pdf file.";
+    }
+    if (f.size > 50 * 1024 * 1024) {
+      return `File is too large (${(f.size / 1024 / 1024).toFixed(1)} MB). Maximum size is 50 MB.`;
+    }
+    if (f.size === 0) {
+      return "This file appears to be empty. Please select a valid PDF.";
+    }
     return null;
   }, []);
 
@@ -35,12 +48,17 @@ export function PDFDropzone({ onFileSelect, disabled }: PDFDropzoneProps) {
   );
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
+      <TooltipProvider delayDuration={400}>
+      <Tooltip>
+      <TooltipTrigger asChild>
       <Card
-        className={`border-2 border-dashed transition-colors ${
+        className={`border-2 border-dashed transition-all duration-200 ${
           dragActive
-            ? "border-[#0D7377] bg-[#0D7377]/5"
-            : "border-muted-foreground/25 hover:border-muted-foreground/50"
+            ? "border-[#0D7377] bg-[#0D7377]/5 shadow-lg shadow-[#0D7377]/10 scale-[1.01] drag-active-pulse"
+            : error
+              ? "border-red-300 hover:border-red-400"
+              : "border-muted-foreground/25 hover:border-muted-foreground/50"
         } ${disabled ? "pointer-events-none opacity-50" : "cursor-pointer"}`}
         onDragOver={(e) => {
           e.preventDefault();
@@ -66,10 +84,26 @@ export function PDFDropzone({ onFileSelect, disabled }: PDFDropzoneProps) {
         }}
       >
         <CardContent className="flex flex-col items-center gap-3 py-12">
-          <Upload className="h-10 w-10 text-muted-foreground" />
+          <div
+            className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-200 ${
+              dragActive
+                ? "bg-[#0D7377]/15 scale-110"
+                : "bg-gray-100"
+            }`}
+          >
+            <Upload
+              className={`h-7 w-7 transition-all duration-200 ${
+                dragActive
+                  ? "text-[#0D7377] -translate-y-1"
+                  : "text-muted-foreground"
+              }`}
+            />
+          </div>
           <div className="text-center">
             <p className="font-medium">
-              Drag & drop your SEHRA PDF here
+              {dragActive
+                ? "Drop your PDF here"
+                : "Drag & drop your SEHRA PDF here"}
             </p>
             <p className="text-sm text-muted-foreground">
               or click to browse (PDF, max 50 MB)
@@ -77,8 +111,34 @@ export function PDFDropzone({ onFileSelect, disabled }: PDFDropzoneProps) {
           </div>
         </CardContent>
       </Card>
+      </TooltipTrigger>
+      <TooltipContent side="bottom" className="max-w-[280px] text-sm">
+        <p>Supports SEHRA PDF forms (both digital and scanned). Maximum file size: 50 MB. The system will automatically detect the format.</p>
+      </TooltipContent>
+      </Tooltip>
+      </TooltipProvider>
 
-      {error && <p className="text-sm text-destructive">{error}</p>}
+      {/* Inline error with icon */}
+      {error && (
+        <div className="flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2.5">
+          <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 shrink-0" />
+          <div>
+            <p className="text-sm font-medium text-red-800">Invalid file</p>
+            <p className="text-xs text-red-600 mt-0.5">{error}</p>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="ml-auto h-6 w-6 text-red-400 hover:text-red-600 hover:bg-red-100 shrink-0"
+            onClick={(e) => {
+              e.stopPropagation();
+              setError("");
+            }}
+          >
+            <X className="h-3.5 w-3.5" />
+          </Button>
+        </div>
+      )}
 
       {file && (
         <div className="flex items-center justify-between rounded-lg border p-3">

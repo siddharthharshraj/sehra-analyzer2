@@ -21,3 +21,6 @@ web/.next/
 .vercel/
 .claude/
 *.DS_Store
+.next/
+venv/
+__pycache__/

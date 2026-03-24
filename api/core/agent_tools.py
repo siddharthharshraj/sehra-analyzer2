@@ -11,6 +11,18 @@ from api.core import codebook_admin
 logger = logging.getLogger("sehra.agent_tools")
 
 # ---------------------------------------------------------------------------
+# Write tools that require user confirmation before execution
+# ---------------------------------------------------------------------------
+
+WRITE_TOOLS = {
+    "edit_entry",
+    "edit_report_section",
+    "edit_executive_summary",
+    "change_status",
+    "batch_approve",
+}
+
+# ---------------------------------------------------------------------------
 # OpenAI function-calling tool schemas
 # ---------------------------------------------------------------------------
 
@@ -417,7 +429,7 @@ def suggest_actions(sehra_id: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# Write tool implementations
+# Write tool implementations (return before/after values for confirmation)
 # ---------------------------------------------------------------------------
 
 
@@ -425,20 +437,42 @@ def edit_entry(entry_id: str, theme: str = None, classification: str = None) -> 
     """Edit a qualitative entry's theme and/or classification."""
     if not theme and not classification:
         return {"error": "Provide at least one of 'theme' or 'classification' to edit."}
+
+    old_entry = db.get_qualitative_entry(entry_id)
+    if not old_entry:
+        return {"error": f"Entry {entry_id} not found"}
+
     db.update_qualitative_entry(entry_id, theme=theme, classification=classification)
-    return {
+
+    result = {
         "success": True,
         "entry_id": entry_id,
-        "updated_fields": {
-            k: v for k, v in {"theme": theme, "classification": classification}.items() if v
-        },
+        "remark_text": old_entry["remark_text"][:200],
     }
+    if theme:
+        result["old_theme"] = old_entry["theme"]
+        result["new_theme"] = theme
+    if classification:
+        result["old_classification"] = old_entry["classification"]
+        result["new_classification"] = classification
+    return result
 
 
 def edit_report_section(section_id: str, content: str) -> dict:
     """Edit a report section's content."""
+    old_section = db.get_report_section(section_id)
+    if not old_section:
+        return {"error": f"Report section {section_id} not found"}
+
     db.update_report_section(section_id, content)
-    return {"success": True, "section_id": section_id, "content_length": len(content)}
+    return {
+        "success": True,
+        "section_id": section_id,
+        "section_type": old_section["section_type"],
+        "old_content": old_section["content"][:500],
+        "new_content": content[:500],
+        "content_length": len(content),
+    }
 
 
 def edit_executive_summary(sehra_id: str, executive_summary: str = None,
@@ -447,28 +481,184 @@ def edit_executive_summary(sehra_id: str, executive_summary: str = None,
     current = db.get_executive_summary(sehra_id)
     if "error" in current:
         return current
-    new_summary = executive_summary if executive_summary is not None else current.get("executive_summary", "")
-    new_recs = recommendations if recommendations is not None else current.get("recommendations", "")
+
+    old_summary = current.get("executive_summary", "")
+    old_recs = current.get("recommendations", "")
+    new_summary = executive_summary if executive_summary is not None else old_summary
+    new_recs = recommendations if recommendations is not None else old_recs
+
     db.save_executive_summary(sehra_id, new_summary, new_recs)
-    return {
+
+    result = {
         "success": True,
         "sehra_id": sehra_id,
         "updated": [k for k, v in {"executive_summary": executive_summary, "recommendations": recommendations}.items() if v is not None],
     }
+    if executive_summary is not None:
+        result["old_summary"] = old_summary[:500]
+        result["new_summary"] = executive_summary[:500]
+    if recommendations is not None:
+        result["old_recommendations"] = old_recs[:500]
+        result["new_recommendations"] = recommendations[:500]
+    return result
 
 
 def change_status(sehra_id: str, status: str) -> dict:
     """Change SEHRA assessment status."""
     if status not in ("draft", "reviewed", "published"):
         return {"error": f"Invalid status '{status}'. Must be draft, reviewed, or published."}
+
+    sehra = db.get_sehra(sehra_id)
+    if not sehra:
+        return {"error": f"Assessment {sehra_id} not found"}
+
+    old_status = sehra["status"]
     db.update_sehra_status(sehra_id, status)
-    return {"success": True, "sehra_id": sehra_id, "new_status": status}
+    return {
+        "success": True,
+        "sehra_id": sehra_id,
+        "old_status": old_status,
+        "new_status": status,
+    }
 
 
 def batch_approve(sehra_id: str, confidence_threshold: float = 0.8) -> dict:
     """Batch approve entries above confidence threshold."""
+    # Gather entries that will be affected for the preview
+    components = db.get_component_analyses(sehra_id)
+    affected_entries = []
+    for comp in components:
+        for entry in comp.get("qualitative_entries", []):
+            if not entry.get("edited_by_human") and entry.get("confidence", 0) >= confidence_threshold:
+                affected_entries.append({
+                    "id": entry["id"],
+                    "theme": entry["theme"],
+                    "classification": entry["classification"],
+                    "confidence": entry["confidence"],
+                    "remark_text": entry["remark_text"][:100],
+                    "component": comp["component"],
+                })
+
     count = db.batch_approve_entries(sehra_id, confidence_threshold)
-    return {"success": True, "sehra_id": sehra_id, "approved_count": count}
+    return {
+        "success": True,
+        "sehra_id": sehra_id,
+        "approved_count": count,
+        "confidence_threshold": confidence_threshold,
+        "entries": affected_entries[:50],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Confirmation preview helpers
+# ---------------------------------------------------------------------------
+
+
+def get_confirmation_preview(tool_name: str, args: dict) -> dict:
+    """Build a human-readable description and preview data for a write tool call.
+
+    Returns {"description": str, "preview": dict} without executing the tool.
+    """
+    if tool_name == "edit_entry":
+        entry = db.get_qualitative_entry(args.get("entry_id", ""))
+        if not entry:
+            return {
+                "description": f"Edit entry {args.get('entry_id', '?')} (entry not found)",
+                "preview": {},
+            }
+        changes = []
+        preview = {"entry_id": entry["id"], "remark_text": entry["remark_text"][:200]}
+        if args.get("theme"):
+            changes.append(f"theme from \"{entry['theme']}\" to \"{args['theme']}\"")
+            preview["old_theme"] = entry["theme"]
+            preview["new_theme"] = args["theme"]
+        if args.get("classification"):
+            changes.append(f"classification from \"{entry['classification']}\" to \"{args['classification']}\"")
+            preview["old_classification"] = entry["classification"]
+            preview["new_classification"] = args["classification"]
+        desc = f"Change {' and '.join(changes)} for entry: \"{entry['remark_text'][:80]}...\""
+        return {"description": desc, "preview": preview}
+
+    if tool_name == "edit_report_section":
+        section = db.get_report_section(args.get("section_id", ""))
+        if not section:
+            return {
+                "description": f"Edit report section {args.get('section_id', '?')} (section not found)",
+                "preview": {},
+            }
+        new_content = args.get("content", "")
+        return {
+            "description": f"Rewrite {section['section_type']} section ({len(new_content)} chars)",
+            "preview": {
+                "section_id": section["id"],
+                "section_type": section["section_type"],
+                "old_content": section["content"][:500],
+                "new_content": new_content[:500],
+            },
+        }
+
+    if tool_name == "edit_executive_summary":
+        current = db.get_executive_summary(args.get("sehra_id", ""))
+        if "error" in current:
+            return {
+                "description": f"Edit executive summary for {args.get('sehra_id', '?')} (not found)",
+                "preview": {},
+            }
+        parts = []
+        preview = {"sehra_id": args.get("sehra_id", "")}
+        if args.get("executive_summary") is not None:
+            parts.append("executive summary")
+            preview["old_summary"] = current.get("executive_summary", "")[:500]
+            preview["new_summary"] = args["executive_summary"][:500]
+        if args.get("recommendations") is not None:
+            parts.append("recommendations")
+            preview["old_recommendations"] = current.get("recommendations", "")[:500]
+            preview["new_recommendations"] = args["recommendations"][:500]
+        return {
+            "description": f"Update {' and '.join(parts)} for assessment {args.get('sehra_id', '?')}",
+            "preview": preview,
+        }
+
+    if tool_name == "change_status":
+        sehra = db.get_sehra(args.get("sehra_id", ""))
+        old_status = sehra["status"] if sehra else "unknown"
+        new_status = args.get("status", "?")
+        return {
+            "description": f"Change assessment status from \"{old_status}\" to \"{new_status}\"",
+            "preview": {
+                "sehra_id": args.get("sehra_id", ""),
+                "old_status": old_status,
+                "new_status": new_status,
+            },
+        }
+
+    if tool_name == "batch_approve":
+        threshold = args.get("confidence_threshold", 0.8)
+        components = db.get_component_analyses(args.get("sehra_id", ""))
+        count = 0
+        sample_entries = []
+        for comp in components:
+            for entry in comp.get("qualitative_entries", []):
+                if not entry.get("edited_by_human") and entry.get("confidence", 0) >= threshold:
+                    count += 1
+                    if len(sample_entries) < 5:
+                        sample_entries.append({
+                            "theme": entry["theme"],
+                            "classification": entry["classification"],
+                            "confidence": entry["confidence"],
+                            "remark_text": entry["remark_text"][:80],
+                        })
+        return {
+            "description": f"Batch approve {count} entries with confidence >= {threshold:.0%}",
+            "preview": {
+                "sehra_id": args.get("sehra_id", ""),
+                "count": count,
+                "confidence_threshold": threshold,
+                "sample_entries": sample_entries,
+            },
+        }
+
+    return {"description": f"Execute {tool_name}", "preview": args}
 
 
 # ---------------------------------------------------------------------------

@@ -14,6 +14,7 @@ interface InfoTooltipProps {
   className?: string;
   iconClassName?: string;
   side?: "top" | "right" | "bottom" | "left";
+  maxWidth?: string;
 }
 
 export function InfoTooltip({
@@ -21,6 +22,7 @@ export function InfoTooltip({
   className,
   iconClassName,
   side = "top",
+  maxWidth = "max-w-[250px]",
 }: InfoTooltipProps) {
   return (
     <TooltipProvider delayDuration={200}>
@@ -36,7 +38,7 @@ export function InfoTooltip({
             <Info className={cn("h-3.5 w-3.5", iconClassName)} />
           </button>
         </TooltipTrigger>
-        <TooltipContent side={side} className="max-w-[250px] text-xs">
+        <TooltipContent side={side} className={cn(maxWidth, "text-xs")}>
           {text}
         </TooltipContent>
       </Tooltip>

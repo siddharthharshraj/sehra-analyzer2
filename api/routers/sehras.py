@@ -14,6 +14,7 @@ from api.schemas import (
     ReportSectionSchema,
     UpdateEntryRequest,
     UpdateSectionRequest,
+    UpdateSehraRequest,
     UpdateStatusRequest,
     BatchApproveRequest,
     BatchApproveResponse,
@@ -22,6 +23,7 @@ from api.core.db import (
     list_sehras,
     get_sehra,
     delete_sehra,
+    update_sehra_fields,
     update_sehra_status,
     get_component_analyses,
     get_executive_summary,
@@ -44,8 +46,9 @@ def list_all_sehras(response: Response, user: dict = Depends(get_current_user)):
 
 
 @router.get("/sehras/{sehra_id}", response_model=SEHRADetail)
-def get_sehra_detail(sehra_id: str, user: dict = Depends(get_current_user)):
+def get_sehra_detail(sehra_id: str, response: Response, user: dict = Depends(get_current_user)):
     """Get detailed SEHRA information including executive summary."""
+    response.headers["Cache-Control"] = "private, max-age=5, stale-while-revalidate=15"
     sehra = get_sehra(sehra_id)
     if not sehra:
         raise HTTPException(
@@ -66,6 +69,44 @@ def remove_sehra(sehra_id: str, user: dict = Depends(get_current_user)):
         )
     delete_sehra(sehra_id)
     logger.info("User '%s' deleted SEHRA '%s'", user["sub"], sehra_id)
+
+
+@router.patch("/sehras/{sehra_id}", response_model=SEHRADetail)
+def update_sehra(
+    sehra_id: str,
+    body: UpdateSehraRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Partially update a SEHRA (executive summary, recommendations, status)."""
+    if body.status is not None:
+        valid_statuses = {"draft", "reviewed", "published"}
+        if body.status not in valid_statuses:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Invalid status. Must be one of: {valid_statuses}",
+            )
+    sehra = get_sehra(sehra_id)
+    if not sehra:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"SEHRA '{sehra_id}' not found.",
+        )
+    update_sehra_fields(
+        sehra_id,
+        executive_summary=body.executive_summary,
+        recommendations=body.recommendations,
+        status=body.status,
+    )
+    updated_fields = [
+        f for f in ("executive_summary", "recommendations", "status")
+        if getattr(body, f) is not None
+    ]
+    logger.info(
+        "User '%s' updated SEHRA '%s' fields: %s",
+        user["sub"], sehra_id, ", ".join(updated_fields),
+    )
+    updated = get_sehra(sehra_id)
+    return SEHRADetail(**updated)
 
 
 @router.patch("/sehras/{sehra_id}/status", response_model=SEHRADetail)
@@ -99,7 +140,7 @@ def change_status(
 @router.get("/sehras/{sehra_id}/components", response_model=list[ComponentAnalysisSchema])
 def get_components(sehra_id: str, response: Response, user: dict = Depends(get_current_user)):
     """Get all component analyses for a SEHRA."""
-    response.headers["Cache-Control"] = "private, max-age=10, stale-while-revalidate=30"
+    response.headers["Cache-Control"] = "private, max-age=5, stale-while-revalidate=15"
     sehra = get_sehra(sehra_id)
     if not sehra:
         raise HTTPException(

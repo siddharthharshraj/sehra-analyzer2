@@ -90,6 +90,13 @@ class UpdateSectionRequest(BaseModel):
     content: str
 
 
+class UpdateSehraRequest(BaseModel):
+    """Partial update for SEHRA fields (inline editing)."""
+    executive_summary: Optional[str] = None
+    recommendations: Optional[str] = None
+    status: Optional[str] = None
+
+
 class UpdateStatusRequest(BaseModel):
     status: str
 

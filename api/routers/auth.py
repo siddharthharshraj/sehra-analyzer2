@@ -8,6 +8,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from api.auth import create_access_token, decode_token
 from api.core.db import get_session, User
 from api.deps import get_current_user
+from api.deps import require_admin
 from api.schemas import LoginRequest, TokenResponse, UserInfo, ChangePasswordRequest
 
 logger = logging.getLogger("sehra.routers.auth")
@@ -94,6 +95,27 @@ def change_password(body: ChangePasswordRequest, current_user: dict = Depends(ge
         logger.info("Password changed for user '%s'", current_user["sub"])
 
     return {"detail": "Password changed successfully."}
+
+
+@router.post("/create-user")
+def create_user(body: dict, admin=Depends(require_admin)):
+    """Admin-only: create a new user."""
+    username = body.get("username")
+    password = body.get("password")
+    name = body.get("name", username)
+    role = body.get("role", "analyst")
+    if not username or not password:
+        raise HTTPException(400, "username and password required")
+    pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
+    with get_session() as session:
+        existing = session.query(User).filter(User.username == username).first()
+        if existing:
+            existing.password_hash = pw_hash
+            existing.name = name
+            existing.role = role
+            return {"detail": f"User '{username}' updated"}
+        session.add(User(username=username, name=name, password_hash=pw_hash, role=role))
+    return {"detail": f"User '{username}' created"}
 
 
 @router.post("/refresh", response_model=TokenResponse)

@@ -2,17 +2,15 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy everything first (Railway uploads full project)
-COPY . .
+COPY web/package.json web/package-lock.json ./
+RUN npm install
 
-# Install deps and build from web/ directory
-WORKDIR /app/web
-RUN npm install --legacy-peer-deps
+COPY web/ .
+
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 RUN npm run build
 
-# Setup production user
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
@@ -21,6 +19,5 @@ ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 
 USER nextjs
-EXPOSE 3000
 
 CMD ["node", ".next/standalone/server.js"]

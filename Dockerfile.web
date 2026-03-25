@@ -2,12 +2,12 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy package files and install deps
-COPY web/package.json web/package-lock.json ./
-RUN npm ci
+# Copy everything first (Railway uploads full project)
+COPY . .
 
-# Copy source and build
-COPY web/ .
+# Install deps and build from web/ directory
+WORKDIR /app/web
+RUN npm ci
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
 RUN npm run build

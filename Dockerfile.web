@@ -21,12 +21,9 @@ ENV PORT=3000
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-# Copy standalone server
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-# Copy static assets (CSS, JS, fonts)
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-# Copy public assets
-COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+RUN mkdir -p ./public
 
 USER nextjs
 EXPOSE 3000

@@ -1,5 +1,5 @@
 .env
-auth_config.yaml
+# auth_config.yaml - needed for user seeding on Railway
 __pycache__/
 *.pyc
 *.pyo

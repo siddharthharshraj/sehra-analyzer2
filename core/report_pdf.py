@@ -31,10 +31,14 @@ def generate_pdf_report(html_content: str) -> io.BytesIO:
         @page { size: A4; margin: 2cm; }
         body { max-width: 100%; padding: 0; }
         .header { page-break-after: always; }
-        details { break-inside: avoid; }
-        details[open] summary ~ * { break-inside: avoid; }
-        .chart-container { break-inside: avoid; page-break-inside: avoid; }
-        table { font-size: 8pt; }
+        .chart-container { page-break-inside: avoid; margin: 15px 0; }
+        .chart-container img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+        .component-section { page-break-inside: auto; }
+        .component-header { page-break-after: avoid; }
+        .metrics { page-break-inside: avoid; }
+        .section { page-break-inside: avoid; }
+        table { font-size: 8pt; page-break-inside: auto; }
+        h2, h3 { page-break-after: avoid; }
     </style>
     """
     # Inject print CSS before </head>

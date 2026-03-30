@@ -35,9 +35,14 @@ COMPONENT_SHORT_NAMES = {
 def _fig_to_png(fig, width=800, height=500) -> bytes:
     """Convert a Plotly figure to PNG bytes."""
     try:
-        return fig.to_image(format="png", width=width, height=height, scale=2)
+        png = fig.to_image(format="png", width=width, height=height, scale=2)
+        if not png:
+            logger.error("Kaleido returned empty PNG bytes")
+            return b""
+        logger.debug("Chart PNG generated: %d bytes", len(png))
+        return png
     except Exception as e:
-        logger.warning("Failed to convert chart to PNG (kaleido may not be installed): %s", e)
+        logger.error("Failed to convert chart to PNG: %s", e, exc_info=True)
         return b""
 
 

@@ -12,6 +12,7 @@ Generates a Word document with:
 import io
 import logging
 import os
+import re
 from pathlib import Path
 
 from docx import Document
@@ -120,6 +121,15 @@ def generate_overall_chart(components_data: list[dict]) -> io.BytesIO:
     return buf
 
 
+# XML 1.0 illegal characters (control chars except \t \n \r)
+_ILLEGAL_CHARS_RE = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f]')
+
+
+def _clean(value: str) -> str:
+    """Strip characters that are illegal in XML (used by DOCX)."""
+    return _ILLEGAL_CHARS_RE.sub('', value) if isinstance(value, str) else str(value)
+
+
 def _add_styled_table(doc: Document, headers: list[str], rows: list[list[str]]):
     """Add a styled table to the document."""
     table = doc.add_table(rows=1 + len(rows), cols=len(headers))
@@ -149,7 +159,7 @@ def _add_styled_table(doc: Document, headers: list[str], rows: list[list[str]]):
     for r_idx, row in enumerate(rows):
         for c_idx, cell_text in enumerate(row):
             cell = table.rows[r_idx + 1].cells[c_idx]
-            cell.text = str(cell_text)
+            cell.text = _clean(str(cell_text))
             for paragraph in cell.paragraphs:
                 for run in paragraph.runs:
                     run.font.size = Pt(9)
@@ -160,7 +170,11 @@ def _add_styled_table(doc: Document, headers: list[str], rows: list[list[str]]):
 def generate_report(sehra_data: dict, component_analyses: list[dict],
                     header_info: dict,
                     executive_summary: str = "",
-                    recommendations: str = "") -> io.BytesIO:
+                    recommendations: str = "",
+                    generated_at_ist: str = "",
+                    requester_ip: str = "",
+                    exported_by: str = "",
+                    country: str | None = None) -> io.BytesIO:
     """Generate a complete DOCX report.
 
     Args:
@@ -169,10 +183,17 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
         header_info: {country, district, assessment_date}
         executive_summary: Optional AI-generated executive summary
         recommendations: Optional AI-generated recommendations
+        generated_at_ist: IST-formatted generation timestamp
+        requester_ip: IP address of the requester
+        exported_by: Username of the exporter
+        country: Optional country override (defaults to header_info country)
 
     Returns:
         BytesIO containing the DOCX file
     """
+    # Use explicit country param if provided, otherwise fall back to header_info
+    if country:
+        header_info["country"] = country
     logger.info("Generating DOCX report for %s", header_info.get("country", ""))
     doc = Document()
 
@@ -214,6 +235,13 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
         run = date_p.add_run(f"Date: {date_str}")
         run.font.size = Pt(12)
 
+    doc.add_paragraph("")
+    brand_p = doc.add_paragraph()
+    brand_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = brand_p.add_run("SEHRA Analyzer — PRASHO Foundation")
+    run.font.size = Pt(10)
+    run.font.color.rgb = RGBColor(0x99, 0x99, 0x99)
+
     doc.add_page_break()
 
     # --- EXECUTIVE SUMMARY ---
@@ -221,7 +249,7 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
         doc.add_heading("Executive Summary", level=1)
         for para in executive_summary.strip().split("\n\n"):
             if para.strip():
-                doc.add_paragraph(para.strip())
+                doc.add_paragraph(_clean(para.strip()))
         doc.add_page_break()
 
     # --- PURPOSE ---
@@ -349,61 +377,69 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
         last_paragraph = doc.paragraphs[-1]
         last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-        # Enablers table
-        report_sections = ca.get("report_sections", {})
-        qual_entries = ca.get("qualitative_entries", [])
+        # Scored items (codebook answers — always populated)
+        items = ca.get("items", [])
+        scored_enablers = [i for i in items if i.get("classification") == "enabler"]
+        scored_barriers = [i for i in items if i.get("classification") == "barrier"]
 
+        report_sections = ca.get("report_sections", {})
+
+        if scored_enablers:
+            doc.add_heading(f"Enabler Items ({len(scored_enablers)})", level=3)
+            enabler_summary = report_sections.get("enabler_summary", {})
+            if enabler_summary and enabler_summary.get("content"):
+                doc.add_paragraph(_clean(enabler_summary["content"]))
+            rows = [[i.get("item_id", ""), i.get("question", "")[:200], str(i.get("answer", ""))] for i in scored_enablers]
+            _add_styled_table(doc, ["Item", "Question", "Answer"], rows)
+
+        if scored_barriers:
+            doc.add_heading(f"Barrier Items ({len(scored_barriers)})", level=3)
+            barrier_summary = report_sections.get("barrier_summary", {})
+            if barrier_summary and barrier_summary.get("content"):
+                doc.add_paragraph(_clean(barrier_summary["content"]))
+            rows = [[i.get("item_id", ""), i.get("question", "")[:200], str(i.get("answer", ""))] for i in scored_barriers]
+            _add_styled_table(doc, ["Item", "Question", "Answer"], rows)
+
+        # AI-classified remarks (only when text remarks exist)
+        qual_entries = ca.get("qualitative_entries", [])
         enabler_entries = [e for e in qual_entries if e.get("classification") in ("enabler", "strength")]
         barrier_entries = [e for e in qual_entries if e.get("classification") in ("barrier", "weakness")]
 
         if enabler_entries:
-            doc.add_heading("Enablers", level=3)
-            enabler_summary = report_sections.get("enabler_summary", {})
-            if enabler_summary and enabler_summary.get("content"):
-                doc.add_paragraph(enabler_summary["content"])
-
-            # Group by theme
+            doc.add_heading("Classified Enabler Remarks", level=3)
             theme_groups = {}
             for e in enabler_entries:
                 theme = e.get("theme", "Other")
                 if theme not in theme_groups:
                     theme_groups[theme] = []
                 theme_groups[theme].append(e.get("remark_text", ""))
-
             rows = []
             for theme, remarks in theme_groups.items():
                 summary = "; ".join(r for r in remarks if r)[:300]
                 rows.append([theme, summary, ""])
-
             if rows:
-                _add_styled_table(doc, ["Component", "Cross-cutting Summary", "Action Points"], rows)
+                _add_styled_table(doc, ["Theme", "Remarks", "Action Points"], rows)
 
         if barrier_entries:
-            doc.add_heading("Barriers", level=3)
-            barrier_summary = report_sections.get("barrier_summary", {})
-            if barrier_summary and barrier_summary.get("content"):
-                doc.add_paragraph(barrier_summary["content"])
-
+            doc.add_heading("Classified Barrier Remarks", level=3)
             theme_groups = {}
             for e in barrier_entries:
                 theme = e.get("theme", "Other")
                 if theme not in theme_groups:
                     theme_groups[theme] = []
                 theme_groups[theme].append(e.get("remark_text", ""))
-
             rows = []
             for theme, remarks in theme_groups.items():
                 summary = "; ".join(r for r in remarks if r)[:300]
                 rows.append([theme, summary, ""])
-
             if rows:
-                _add_styled_table(doc, ["Component", "Cross-cutting Summary", "Action Points"], rows)
+                _add_styled_table(doc, ["Theme", "Remarks", "Action Points"], rows)
 
         # Action points from report sections
         action_section = report_sections.get("action_points", {})
         if action_section and action_section.get("content"):
             doc.add_heading("Action Points", level=3)
-            doc.add_paragraph(action_section["content"])
+            doc.add_paragraph(_clean(action_section["content"]))
 
         doc.add_paragraph("")  # Spacing
 
@@ -416,7 +452,7 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
         for para in recommendations.strip().split("\n"):
             line = para.strip()
             if line:
-                doc.add_paragraph(line)
+                doc.add_paragraph(_clean(line))
     else:
         # Fallback to generic recommendations
         doc.add_paragraph(
@@ -474,6 +510,29 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
             ["Component", "Theme", "Classification", "Confidence", "Remark"],
             rows,
         )
+
+    # --- FOOTER ---
+    doc.add_page_break()
+    footer_p = doc.add_paragraph()
+    footer_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    run = footer_p.add_run("SEHRA Analyzer — Built for PRASHO Foundation by Samanvay Foundation")
+    run.font.size = Pt(9)
+    run.font.color.rgb = COLORS["header_bg"]
+    run.bold = True
+
+    meta_parts = []
+    if generated_at_ist:
+        meta_parts.append(f"Generated on {generated_at_ist} IST")
+    if exported_by:
+        meta_parts.append(f"Exported by {exported_by}")
+    if requester_ip:
+        meta_parts.append(f"IP: {requester_ip}")
+    if meta_parts:
+        meta_p = doc.add_paragraph()
+        meta_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = meta_p.add_run(" | ".join(meta_parts))
+        run.font.size = Pt(8)
+        run.font.color.rgb = RGBColor(0x99, 0x99, 0x99)
 
     # Save to BytesIO
     buf = io.BytesIO()

@@ -10,10 +10,21 @@ Generates a multi-sheet workbook with:
 
 import io
 import logging
+import re
 
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
+
+# openpyxl rejects XML 1.0 illegal characters (control chars except \t \n \r)
+_ILLEGAL_CHARS_RE = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f]')
+
+
+def _clean(value):
+    """Strip characters that openpyxl considers illegal in cell values."""
+    if isinstance(value, str):
+        return _ILLEGAL_CHARS_RE.sub('', value)
+    return value
 
 from core.charts import COMPONENT_ORDER, COMPONENT_SHORT_NAMES
 
@@ -69,6 +80,10 @@ def generate_xlsx_report(
     header_info: dict,
     executive_summary: str = "",
     recommendations: str = "",
+    generated_at_ist: str = "",
+    requester_ip: str = "",
+    exported_by: str = "",
+    country: str | None = None,
 ) -> io.BytesIO:
     """Generate a multi-sheet XLSX report.
 
@@ -77,10 +92,17 @@ def generate_xlsx_report(
         header_info: {country, district, assessment_date}
         executive_summary: Optional executive summary text
         recommendations: Optional recommendations text
+        generated_at_ist: IST-formatted generation timestamp
+        requester_ip: IP address of the requester
+        exported_by: Username of the exporter
+        country: Optional country override (defaults to header_info country)
 
     Returns:
         BytesIO containing the XLSX file
     """
+    # Use explicit country param if provided, otherwise fall back to header_info
+    if country:
+        header_info["country"] = country
     logger.info("Generating XLSX report for %s", header_info.get("country", ""))
     wb = Workbook()
 
@@ -130,7 +152,23 @@ def generate_xlsx_report(
         ws_summary.cell(row=ws_summary.max_row, column=1).font = Font(bold=True, size=12)
         for para in executive_summary.strip().split("\n\n"):
             if para.strip():
-                ws_summary.append([para.strip()])
+                ws_summary.append([_clean(para.strip())])
+
+    # --- Export metadata ---
+    ws_summary.append([])
+    ws_summary.append(["SEHRA Analyzer — Built for PRASHO Foundation by Samanvay Foundation"])
+    ws_summary.cell(row=ws_summary.max_row, column=1).font = Font(
+        italic=True, color=TEAL_HEX, size=9
+    )
+    if generated_at_ist:
+        ws_summary.append(["Generated on", f"{generated_at_ist} IST"])
+        ws_summary.cell(row=ws_summary.max_row, column=1).font = Font(bold=True, size=9)
+    if exported_by:
+        ws_summary.append(["Exported by", exported_by])
+        ws_summary.cell(row=ws_summary.max_row, column=1).font = Font(bold=True, size=9)
+    if requester_ip:
+        ws_summary.append(["IP Address", requester_ip])
+        ws_summary.cell(row=ws_summary.max_row, column=1).font = Font(bold=True, size=9)
 
     _auto_column_widths(ws_summary)
     ws_summary.column_dimensions["A"].width = 25
@@ -210,24 +248,49 @@ def generate_xlsx_report(
         ws_comp.append([f"Enablers: {ca.get('enabler_count', 0)}", f"Barriers: {ca.get('barrier_count', 0)}"])
         ws_comp.append([])
 
-        # Entries table
+        # Scored items (codebook answers — always populated)
+        items = ca.get("items", [])
+        if items:
+            item_headers = ["Item ID", "Question", "Answer", "Classification"]
+            ws_comp.append(item_headers)
+            _style_header_row(ws_comp, ws_comp.max_row, len(item_headers))
+
+            for item in items:
+                cls = item.get("classification", "")
+                ws_comp.append([
+                    _clean(item.get("item_id", "")),
+                    _clean((item.get("question", "") or "")[:200]),
+                    _clean(str(item.get("answer", ""))),
+                    cls or "N/A",
+                ])
+                # Color classification
+                cls_cell = ws_comp.cell(row=ws_comp.max_row, column=4)
+                if cls == "enabler":
+                    cls_cell.font = Font(color=TEAL_HEX, bold=True)
+                elif cls == "barrier":
+                    cls_cell.font = Font(color=RED_HEX, bold=True)
+
+            ws_comp.append([])
+
+        # AI-classified entries (if available)
         entries = ca.get("qualitative_entries", [])
         if entries:
+            ws_comp.append(["AI-Classified Remarks"])
+            ws_comp.cell(row=ws_comp.max_row, column=1).font = Font(bold=True, size=12)
             entry_headers = ["Item ID", "Theme", "Classification", "Confidence", "Remark"]
             ws_comp.append(entry_headers)
             _style_header_row(ws_comp, ws_comp.max_row, len(entry_headers))
 
             for entry in entries:
                 ws_comp.append([
-                    entry.get("item_id", ""),
-                    entry.get("theme", ""),
+                    _clean(entry.get("item_id", "")),
+                    _clean(entry.get("theme", "")),
                     entry.get("classification", ""),
                     f"{entry.get('confidence', 0):.0%}",
-                    (entry.get("remark_text", "") or "")[:500],
+                    _clean((entry.get("remark_text", "") or "")[:500]),
                 ])
 
-            # Conditional formatting for classification
-            for row_idx in range(5, ws_comp.max_row + 1):
+            for row_idx in range(ws_comp.max_row - len(entries) + 1, ws_comp.max_row + 1):
                 cls_cell = ws_comp.cell(row=row_idx, column=3)
                 if cls_cell.value in ("enabler", "strength"):
                     cls_cell.font = Font(color=TEAL_HEX)
@@ -244,7 +307,7 @@ def generate_xlsx_report(
                     label = sec_type.replace("_", " ").title()
                     ws_comp.append([label])
                     ws_comp.cell(row=ws_comp.max_row, column=1).font = Font(bold=True)
-                    ws_comp.append([content[:2000]])
+                    ws_comp.append([_clean(content[:2000])])
                     ws_comp.append([])
 
         _auto_column_widths(ws_comp)
@@ -262,11 +325,11 @@ def generate_xlsx_report(
         for entry in ca.get("qualitative_entries", []):
             ws_remarks.append([
                 COMPONENT_DISPLAY_NAMES.get(comp_key, comp_key),
-                entry.get("item_id", ""),
-                entry.get("theme", ""),
+                _clean(entry.get("item_id", "")),
+                _clean(entry.get("theme", "")),
                 entry.get("classification", ""),
                 f"{entry.get('confidence', 0):.0%}",
-                (entry.get("remark_text", "") or "")[:500],
+                _clean((entry.get("remark_text", "") or "")[:500]),
             ])
 
     _auto_column_widths(ws_remarks)

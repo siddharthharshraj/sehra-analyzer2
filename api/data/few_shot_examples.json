@@ -60,6 +60,13 @@
         "classification": "enabler",
         "confidence": 0.88,
         "reasoning": "Data sharing through coordination mechanism enables evidence-based planning."
+      },
+      {
+        "remark": "There are no specific indicators on school health or eye health of children within the Education Management Information System.",
+        "theme": "Data Considerations",
+        "classification": "barrier",
+        "confidence": 0.91,
+        "reasoning": "Absence of eye health indicators in EMIS prevents systematic monitoring of school eye health outcomes."
       }
     ],
     "human_resources": [
@@ -76,6 +83,27 @@
         "classification": "barrier",
         "confidence": 0.92,
         "reasoning": "Shortage of eye health workforce is a key barrier to service delivery."
+      },
+      {
+        "remark": "There are trained ophthalmic nurses in 3 of the 5 districts, but rural areas lack qualified eye health workers.",
+        "theme": "Local Capacity and Service Delivery",
+        "classification": "barrier",
+        "confidence": 0.88,
+        "reasoning": "Uneven distribution of trained eye health personnel leaves rural areas underserved."
+      },
+      {
+        "remark": "The Ministry has included eye health training in the pre-service curriculum for community health workers.",
+        "theme": "Operationalization Strategies",
+        "classification": "enabler",
+        "confidence": 0.92,
+        "reasoning": "Inclusion in pre-service training ensures a pipeline of eye health-competent community health workers."
+      },
+      {
+        "remark": "Task-shifting policies allow trained teachers to conduct basic vision screening in schools.",
+        "theme": "Institutional Structure and Stakeholders",
+        "classification": "enabler",
+        "confidence": 0.85,
+        "reasoning": "Formal task-shifting policy leverages teacher workforce to expand screening coverage."
       }
     ],
     "supply_chain": [
@@ -92,6 +120,20 @@
         "classification": "enabler",
         "confidence": 0.91,
         "reasoning": "Established procurement system with quality assurance enables eyeglasses supply."
+      },
+      {
+        "remark": "Anti-biotic eye drops and ointments are available at primary health care level facilities in the intervention area.",
+        "theme": "Local Capacity and Service Delivery",
+        "classification": "enabler",
+        "confidence": 0.87,
+        "reasoning": "Availability of basic ophthalmic consumables at primary level supports frontline service delivery."
+      },
+      {
+        "remark": "Most people in the intervention area struggle financially and cannot afford to pay for custom prescription glasses.",
+        "theme": "Cost, Availability and Affordability",
+        "classification": "barrier",
+        "confidence": 0.93,
+        "reasoning": "Financial hardship in the community creates a direct affordability barrier for corrective eyewear."
       }
     ],
     "barriers": [
@@ -108,6 +150,20 @@
         "classification": "barrier",
         "confidence": 0.93,
         "reasoning": "Insufficient government investment is a systemic funding barrier."
+      },
+      {
+        "remark": "Barriers to wearing eyeglasses include low literacy levels of parents, fears about wearing eyeglasses, and cultural beliefs and practices.",
+        "theme": "Sociocultural Factors and Compliance",
+        "classification": "barrier",
+        "confidence": 0.94,
+        "reasoning": "Multiple sociocultural barriers including literacy, fear, and cultural beliefs impede uptake of corrective eyewear."
+      },
+      {
+        "remark": "There is a shortage of skilled eye health workers to receive and attend to referrals from school screening programmes.",
+        "theme": "Local Capacity and Service Delivery",
+        "classification": "barrier",
+        "confidence": 0.91,
+        "reasoning": "Workforce shortage breaks the referral chain, limiting the effectiveness of school-level screening."
       }
     ]
   },
@@ -115,7 +171,7 @@
     "enabler_summary": {
       "component": "policy",
       "themes": ["Institutional Structure and Stakeholders", "Coordination and Integration"],
-      "summary": "The policy environment for school eye health in Liberia is supported by strong institutional frameworks. The SHIP programme is delivered in partnership with both the Ministry of Education and Ministry of Health, with alignment to the Liberia Education Sector Plan, the NTD Master Plan, and the Eye Health Policy and Strategic Plan. School health is included in the National Education Policy, the Disability Policy, and the Social Protection Policy, providing a comprehensive policy foundation. A dedicated Eye Health Technical Working Group facilitates coordination between the ministries, ensuring integrated planning and monitoring of school eye health activities.",
+      "summary": "The policy environment for school eye health is supported by strong institutional frameworks. The programme is delivered in partnership with both the Ministry of Education and Ministry of Health, with alignment to national sector plans and the Eye Health Policy and Strategic Plan. School health is included in the National Education Policy, the Disability Policy, and the Social Protection Policy, providing a comprehensive policy foundation. A dedicated Eye Health Technical Working Group facilitates coordination between the ministries, ensuring integrated planning and monitoring of school eye health activities.",
       "action_points": [
         "Leverage existing policy alignment to advocate for increased budget allocation for school eye health",
         "Use the Technical Working Group as a platform to expand school eye health indicators in national monitoring frameworks"
@@ -129,6 +185,64 @@
         "Advocate for development of an IPEC Plan that includes school eye health",
         "Include school eye health in the next revision of the Rehabilitation and Assistive Technology policies",
         "Develop a costed implementation plan to support budget advocacy with government"
+      ]
+    },
+    "human_resources_enabler_summary": {
+      "component": "human_resources",
+      "themes": ["Local Capacity and Service Delivery", "Operationalization Strategies"],
+      "summary": "The human resources landscape for school eye health shows positive foundations in workforce training. A significant number of teachers and support staff have received training on vision screening implementation, creating a decentralized capacity for school-based eye health services. Task-shifting policies enabling teachers to conduct basic screenings expand the effective workforce available. The inclusion of eye health in pre-service training curricula ensures a sustainable pipeline of competent personnel entering the health and education sectors.",
+      "action_points": [
+        "Develop a structured refresher training programme for teachers already trained in vision screening",
+        "Establish mentorship links between trained ophthalmic technicians and school-based screeners to maintain quality"
+      ]
+    },
+    "human_resources_barrier_summary": {
+      "component": "human_resources",
+      "themes": ["Local Capacity and Service Delivery", "Funding"],
+      "summary": "Critical gaps exist in the eye health workforce, particularly in rural and underserved areas. The limited number of qualified eye health workers constrains both the direct delivery of services and the capacity to process referrals from school screening. An aging workforce compounds the urgency, with insufficient new graduates entering eye health professions. Additional in-service training is needed for refractionists and optometrists, and regular refresher training for teachers is lacking due to resource constraints.",
+      "action_points": [
+        "Develop a costed human resource plan that addresses rural deployment gaps and workforce aging",
+        "Advocate for dedicated budget lines for eye health training within the Ministry of Health workforce plan",
+        "Establish a system for regular refresher training with annual certification for school-based screeners"
+      ]
+    },
+    "supply_chain_enabler_summary": {
+      "component": "supply_chain",
+      "themes": ["Procuring Eyeglasses", "Local Capacity and Service Delivery"],
+      "summary": "The supply chain for school eye health demonstrates several strengths. Established procurement systems with quality assurance ensure that eyeglasses from approved suppliers meet required standards. Basic ophthalmic consumables including antibiotic eye drops and ointments are available at primary health care facilities. Screening equipment with appropriate standards exists at community, primary, and secondary health care levels, providing the tools necessary for a functional screening-to-treatment pathway.",
+      "action_points": [
+        "Expand the procurement system to include a wider range of pediatric spectacle frames to improve compliance",
+        "Develop a supply tracking system to monitor stock levels of key consumables across health facilities"
+      ]
+    },
+    "supply_chain_barrier_summary": {
+      "component": "supply_chain",
+      "themes": ["Cost, Availability and Affordability", "Procuring Eyeglasses"],
+      "summary": "Significant supply chain barriers threaten the sustainability of school eye health services. Eyeglasses are not included in health insurance or state financing mechanisms, placing the cost burden on families who often cannot afford them. Glasses are imported rather than produced locally, creating dependency on international supply chains and increasing costs. Some facilities lack the necessary equipment to detect and treat eye conditions in school-age children, creating gaps in the service delivery chain.",
+      "action_points": [
+        "Advocate for inclusion of eyeglasses on the Ministry of Health Essential Supplies List",
+        "Explore partnerships for local or regional eyeglass production to reduce import dependency",
+        "Conduct a facility equipment audit and develop a prioritized procurement plan for underequipped sites"
+      ]
+    },
+    "barriers_enabler_summary": {
+      "component": "barriers",
+      "themes": ["Sociocultural Factors and Compliance", "Local Capacity and Service Delivery"],
+      "summary": "Despite the challenging barrier landscape, several enabling factors support school eye health programme implementation. Health promotion activities are raising community awareness about the importance of eye health. Task reallocation through training of teachers to screen and refer has expanded the functional workforce for school-level services. Additionally, the availability of spectacles at public health facilities with a range of frame options for children addresses some compliance and accessibility concerns.",
+      "action_points": [
+        "Scale up community health promotion campaigns with culturally appropriate messaging about eyeglasses",
+        "Document and share success stories from communities where screening uptake is high to replicate enablers"
+      ]
+    },
+    "barriers_barrier_summary": {
+      "component": "barriers",
+      "themes": ["Funding", "Sociocultural Factors and Compliance", "Local Capacity and Service Delivery"],
+      "summary": "Multiple intersecting barriers challenge the effective delivery of school eye health services. Funding constraints remain the most systemic barrier, with limited financial resources and competing priorities impeding nationwide implementation. Sociocultural barriers including low parental literacy, fears about eyeglasses, misinformation, and cultural beliefs significantly reduce uptake and compliance. A shortage of skilled eye health workers to process referrals creates bottlenecks in the care pathway, while supply chain challenges affect the cost, range, and availability of spectacles.",
+      "action_points": [
+        "Develop a multi-year costed plan for school eye health to support budget advocacy with government",
+        "Design targeted behaviour change communication addressing specific cultural misconceptions about eyeglasses",
+        "Establish a task-shifting framework to expand the pool of personnel who can manage referrals and basic eye care",
+        "Strengthen the supply chain for spectacles through bulk procurement and local distribution networks"
       ]
     }
   }

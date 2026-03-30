@@ -83,6 +83,7 @@ def generate_xlsx_report(
     generated_at_ist: str = "",
     requester_ip: str = "",
     exported_by: str = "",
+    country: str | None = None,
 ) -> io.BytesIO:
     """Generate a multi-sheet XLSX report.
 
@@ -94,10 +95,14 @@ def generate_xlsx_report(
         generated_at_ist: IST-formatted generation timestamp
         requester_ip: IP address of the requester
         exported_by: Username of the exporter
+        country: Optional country override (defaults to header_info country)
 
     Returns:
         BytesIO containing the XLSX file
     """
+    # Use explicit country param if provided, otherwise fall back to header_info
+    if country:
+        header_info["country"] = country
     logger.info("Generating XLSX report for %s", header_info.get("country", ""))
     wb = Workbook()
 

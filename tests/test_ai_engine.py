@@ -4,6 +4,7 @@ import json
 import pytest
 from unittest.mock import patch, MagicMock
 
+import core.ai_engine as ai_engine_module
 from core.ai_engine import (
     build_system_prompt, _parse_llm_json, _validate_response,
     analyze_component, _build_few_shot_messages,
@@ -95,66 +96,62 @@ class TestFewShotMessages:
 
 
 class TestAnalyzeComponent:
-    @patch("core.ai_engine._call_llm")
-    def test_basic_analysis(self, mock_llm, mock_llm_response):
-        mock_llm.return_value = mock_llm_response
+    def test_basic_analysis(self, mock_llm_response):
+        with patch.object(ai_engine_module, "_call_llm", return_value=mock_llm_response) as mock_llm:
+            items = [
+                {
+                    "item_id": "S1",
+                    "question": "Test question",
+                    "answer": "yes",
+                    "remark": "School health is included in the National Education Policy.",
+                }
+            ]
+            result = analyze_component("policy", items)
 
-        items = [
-            {
-                "item_id": "S1",
-                "question": "Test question",
-                "answer": "yes",
-                "remark": "School health is included in the National Education Policy.",
-            }
-        ]
-        result = analyze_component("policy", items)
+            assert "classifications" in result
+            assert "enabler_summary" in result
+            assert "barrier_summary" in result
+            mock_llm.assert_called_once()
 
-        assert "classifications" in result
-        assert "enabler_summary" in result
-        assert "barrier_summary" in result
-        mock_llm.assert_called_once()
+    def test_empty_items(self):
+        with patch.object(ai_engine_module, "_call_llm") as mock_llm:
+            result = analyze_component("policy", [])
+            assert result["classifications"] == []
+            mock_llm.assert_not_called()
 
-    @patch("core.ai_engine._call_llm")
-    def test_empty_items(self, mock_llm):
-        result = analyze_component("policy", [])
-        assert result["classifications"] == []
-        mock_llm.assert_not_called()
-
-    @patch("core.ai_engine._call_llm")
-    def test_no_remarks(self, mock_llm):
-        items = [{"item_id": "S1", "question": "Test", "answer": "yes", "remark": ""}]
-        result = analyze_component("policy", items)
-        assert result["classifications"] == []
-        mock_llm.assert_not_called()
+    def test_no_remarks(self):
+        with patch.object(ai_engine_module, "_call_llm") as mock_llm:
+            items = [{"item_id": "S1", "question": "Test", "answer": "yes", "remark": ""}]
+            result = analyze_component("policy", items)
+            assert result["classifications"] == []
+            mock_llm.assert_not_called()
 
 
 class TestGenerateExecutiveSummary:
-    @patch("core.ai_engine._call_llm")
-    def test_generates_summary(self, mock_llm):
-        mock_llm.return_value = "This is an executive summary."
-        header = {"country": "Liberia", "district": "Montserrado"}
-        all_results = {
-            "policy": {
-                "classifications": [
-                    {"classification": "enabler", "theme": "Funding", "remark_text": "Budget allocated"}
-                ]
+    def test_generates_summary(self):
+        with patch.object(ai_engine_module, "_call_llm", return_value="This is an executive summary."):
+            header = {"country": "Liberia", "district": "Montserrado"}
+            all_results = {
+                "policy": {
+                    "classifications": [
+                        {"classification": "enabler", "theme": "Funding", "remark_text": "Budget allocated"}
+                    ]
+                }
             }
-        }
-        result = generate_executive_summary(all_results, header)
-        assert "executive summary" in result.lower()
+            result = generate_executive_summary(all_results, header)
+            assert "executive summary" in result.lower()
 
 
 class TestGenerateRecommendations:
-    @patch("core.ai_engine._call_llm")
-    def test_generates_recommendations(self, mock_llm):
-        mock_llm.return_value = "1. Address funding gaps.\n2. Strengthen coordination."
-        header = {"country": "Liberia"}
-        all_results = {
-            "policy": {
-                "classifications": [
-                    {"classification": "barrier", "theme": "Funding", "remark_text": "Limited budget"}
-                ]
+    def test_generates_recommendations(self):
+        with patch.object(ai_engine_module, "_call_llm", return_value="1. Address funding gaps.\n2. Strengthen coordination."):
+            header = {"country": "Liberia"}
+            all_results = {
+                "policy": {
+                    "classifications": [
+                        {"classification": "barrier", "theme": "Funding", "remark_text": "Limited budget"}
+                    ]
+                }
             }
-        }
-        result = generate_recommendations(all_results, header)
-        assert "1." in result
+            result = generate_recommendations(all_results, header)
+            assert "1." in result

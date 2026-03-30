@@ -1,0 +1,42 @@
+{
+  "country": "generic",
+  "region": "global",
+  "context": "Generic SEHRA knowledge base for countries without a specific country profile. The SEHRA tool is used globally to evaluate readiness for school eye health programme implementation.",
+  "key_programmes": {
+    "note": "Country-specific programmes should be identified during analysis from the SEHRA document content."
+  },
+  "key_stakeholders": {
+    "typical_ministries": ["Ministry of Education", "Ministry of Health"],
+    "typical_partners": ["Peek Vision", "Sightsavers", "WHO", "UNICEF"],
+    "coordination": "Technical Working Groups or equivalent inter-ministerial coordination mechanisms"
+  },
+  "common_policy_frameworks": [
+    "National Education Policy/Sector Plan",
+    "National Health Policy/Strategic Plan",
+    "Disability Policy",
+    "Social Protection Policy",
+    "NTD Master Plan",
+    "Eye Health Policy and Strategic Plan",
+    "Integrated People-Centred Eye Care (IPEC) Plan",
+    "Rehabilitation Policy",
+    "Assistive Technology Policy"
+  ],
+  "common_challenges": [
+    "Limited eye health workforce",
+    "Inadequate funding for school health",
+    "Supply chain issues for eyeglasses",
+    "Lack of integration between health and education sectors",
+    "Insufficient data collection and monitoring systems",
+    "Cultural barriers and misconceptions about eye health",
+    "Geographic access barriers in rural areas",
+    "Sustainability beyond NGO/donor funding"
+  ],
+  "sehra_components": {
+    "context": "Background information about the country/region",
+    "policy": "Sectoral legislation, policy and strategy alignment",
+    "service_delivery": "Institutional and service delivery environment",
+    "human_resources": "Eye health workforce availability and training",
+    "supply_chain": "Procurement, availability and affordability of supplies",
+    "barriers": "Specific barriers to programme implementation"
+  }
+}

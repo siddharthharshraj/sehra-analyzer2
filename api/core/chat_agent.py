@@ -28,9 +28,18 @@ class ChatResponse(BaseModel):
     data_table: Optional[list] = None  # Rows for DataFrame display
 
 
-def _build_data_context(component_analyses: list[dict], exec_summary: str = "") -> str:
-    """Build a data context string for the LLM."""
+def _build_data_context(component_analyses: list[dict], exec_summary: str = "",
+                        country: str = "") -> str:
+    """Build a data context string for the LLM.
+
+    Args:
+        component_analyses: List of component analysis dicts from DB
+        exec_summary: Optional executive summary text
+        country: Country name for context
+    """
     lines = ["SEHRA DATA SUMMARY:"]
+    if country:
+        lines.append(f"Country: {country}")
 
     total_enablers = 0
     total_barriers = 0
@@ -175,18 +184,19 @@ def _create_chart_from_spec(spec: dict) -> go.Figure | None:
 
 
 def chat_query(question: str, component_analyses: list[dict],
-               executive_summary: str = "") -> ChatResponse:
+               executive_summary: str = "", country: str = "") -> ChatResponse:
     """Process a user question about SEHRA data.
 
     Args:
         question: User's natural language question
         component_analyses: List of component analysis dicts from DB
         executive_summary: Optional executive summary text
+        country: Country name for context in AI responses
 
     Returns:
         ChatResponse with text answer and optional chart
     """
-    data_context = _build_data_context(component_analyses, executive_summary)
+    data_context = _build_data_context(component_analyses, executive_summary, country=country)
     system_prompt = _build_chart_system_prompt()
 
     user_message = f"""DATA:

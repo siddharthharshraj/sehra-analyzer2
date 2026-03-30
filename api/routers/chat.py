@@ -23,7 +23,10 @@ def chat(req: ChatRequest, user: dict = Depends(get_current_user)):
     component_analyses = db.get_component_analyses(req.sehra_id)
     exec_summary = sehra.get("executive_summary", "")
 
-    result = chat_query(req.question, component_analyses, exec_summary)
+    # Resolve country: from request, or from SEHRA record
+    country = req.country or sehra.get("country", "")
+
+    result = chat_query(req.question, component_analyses, exec_summary, country=country)
 
     # Convert Plotly chart JSON to simple chart_spec for Recharts
     chart_spec = None

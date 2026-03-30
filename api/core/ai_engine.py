@@ -14,6 +14,7 @@ import re
 import json
 import time
 import logging
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Optional
 
@@ -84,6 +85,157 @@ def _load_few_shot_examples() -> dict:
         with open(path) as f:
             return json.load(f)
     return {}
+
+
+# --- Country-Aware Data Loading ---
+
+def _load_country_data(country: str = "default") -> dict:
+    """Load all country-specific data files, falling back to defaults."""
+    return {
+        "keyword_patterns": _load_country_keyword_patterns(country),
+        "few_shot_examples": _load_country_few_shot_examples(country),
+        "knowledge_base": _load_country_knowledge_base(country),
+    }
+
+
+def _load_country_keyword_patterns(country: str = "default") -> dict:
+    """Load country-specific keyword patterns, falling back to default."""
+    country_path = DATA_DIR / "countries" / country.lower() / "keyword_patterns.json"
+    if country_path.exists():
+        logger.info("Loading keyword patterns for country: %s", country)
+        with open(country_path) as f:
+            return json.load(f)
+    if country.lower() != "default":
+        logger.info("No country-specific keyword patterns for '%s', using default", country)
+    return _load_keyword_patterns()
+
+
+def _load_country_few_shot_examples(country: str = "default") -> dict:
+    """Load country-specific few-shot examples, falling back to default."""
+    country_path = DATA_DIR / "countries" / country.lower() / "few_shot_examples.json"
+    if country_path.exists():
+        logger.info("Loading few-shot examples for country: %s", country)
+        with open(country_path) as f:
+            return json.load(f)
+    if country.lower() != "default":
+        logger.info("No country-specific few-shot examples for '%s', using default", country)
+    return _load_few_shot_examples()
+
+
+def _load_country_knowledge_base(country: str = "default") -> dict:
+    """Load country-specific knowledge base, falling back to default."""
+    country_path = DATA_DIR / "countries" / country.lower() / "sehra_knowledge.json"
+    if country_path.exists():
+        logger.info("Loading knowledge base for country: %s", country)
+        with open(country_path) as f:
+            return json.load(f)
+    if country.lower() != "default":
+        logger.info("No country-specific knowledge base for '%s', using default", country)
+    return _load_sehra_knowledge()
+
+
+# --- Input Sanitization ---
+
+def _sanitize_remark(remark: str) -> str:
+    """Sanitize remark text to prevent prompt injection."""
+    if not remark:
+        return ""
+    # Remove potential JSON-breaking characters in the middle of text
+    # But preserve legitimate punctuation
+    sanitized = remark.strip()
+    # Remove control characters
+    sanitized = ''.join(c for c in sanitized if c.isprintable() or c in '\n\t')
+    # Truncate extremely long remarks (likely malformed data)
+    if len(sanitized) > 2000:
+        sanitized = sanitized[:2000] + "..."
+    return sanitized
+
+
+# --- Theme Validation ---
+
+def _validate_and_fix_themes(classifications: list[dict], valid_themes: list[str]) -> list[dict]:
+    """Validate theme names from LLM output. Fix near-matches, flag unknowns."""
+    valid_theme_lower = {t.lower(): t for t in valid_themes}
+    fixed = []
+
+    for entry in classifications:
+        theme = entry.get("theme", "")
+        theme_lower = theme.lower().strip()
+
+        # Exact match (case-insensitive)
+        if theme_lower in valid_theme_lower:
+            entry["theme"] = valid_theme_lower[theme_lower]
+            entry["theme_validated"] = True
+            fixed.append(entry)
+            continue
+
+        # Fuzzy match - find closest theme
+        best_match = None
+        best_score = 0.0
+        for valid_lower, valid_original in valid_theme_lower.items():
+            score = SequenceMatcher(None, theme_lower, valid_lower).ratio()
+            if score > best_score:
+                best_score = score
+                best_match = valid_original
+
+        if best_score >= 0.7:  # High confidence fuzzy match
+            logger.warning(
+                "Theme fuzzy-matched: '%s' -> '%s' (score=%.2f)",
+                theme, best_match, best_score,
+            )
+            entry["theme"] = best_match
+            entry["theme_validated"] = True
+            entry["theme_fuzzy_matched"] = True
+            entry["original_theme"] = theme
+            fixed.append(entry)
+        else:
+            # No match - assign to closest theme but flag it
+            logger.warning(
+                "Theme not matched: '%s' (best: '%s', score=%.2f). Keeping with low confidence.",
+                theme, best_match, best_score,
+            )
+            entry["theme"] = best_match if best_match else valid_themes[0]
+            entry["theme_validated"] = False
+            entry["theme_fuzzy_matched"] = True
+            entry["original_theme"] = theme
+            # Reduce confidence since theme was not validated
+            if "confidence" in entry:
+                entry["confidence"] = min(entry["confidence"], 0.4)
+            fixed.append(entry)
+
+    return fixed
+
+
+# --- Confidence Calibration ---
+
+def _calibrate_confidence(classifications: list[dict], component: str) -> list[dict]:
+    """Apply calibration heuristics to raw LLM confidence scores.
+
+    Rules:
+    - Theme not validated -> cap at 0.4
+    - Remark < 20 chars -> reduce by 0.2 (less context = less reliable)
+    - Very long, detailed remarks (>200 chars) -> boost by 0.05
+    """
+    for entry in classifications:
+        conf = entry.get("confidence", 0.5)
+
+        # Already handled by theme validation
+        if not entry.get("theme_validated", True):
+            conf = min(conf, 0.4)
+
+        # Short remarks are less reliable
+        remark = entry.get("remark_text", "")
+        if len(remark) < 20:
+            conf = max(0.1, conf - 0.2)
+
+        # Very long, detailed remarks are more reliable
+        if len(remark) > 200:
+            conf = min(1.0, conf + 0.05)
+
+        # Clamp to valid range
+        entry["confidence"] = round(max(0.0, min(1.0, conf)), 3)
+
+    return classifications
 
 
 # --- LLM Provider ---
@@ -207,9 +359,10 @@ def _call_openai(system_prompt: str, user_message: str,
 
 # --- Prompt Construction ---
 
-def build_system_prompt(component: str, keyword_patterns: dict, themes: list[dict]) -> str:
+def build_system_prompt(component: str, keyword_patterns: dict, themes: list[dict],
+                        country: str = "default") -> str:
     """Build the system prompt with rich SEHRA domain context."""
-    knowledge = _load_sehra_knowledge()
+    knowledge = _load_country_knowledge_base(country)
 
     theme_list = "\n".join(
         f"  {t['id']}. {t['name']}: {t['description']}"
@@ -262,10 +415,20 @@ def build_system_prompt(component: str, keyword_patterns: dict, themes: list[dic
                 for ec in edge:
                     rules_text += f"      - {ec}\n"
 
+    # Country context from knowledge base
+    country_context = ""
+    country_contexts = knowledge.get("country_contexts", {})
+    if country and country.lower() != "default":
+        for ctx_name, ctx_desc in country_contexts.items():
+            if ctx_name.lower() == country.lower():
+                country_context = f"\nCOUNTRY CONTEXT ({ctx_name}):\n{ctx_desc}\n"
+                break
+
     return f"""You are a School Eye Health Rapid Assessment (SEHRA) analysis expert working for PRASHO Foundation.
 
 CONTEXT:
 {knowledge.get('overview', 'SEHRA is a structured assessment tool by Peek Vision used globally to evaluate readiness for school eye health programmes.')}
+{country_context}
 
 You are analyzing the "{comp_display}" component.
 {comp_desc}
@@ -309,9 +472,9 @@ OUTPUT RULES:
 - Reference the original remarks in summaries where relevant"""
 
 
-def _build_few_shot_messages(component: str) -> list[dict]:
+def _build_few_shot_messages(component: str, country: str = "default") -> list[dict]:
     """Build few-shot example messages for the given component."""
-    examples_data = _load_few_shot_examples()
+    examples_data = _load_country_few_shot_examples(country)
     cls_examples = examples_data.get("classification_examples", {}).get(component, [])
 
     if not cls_examples:
@@ -334,9 +497,17 @@ def _build_few_shot_messages(component: str) -> list[dict]:
         })
 
     # Add summary example if available
+    # Look for component-specific keys first (e.g., "human_resources_enabler_summary"),
+    # then fall back to generic keys ("enabler_summary") if component matches
     summary_examples = examples_data.get("summary_examples", {})
-    if summary_examples.get("enabler_summary", {}).get("component") == component:
-        es = summary_examples["enabler_summary"]
+
+    # Find enabler summary: try component-specific key first, then generic
+    enabler_key = f"{component}_enabler_summary"
+    es = summary_examples.get(enabler_key)
+    if not es and summary_examples.get("enabler_summary", {}).get("component") == component:
+        es = summary_examples.get("enabler_summary")
+
+    if es:
         response["enabler_summary"] = [{
             "themes": es["themes"],
             "summary": es["summary"][:300],
@@ -345,8 +516,13 @@ def _build_few_shot_messages(component: str) -> list[dict]:
     else:
         response["enabler_summary"] = []
 
-    if summary_examples.get("barrier_summary", {}).get("component") == component:
-        bs = summary_examples["barrier_summary"]
+    # Find barrier summary: try component-specific key first, then generic
+    barrier_key = f"{component}_barrier_summary"
+    bs = summary_examples.get(barrier_key)
+    if not bs and summary_examples.get("barrier_summary", {}).get("component") == component:
+        bs = summary_examples.get("barrier_summary")
+
+    if bs:
         response["barrier_summary"] = [{
             "themes": bs["themes"],
             "summary": bs["summary"][:300],
@@ -395,17 +571,36 @@ def _parse_llm_json(response_text: str) -> dict:
         }
 
 
+def _clamp_confidence(raw: dict) -> dict:
+    """Clamp confidence scores to [0.0, 1.0] before Pydantic validation."""
+    if "classifications" in raw:
+        for c in raw["classifications"]:
+            if isinstance(c, dict) and "confidence" in c:
+                try:
+                    conf = float(c["confidence"])
+                    c["confidence"] = max(0.0, min(1.0, conf))
+                except (ValueError, TypeError):
+                    c["confidence"] = 0.5
+    return raw
+
+
 def _validate_response(raw: dict) -> ComponentAnalysisResponse:
     """Validate and normalize the LLM response using Pydantic."""
+    raw = _clamp_confidence(raw)
     try:
         return ComponentAnalysisResponse(**raw)
     except Exception as e:
         logger.warning("Pydantic validation partial failure: %s", e)
+        raw = _clamp_confidence(raw)
+        valid_classifications = []
+        for c in raw.get("classifications", []):
+            if isinstance(c, dict):
+                try:
+                    valid_classifications.append(ClassificationResult(**c))
+                except Exception:
+                    logger.debug("Skipping invalid classification: %s", c)
         return ComponentAnalysisResponse(
-            classifications=[
-                ClassificationResult(**c) for c in raw.get("classifications", [])
-                if isinstance(c, dict)
-            ],
+            classifications=valid_classifications,
             enabler_summary=[
                 SummaryResult(**s) for s in raw.get("enabler_summary", [])
                 if isinstance(s, dict)
@@ -420,13 +615,14 @@ def _validate_response(raw: dict) -> ComponentAnalysisResponse:
 # --- Component Analysis ---
 
 def analyze_component(component: str, items: list[dict],
-                      component_text: str = "") -> dict:
+                      component_text: str = "", country: str = "default") -> dict:
     """Analyze all remarks for a single component using LLM.
 
     Args:
         component: Component key (context, policy, etc.)
         items: List of parsed items with {question, answer, remark, item_id}
         component_text: Full text of the component section (for context)
+        country: Country name for loading country-specific data (default="default")
 
     Returns:
         {
@@ -435,21 +631,28 @@ def analyze_component(component: str, items: list[dict],
             "barrier_summary": [{"themes": [...], "summary": "...", "action_points": [...]}]
         }
     """
-    logger.info("Analyzing component: %s", component)
+    logger.info("Analyzing component: %s (country=%s)", component, country)
     themes = _load_themes()
-    keyword_patterns = _load_keyword_patterns()
+    keyword_patterns = _load_country_keyword_patterns(country)
+    valid_theme_names = [t["name"] for t in themes]
 
-    # Collect non-empty remarks
+    # Collect non-empty remarks with sanitization
     remarks_for_analysis = []
     for item in items:
         remark = item.get("remark", "").strip()
-        if remark and len(remark) > 5:
+        if remark and len(remark.strip()) > 5:
+            sanitized_remark = _sanitize_remark(remark)
             remarks_for_analysis.append({
                 "item_id": item.get("item_id", ""),
-                "question": item.get("question", ""),
-                "answer": item.get("answer", ""),
-                "remark": remark,
+                "question": _sanitize_remark(item.get("question", "")),
+                "answer": _sanitize_remark(item.get("answer", "")),
+                "remark": sanitized_remark,
             })
+        else:
+            logger.info(
+                "Filtered short/empty remark for item %s: '%s' (len=%d)",
+                item.get("item_id", "unknown"), remark, len(remark) if remark else 0,
+            )
 
     if not remarks_for_analysis:
         logger.info("No remarks to analyze for %s", component)
@@ -461,8 +664,8 @@ def analyze_component(component: str, items: list[dict],
 
     logger.info("Analyzing %d remarks for %s", len(remarks_for_analysis), component)
 
-    system_prompt = build_system_prompt(component, keyword_patterns, themes)
-    few_shot_messages = _build_few_shot_messages(component)
+    system_prompt = build_system_prompt(component, keyword_patterns, themes, country=country)
+    few_shot_messages = _build_few_shot_messages(component, country=country)
 
     # Build user message
     remarks_text = ""
@@ -476,7 +679,7 @@ Remark {i}:
   Remark text: {r['remark']}
 """
 
-    theme_names = [t["name"] for t in themes]
+    theme_names = valid_theme_names
 
     user_message = f"""Analyze the following {len(remarks_for_analysis)} remarks from the "{COMPONENT_DISPLAY_NAMES.get(component, component)}" component of a SEHRA assessment.
 
@@ -529,6 +732,16 @@ IMPORTANT: Return ONLY valid JSON, no markdown fences or extra text."""
             cls["remark_text"] = remarks_for_analysis[idx]["remark"]
             cls["item_id"] = remarks_for_analysis[idx]["item_id"]
 
+    # Fix 1: Validate theme names against themes.json
+    result["classifications"] = _validate_and_fix_themes(
+        result.get("classifications", []), valid_theme_names
+    )
+
+    # Fix 2: Calibrate confidence scores
+    result["classifications"] = _calibrate_confidence(
+        result.get("classifications", []), component
+    )
+
     logger.info(
         "Component %s: %d classifications, %d enabler summaries, %d barrier summaries",
         component, len(result.get("classifications", [])),
@@ -539,15 +752,24 @@ IMPORTANT: Return ONLY valid JSON, no markdown fences or extra text."""
     return result
 
 
-def analyze_full_sehra(parsed_data: dict) -> dict:
+def analyze_full_sehra(parsed_data: dict, country: str = "default") -> dict:
     """Analyze all components of a parsed SEHRA.
 
     Args:
         parsed_data: Output from pdf_parser.parse_and_enrich()
+        country: Country name for loading country-specific data (default="default")
 
     Returns:
         Dict mapping component -> analysis results
     """
+    # Try to detect country from parsed data header if not explicitly provided
+    if country == "default":
+        header = parsed_data.get("header", {})
+        detected_country = header.get("country", "").strip()
+        if detected_country:
+            country = detected_country
+            logger.info("Detected country from SEHRA header: %s", country)
+
     results = {}
     components_to_analyze = ["context", "policy", "service_delivery",
                              "human_resources", "supply_chain", "barriers"]
@@ -559,7 +781,9 @@ def analyze_full_sehra(parsed_data: dict) -> dict:
 
         if items:
             try:
-                results[component] = analyze_component(component, items, comp_text)
+                results[component] = analyze_component(
+                    component, items, comp_text, country=country
+                )
             except AIAnalysisError as e:
                 logger.error("AI analysis failed for %s: %s", component, e)
                 results[component] = {

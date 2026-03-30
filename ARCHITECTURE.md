@@ -287,6 +287,8 @@ Python was the right choice for this project:
                                                  └──────────────────┘
 ```
 
+**Note**: `codebook_override.id` supports per-country overrides: `"current"` (default), `"codebook_liberia"`, `"codebook_india"`, etc.
+
 **Cascade deletes**: Deleting a SEHRA cascades to components → entries + sections, and to shared_reports → views.
 
 ---
@@ -316,7 +318,7 @@ POST /analyze/upload (SSE stream, 10 steps)
 
 **PDF Parser strategy**: Widget-first extraction. SEHRA PDFs are form-fillable — checkbox widgets give yes/no answers, nearby text blocks give question labels, free-text fields give qualitative remarks. Each checkbox pair is matched to codebook items using fuzzy text matching.
 
-**Component page ranges**: Context (pp 10-15), Policy (16-20), Service Delivery (21-26), HR (27-30), Supply Chain (31-35), Barriers (36-41).
+**Component page ranges**: Configurable per country via `country_configs.json`. Default: Context (pp 10-15), Policy (16-20), Service Delivery (21-26), HR (27-30), Supply Chain (31-35), Barriers (36-41). Each country can override these ranges without code changes.
 
 ---
 
@@ -346,11 +348,109 @@ All AI responses are validated against Pydantic models (`ClassificationResult`, 
 
 ### 11 cross-cutting themes
 
-Infrastructure, Funding, Training, Policy, Community, Technology, Human Resources, Supply Chain, Governance, Access, Quality, Other.
+1. Institutional Structure and Stakeholders
+2. Operationalization Strategies
+3. Coordination and Integration
+4. Funding
+5. Local Capacity and Service Delivery
+6. Accessibility and Inclusivity
+7. Cost, Availability and Affordability
+8. Data Considerations
+9. Sociocultural Factors and Compliance
+10. Services at Higher Levels of Health System
+11. Procuring Eyeglasses
 
 ### Classifications
 
 `enabler` | `barrier` | `strength` | `weakness` | `neutral`
+
+### Theme Validation
+
+LLM outputs are validated against the 11 defined themes in `themes.json`:
+
+1. **Exact match** (case-insensitive) → accepted as-is
+2. **Fuzzy match** (≥0.7 similarity via SequenceMatcher) → auto-corrected with warning log
+3. **No match** (<0.7) → assigned to closest theme, confidence capped at 0.4, flagged for review
+
+This prevents LLM hallucination of non-existent themes (e.g., "Healthcare Quality" when the actual theme is "Local Capacity and Service Delivery").
+
+### Confidence Calibration
+
+Raw LLM confidence scores are post-processed:
+
+| Rule | Effect |
+|------|--------|
+| Theme not validated | Cap at 0.4 |
+| Remark < 20 chars | Reduce by 0.2 |
+| Remark > 200 chars | Boost by 0.05 |
+| All scores | Clamp to [0.0, 1.0], round to 3 decimals |
+
+### Input Sanitization
+
+All remarks are sanitized before LLM prompts:
+- Control characters stripped (except \n, \t)
+- Truncated at 2,000 characters
+- Prevents prompt injection via malicious form data
+
+---
+
+## Multi-Country Support
+
+The platform supports country-specific configurations through a layered data loading system:
+
+### Country Configuration (`data/country_configs.json`)
+
+Each country can have custom:
+- **Page ranges** — PDF component page boundaries (vary by SEHRA version/country)
+- **Min page count** — Validation threshold for PDF uploads
+- **Language** — For noise text filtering during PDF parsing
+- **Noise texts** — Language-specific terms to filter from question extraction
+
+Supported countries: Liberia, India, Laos, Uganda, Kenya (extensible via JSON config).
+
+### Data Loading Hierarchy
+
+All country-specific data follows a 3-tier fallback:
+
+```
+1. Database override (CodebookOverride table, per-country ID)
+      ↓ not found
+2. Country-specific file (data/countries/{country}/codebook.json)
+      ↓ not found
+3. Default file (data/codebook.json)
+```
+
+### Country Data Directory Structure
+
+```
+data/
+├── codebook.json              ← Generic/default codebook
+├── themes.json                ← 11 cross-cutting themes (shared)
+├── keyword_patterns.json      ← Generic keyword patterns
+├── sehra_knowledge.json       ← Generic SEHRA knowledge base
+├── few_shot_examples.json     ← Generic few-shot examples (all 6 components)
+├── country_configs.json       ← Page ranges, language, noise texts per country
+└── countries/
+    ├── default/
+    │   ├── keyword_patterns.json    ← Generic (no org-specific references)
+    │   ├── few_shot_examples.json   ← Generic examples
+    │   └── knowledge.json           ← Generic knowledge base
+    └── liberia/
+        ├── codebook.json            ← Liberia-specific codebook (309 items)
+        ├── keyword_patterns.json    ← Liberia patterns (Sightsavers, SHIP, etc.)
+        ├── few_shot_examples.json   ← Liberia-specific examples
+        ├── knowledge.json           ← Liberia context (stakeholders, facilities)
+        └── expected_counts.json     ← Validation ground truth
+```
+
+### Adding a New Country
+
+To add support for a new country (e.g., Malawi):
+
+1. Add entry to `country_configs.json` with page ranges
+2. Create `data/countries/malawi/codebook.json` (or use default)
+3. Optionally add country-specific keyword patterns and knowledge base
+4. No code changes required — the system auto-discovers country data
 
 ---
 
@@ -456,7 +556,7 @@ Lazy imports — matplotlib, docx, openpyxl, weasyprint only loaded when the spe
 
 ```
 /                          → redirect to /assessments
-/login                     → JWT login
+/login                     → Landing page with intro slides + JWT login form
 /assessments               → Grid of assessment cards with enabler rate bars
 /assessments/[id]          → Tabbed detail view (Overview | Report | Analysis | Export)
 /upload                    → PDF drag-and-drop + SSE progress
@@ -711,3 +811,26 @@ sehra-analyzer/
 │           └── utils.ts           Tailwind cn() helper
 └── auth_config.yaml               Seed users for first startup
 ```
+
+---
+
+## Test Coverage
+
+198 tests across 10 test files, all passing:
+
+| File | Tests | Coverage Area |
+|------|-------|---------------|
+| `test_codebook.py` | 18 | Scoring, codebook loading, component detection |
+| `test_pdf_parser.py` | 16 | Widget extraction, checkbox pairing, grid detection |
+| `test_ai_engine.py` | 15 | Prompt building, JSON parsing, LLM response validation |
+| `test_report_gen.py` | 6 | DOCX generation, chart embedding |
+| `test_share.py` | 16 | Share links, passcodes, rate limiting, expiry |
+| `test_integration.py` | 6 | Full pipeline end-to-end |
+| `test_multi_country.py` | 27 | Country configs, codebook loading, data file fallbacks |
+| `test_theme_validation.py` | 24 | Theme matching, confidence calibration, sanitization |
+| `test_adversarial.py` | 24 | Edge cases, malformed LLM output, DB edge cases |
+| `test_e2e_pipeline.py` | 17 | Full pipeline, country-specific pipeline, data integrity |
+| `test_export_multicountry.py` | 13 | Multi-country report generation |
+| `test_surya_parser.py` | 6 | OCR fallback for scanned PDFs |
+
+All LLM calls are mocked in tests — no API keys required to run the test suite.

@@ -1,0 +1,248 @@
+{
+  "themes": [
+    "Institutional Structure and Stakeholders",
+    "Operationalization Strategies",
+    "Coordination and Integration",
+    "Funding",
+    "Local Capacity and Service Delivery",
+    "Accessibility and Inclusivity",
+    "Cost, Availability and Affordability",
+    "Data Considerations",
+    "Sociocultural Factors and Compliance",
+    "Services at Higher Levels of Health System",
+    "Procuring Eyeglasses"
+  ],
+  "patterns": {
+    "context": {
+      "Institutional Structure and Stakeholders": {
+        "keywords": "Ministry, government, institutional",
+        "remarks": "The school eye health program is implemented by the relevant Ministries of Education and Health with support from implementing partners. | No, there is no policy or regulation to limit vision screening by teachers in the school."
+      },
+      "Operationalization Strategies": {
+        "keywords": "implement, train, manual, protocol",
+        "remarks": "Training manuals are designed to help teachers understand and deliver integrated school health interventions. The manual provides guidelines for teachers to conduct vision screening using available resources. | Teachers and support staff have benefited from school eye health training on how to implement screening in schools."
+      },
+      "Coordination and Integration": {
+        "keywords": "integration, support, coordination",
+        "remarks": "The school eye health program is implemented through coordination between Ministries of Education and Health with support from implementing partners. Training manuals provide an integrated approach to school health interventions."
+      },
+      "Accessibility and Inclusivity": {
+        "keywords": "treatment, eye condition, referral",
+        "remarks": "Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. Teachers may also be screened for refractive errors and provided with glasses according to their needs."
+      },
+      "Services at Higher Levels of Health System": {
+        "keywords": "refer, specialist, hospital",
+        "remarks": "Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care. Trained eye health professionals provide specialized services at hospitals."
+      }
+    },
+    "policy": {
+      "Institutional Structure and Stakeholders": {
+        "enabler_keywords": "Ministry, Government, plan, policy + delivered, included, aligned, partnership, stakeholders",
+        "enabler_remarks": "Programme is delivered in partnership with relevant Ministries and is aligned with national sector plans and health policies. School health is included in the National Education Policy. Key stakeholders and coordination mechanisms are established between ministries.",
+        "barrier_keywords": "Does not exist + plan",
+        "barrier_remarks": "No IPEC Plan exists. Rehabilitation or Assistive Technology Policy/Strategy/Plan does not exist.",
+        "strengths_keywords": "policy",
+        "strengths": "School health policy guides the planning and implementation of school health programmes."
+      },
+      "Operationalization Strategies": {
+        "enabler_keywords": "Sector, sectoral, plan + aligned, partnership, train",
+        "enabler_remarks": "Programme is delivered in partnership with relevant Ministries and is aligned with national education and health sector plans.",
+        "strengths_keywords": "working group",
+        "strengths": "The existence of a technical working group serves as a platform for coordination of school eye health programmes."
+      },
+      "Coordination and Integration": {
+        "enabler_keywords": "coordination, collaboration, working with + ministry(ies)",
+        "enabler_remarks": "Coordination mechanisms exist between ministries of health and education through technical working groups for integrated eye health services.",
+        "barrier_keywords": "No plan, does not exist",
+        "barrier_remarks": "No IPEC Plan exists. Rehabilitation or Assistive Technology Policy/Strategy/Plan does not exist.",
+        "strengths_keywords": "coordination, sector",
+        "strengths": "The existence of a technical working group serves as a platform for coordination of school eye health programmes. Alignment of programme approach with national sector plans facilitates acceptance and ownership.",
+        "limitations_keywords": "integration",
+        "limitations": "Absence of a systematic integrated approach to planning."
+      },
+      "Funding": {
+        "enabler_keywords": "fund, budget, finance + allocated, working with",
+        "enabler_remarks": "Budget allocated for school health/eye health by relevant ministries. Health financing mechanisms include national budget, bilateral/multilateral funding and NGO support.",
+        "barrier_keywords": "inadequate, not included, limited + finance(ial), budget, investment",
+        "barrier_remarks": "Inadequate state investment in school health services. Eyeglasses not included in health insurance or other state financing mechanisms. Limited financial resources and competing priorities.",
+        "limitations_keywords": "fund, budget",
+        "limitations": "Inadequate funding and budgeting for smooth implementation of school health programmes."
+      },
+      "Accessibility and Inclusivity": {
+        "enabler_keywords": "included, provide + disability, special needs, special education, social policy",
+        "enabler_remarks": "School health policy is included in Disability policy and Special Needs/Special Education frameworks. Social Protection Policy includes provisions for school health."
+      },
+      "Data Considerations": {
+        "limitations_keywords": "information",
+        "limitations": "Lack of epidemiological information on eye health required to plan and evaluate strategies."
+      },
+      "Procuring Eyeglasses": {
+        "barrier_keywords": "Eyeglasses + not included",
+        "barrier_remarks": "Eyeglasses not included in health insurance or other state financing mechanisms."
+      }
+    },
+    "service_delivery": {
+      "Institutional Structure and Stakeholders": {
+        "enabler_keywords": "(institutional body, departments), national + comprised, set up",
+        "enabler_remarks": "Data is shared through coordination meetings at national levels between departments of Education and Health."
+      },
+      "Operationalization Strategies": {
+        "enabler_keywords": "working group + stakeholder + set up, comprised",
+        "enabler_remarks": "A Technical Working Group is set up comprised of Education, Health workers and community representatives.",
+        "strengths_keywords": "monitor, evaluation, referral pathway",
+        "strengths": "Institutionalization of monitoring and evaluation frameworks. Strengthened referral pathways to ensure continuum of care.",
+        "limitations_keywords": "monitor, supervise(ion)",
+        "limitations": "Absence of school eye health indicators in EMIS and HMIS to monitor progress. Regulation and supervision of school health programmes across stakeholders."
+      },
+      "Coordination and Integration": {
+        "enabler_keywords": "through, done + coordination, between departments",
+        "enabler_remarks": "Coordination meetings at national levels where data is shared between departments of Education and Health.",
+        "strengths_keywords": "coordination",
+        "strengths": "Proper planning and coordination of activities.",
+        "limitations_keywords": "coordination",
+        "limitations": "Weak coordination among stakeholders of school health within the intervention area."
+      },
+      "Funding": {
+        "barrier_keywords": "no, underfunded",
+        "barrier_remarks": "No specific indicators on school health or eye health within the Education Management Information System. The EMIS system is underfunded."
+      },
+      "Local Capacity and Service Delivery": {
+        "enabler_keywords": "primary, community + available, provide + intervention area",
+        "enabler_remarks": "Primary eye care staff are available with necessary skills for basic screening and detecting eye health conditions. Primary eye care services are linked with school health services. Health screening activities are undertaken in the community.",
+        "barrier_keywords": "needs + intervention area",
+        "barrier_remarks": "Monitoring and supportive supervision takes place but needs to be strengthened."
+      },
+      "Cost, Availability and Affordability": {
+        "barrier_keywords": "no + cost",
+        "barrier_remarks": "No financial cost information for eye care services offered."
+      },
+      "Data Considerations": {
+        "enabler_keywords": "data + is shared, done",
+        "enabler_remarks": "Data is shared through coordination meetings at national levels between departments.",
+        "barrier_keywords": "Data + need(s), limited\ndata + no",
+        "barrier_remarks": "Monitoring and supportive supervision needs to be strengthened. No specific indicators linked to school eye health in management information systems."
+      },
+      "Sociocultural Factors and Compliance": {
+        "enabler_keywords": "health education, reminders + parents + enable, sent",
+        "enabler_remarks": "Health education and promotion to teachers and parents enables understanding of eye health benefits. Reminders sent to parents on follow up appointments."
+      },
+      "Services at Higher Levels of Health System": {
+        "enabler_keywords": "refer(ed), tertiary, secondary",
+        "enabler_remarks": "Secondary and tertiary eye care facilities are available. Secondary eye care staff have necessary skills. Referral pathways exist from school screening to specialist care.",
+        "barrier_keywords": "district + no",
+        "barrier_remarks": "No specific indicators linked to school eye health at district level reporting."
+      },
+      "Procuring Eyeglasses": {
+        "barrier_keywords": "Eyeglasses + not",
+        "barrier_remarks": "Availability of eyeglasses for children affected by supply chain issues."
+      }
+    },
+    "human_resources": {
+      "Operationalization Strategies": {
+        "enabler_keywords": "workshop, seminars, train(ing) + there is, used + health worker, teacher",
+        "enabler_remarks": "Training manuals are used to train both teachers and health workers. Opportunities for knowledge enhancement through workshops and seminars.",
+        "barrier_keywords": "plan, monitor, training + human resource, health worker + limited, needed",
+        "barrier_remarks": "Additional in-service training needed for specialist eye care roles. Essential health human resources are limited. Regular refresher trainings needed for teachers and school administrators.",
+        "limitations_keywords": "plan",
+        "limitations": "Absence of epidemiological data to plan and evaluate strategies. Poor planning."
+      },
+      "Funding": {
+        "limitations_keywords": "fund",
+        "limitations": "Inadequate funding and poor implementation."
+      },
+      "Local Capacity and Service Delivery": {
+        "enabler_keywords": "available, there is, implement + intervention area",
+        "enabler_remarks": "Essential health human resources are available in the education sector to implement school health programs.",
+        "barrier_keywords": "limited staff, needed, to conduct, supervision + intervention area",
+        "barrier_remarks": "Essential health human resources are limited and aging. Additional training needed for specialist roles. Supportive supervision needs strengthening.",
+        "strengths_keywords": "health workers, teachers, HR",
+        "strengths": "Capacity development of teachers and health workers based on gaps identified. Efficient and effective use of human resources."
+      },
+      "Data Considerations": {
+        "strengths_keywords": "information",
+        "strengths": "Accurate information on disease burden, quality and quantity of human resources provided to policymakers and health care authorities."
+      }
+    },
+    "supply_chain": {
+      "Institutional Structure and Stakeholders": {
+        "enabler_keywords": "Agency + regulation",
+        "enabler_remarks": "Health regulatory agencies regulate and direct the import and procurement of eyeglasses.",
+        "barrier_keywords": "polic(ies) + do not cover | Ministry + not included",
+        "barrier_remarks": "Most policy mechanisms do not cover the cost of vision or refraction. Eyeglasses not included on Essential Supplies List.",
+        "limitations_keywords": "ministry",
+        "limitations": "Inclusion of eyeglasses on Essential Supplies List could facilitate importation and affordability."
+      },
+      "Local Capacity and Service Delivery": {
+        "enabler_keywords": "(consumable), (equipment) + available, there is + primary, community",
+        "enabler_remarks": "Anti-biotic eye drops/ointment are available at primary health care level. Standards exist to detect, diagnose and treat school age children at various levels.",
+        "barrier_keywords": "center, intervention area + difficult, struggle",
+        "barrier_remarks": "People find it difficult to pay for glasses. Most people struggle financially.",
+        "limitations_keywords": "facility",
+        "limitations": "Some facilities do not have the equipment required to detect and treat school age children."
+      },
+      "Accessibility and Inclusivity": {
+        "limitations_keywords": "low income groups",
+        "limitations": "People from the lowest income groups cannot afford spectacles despite subsidization efforts."
+      },
+      "Cost, Availability and Affordability": {
+        "barrier_keywords": "cost + do not cover, difficult to pay",
+        "barrier_remarks": "Most policy mechanisms do not cover the cost of vision or refraction or eyeglasses. People find it difficult to pay for glasses.",
+        "strengths_keywords": "availability",
+        "strengths": "Availability of ophthalmic equipment to detect and treat school age children. Constant supply of consumables.",
+        "limitations_keywords": "affordable, cost",
+        "limitations": "Inclusion of eyeglasses on Essential Supplies List could improve affordability. Lowest income groups cannot afford spectacles."
+      },
+      "Services at Higher Levels of Health System": {
+        "enabler_keywords": "consumables, equipment + available, there is + secondary level, tertiary level",
+        "enabler_remarks": "Anti-biotic eye drops/ointment and diagnostic equipment available at secondary and tertiary levels."
+      },
+      "Procuring Eyeglasses": {
+        "enabler_keywords": "eyeglasses, spectacle frames, lenses, optical product + procure(ment), set up",
+        "enabler_remarks": "Health regulatory agencies regulate procurement. Optical products set up in health facilities by partners.",
+        "barrier_keywords": "eyeglasses + not included",
+        "barrier_remarks": "Eyeglasses not included on Essential Supplies List.",
+        "strengths_keywords": "spectacles, frames",
+        "strengths": "Availability of spectacles at public health facilities with a wide range of frames could address compliance and cost challenges.",
+        "limitations_keywords": "Eyeglasses, spectacles",
+        "limitations": "Inclusion of eyeglasses on Essential Supplies List could improve affordability. Lowest income groups cannot afford spectacles."
+      }
+    },
+    "barriers": {
+      "Funding": {
+        "strengths_keywords": "fund",
+        "strengths": "Adequate funding for school eye health programmes."
+      },
+      "Local Capacity and Service Delivery": {
+        "keywords": "lack of, limited staff + No + intervention area",
+        "remarks": "No eyeglasses suitable for children available within the intervention area due to supply chain issues.",
+        "strengths_keywords": "train",
+        "strengths": "Task reallocation (training of teachers to screen and refer).",
+        "limitations_keywords": "health workers",
+        "limitations": "Shortage of skilled eye health workers."
+      },
+      "Cost, Availability and Affordability": {
+        "limitations_keywords": "affordability, cost | cost",
+        "limitations": "Availability and affordability of eye health services. Supply chain challenges that affect cost, range (frames) and availability of spectacles."
+      },
+      "Sociocultural Factors and Compliance": {
+        "remarks": "Barriers to wearing eyeglasses include low literacy levels of parents, fears about wearing eyeglasses, misinformation and misconceptions, cultural beliefs and practices. There is a need for more community awareness about school eye health programs.",
+        "strengths_keywords": "promotion",
+        "strengths": "Health promotion.",
+        "limitations_keywords": "information, awareness, perception, culture",
+        "limitations": "Lack of information and awareness of the benefits of eye health. Cultural perceptions."
+      },
+      "Services at Higher Levels of Health System": {
+        "keywords": "referrals + lack of + limited staff",
+        "remarks": "Services provided to children with vision impairment issues. Lack of eye care professionals to receive and attend to referrals due to limited staff."
+      },
+      "Procuring Eyeglasses": {
+        "keywords": "Eyeglasses + not produce(d)\nNo + eyeglasses + available",
+        "remarks": "No eyeglasses suitable for children available within the intervention area due to supply chain issues. Glasses are imported and not produced in country.",
+        "strengths_keywords": "spectacles",
+        "strengths": "Strengthened supply chain for spectacles.",
+        "limitations_keywords": "frames, spectacles",
+        "limitations": "Supply chain challenges that affect cost, range (frames) and availability of spectacles."
+      }
+    }
+  }
+}

@@ -173,7 +173,8 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
                     recommendations: str = "",
                     generated_at_ist: str = "",
                     requester_ip: str = "",
-                    exported_by: str = "") -> io.BytesIO:
+                    exported_by: str = "",
+                    country: str | None = None) -> io.BytesIO:
     """Generate a complete DOCX report.
 
     Args:
@@ -185,10 +186,14 @@ def generate_report(sehra_data: dict, component_analyses: list[dict],
         generated_at_ist: IST-formatted generation timestamp
         requester_ip: IP address of the requester
         exported_by: Username of the exporter
+        country: Optional country override (defaults to header_info country)
 
     Returns:
         BytesIO containing the DOCX file
     """
+    # Use explicit country param if provided, otherwise fall back to header_info
+    if country:
+        header_info["country"] = country
     logger.info("Generating DOCX report for %s", header_info.get("country", ""))
     doc = Document()
 

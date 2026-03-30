@@ -114,6 +114,7 @@ class BatchApproveResponse(BaseModel):
 class ChatRequest(BaseModel):
     question: str
     sehra_id: str
+    country: str | None = None
 
 
 class ChatResponse(BaseModel):
@@ -168,6 +169,7 @@ class CodebookItemSchema(BaseModel):
 
 
 class AddCodebookItemRequest(BaseModel):
+    country: str = "default"
     section: str
     question: str
     type: str = "yes_no"
@@ -195,6 +197,7 @@ class FormDraftSchema(BaseModel):
 
 
 class SaveDraftRequest(BaseModel):
+    country: str = "default"
     section_progress: int = 0
     responses: dict = Field(default_factory=dict)
 

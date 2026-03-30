@@ -61,6 +61,7 @@ def export_docx(sehra_id: str, request: Request, user: dict = Depends(get_curren
         generated_at_ist=_now_ist(),
         requester_ip=_get_ip(request),
         exported_by=user.get("sub", ""),
+        country=sehra.get("country", ""),
     )
     filename = f"SEHRA_{sehra.get('country', 'report')}_{sehra_id[:8]}.docx"
     return StreamingResponse(
@@ -83,6 +84,7 @@ def export_xlsx(sehra_id: str, request: Request, user: dict = Depends(get_curren
         generated_at_ist=_now_ist(),
         requester_ip=_get_ip(request),
         exported_by=user.get("sub", ""),
+        country=sehra.get("country", ""),
     )
     filename = f"SEHRA_{sehra.get('country', 'report')}_{sehra_id[:8]}.xlsx"
     return StreamingResponse(
@@ -104,6 +106,7 @@ def export_html(sehra_id: str, request: Request, user: dict = Depends(get_curren
         generated_at_ist=_now_ist(),
         requester_ip=_get_ip(request),
         exported_by=user.get("sub", ""),
+        country=sehra.get("country", ""),
     )
     filename = f"SEHRA_{sehra.get('country', 'report')}_{sehra_id[:8]}.html"
     return StreamingResponse(
@@ -128,6 +131,7 @@ def export_pdf(sehra_id: str, request: Request, user: dict = Depends(get_current
         requester_ip=_get_ip(request),
         exported_by=user.get("sub", ""),
         static_charts=True,
+        country=sehra.get("country", ""),
     )
     buf = generate_pdf_report(html)
     filename = f"SEHRA_{sehra.get('country', 'report')}_{sehra_id[:8]}.pdf"

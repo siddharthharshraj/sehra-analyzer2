@@ -21,8 +21,8 @@ from core.exceptions import PDFParsingError
 logger = logging.getLogger("sehra.pdf_parser")
 
 
-# Page ranges for each component (1-indexed)
-COMPONENT_PAGE_RANGES = {
+# Default page ranges (matches standard SEHRA template)
+DEFAULT_PAGE_RANGES = {
     "context": (10, 15),
     "policy": (16, 20),
     "service_delivery": (21, 26),
@@ -32,11 +32,54 @@ COMPONENT_PAGE_RANGES = {
     "summary": (42, 44),
 }
 
-# Noise text to filter out when finding question labels
+# Backward-compatible alias
+COMPONENT_PAGE_RANGES = DEFAULT_PAGE_RANGES
+
+# Default noise text to filter out when finding question labels
 _NOISE_TEXTS = frozenset({
     "yes", "no", "remarks", "lines of enquiry", "available",
     "peek vision v2  09/23",
 })
+
+# ── Country configuration loading ──────────────────────────────────────
+
+_country_configs_cache = None
+
+
+def load_country_config(country: str = "default") -> dict:
+    """Load country-specific configuration. Falls back to default."""
+    global _country_configs_cache
+    if _country_configs_cache is None:
+        config_path = Path(__file__).parent.parent / "data" / "country_configs.json"
+        if config_path.exists():
+            with open(config_path) as f:
+                _country_configs_cache = json.load(f)
+        else:
+            _country_configs_cache = {}
+
+    country_key = country.lower().strip() if country else "default"
+    config = _country_configs_cache.get(country_key, _country_configs_cache.get("default", {}))
+    return config
+
+
+def get_page_ranges(country: str = "default") -> dict:
+    """Get page ranges for a specific country. Returns tuple format."""
+    config = load_country_config(country)
+    raw_ranges = config.get("page_ranges", DEFAULT_PAGE_RANGES)
+    # Convert lists to tuples for compatibility
+    return {k: tuple(v) if isinstance(v, list) else v for k, v in raw_ranges.items()}
+
+
+def get_noise_texts(country: str = "default") -> set:
+    """Get noise filter texts for a specific country."""
+    config = load_country_config(country)
+    return set(config.get("noise_texts", ["yes", "no", "remarks", "lines of enquiry", "response", "page"]))
+
+
+def get_min_page_count(country: str = "default") -> int:
+    """Get minimum page count for a specific country."""
+    config = load_country_config(country)
+    return config.get("min_page_count", 40)
 
 
 def extract_header_from_form_fields(doc: fitz.Document) -> dict:
@@ -228,10 +271,11 @@ def _get_text_blocks(page) -> list[dict]:
     return result
 
 
-def _is_noise_text(text: str) -> bool:
+def _is_noise_text(text: str, country: str = "default") -> bool:
     """Check if text is noise (column headers, page labels, etc.)."""
     stripped = text.strip().lower()
-    if stripped in _NOISE_TEXTS:
+    noise_set = get_noise_texts(country) if country != "default" else _NOISE_TEXTS
+    if stripped in noise_set:
         return True
     # Page numbers
     if stripped.isdigit():
@@ -254,7 +298,8 @@ def _is_noise_text(text: str) -> bool:
 
 def _find_question_for_pair(text_blocks: list[dict], pair_x: float,
                             pair_y: float, is_grid: bool = False,
-                            grid_col_headers: dict | None = None) -> str:
+                            grid_col_headers: dict | None = None,
+                            country: str = "default") -> str:
     """Find the question text for a checkbox pair using spatial proximity.
 
     For regular pairs: finds the text block to the left at similar Y.
@@ -268,7 +313,7 @@ def _find_question_for_pair(text_blocks: list[dict], pair_x: float,
         for block in text_blocks:
             if block["x0"] >= pair_x - 10:
                 continue
-            if _is_noise_text(block["text"]):
+            if _is_noise_text(block["text"], country):
                 continue
             if block["y0"] - y_tol <= pair_y <= block["y1"] + y_tol:
                 row_candidates.append(block)
@@ -277,7 +322,7 @@ def _find_question_for_pair(text_blocks: list[dict], pair_x: float,
         row_label = ""
         for cand in row_candidates:
             text = cand["text"].strip()
-            if len(text) >= 3 and not _is_noise_text(text):
+            if len(text) >= 3 and not _is_noise_text(text, country):
                 row_label = text
                 break
 
@@ -299,7 +344,7 @@ def _find_question_for_pair(text_blocks: list[dict], pair_x: float,
     for block in text_blocks:
         if block["x0"] >= pair_x:
             continue
-        if _is_noise_text(block["text"]):
+        if _is_noise_text(block["text"], country):
             continue
         # Block's Y range should overlap with checkbox Y
         if block["y0"] - y_tol <= pair_y <= block["y1"] + y_tol:
@@ -315,7 +360,8 @@ def _find_question_for_pair(text_blocks: list[dict], pair_x: float,
 
 
 def _find_grid_column_headers(text_blocks: list[dict],
-                               grid_pairs: list[dict]) -> dict:
+                               grid_pairs: list[dict],
+                               country: str = "default") -> dict:
     """Find column headers for grid checkbox pairs.
 
     Looks for text blocks above the first grid row at similar X positions
@@ -334,7 +380,7 @@ def _find_grid_column_headers(text_blocks: list[dict],
         best = None
         best_dist = float("inf")
         for block in text_blocks:
-            if _is_noise_text(block["text"]):
+            if _is_noise_text(block["text"], country):
                 continue
             if len(block["text"].strip()) < 3:
                 continue
@@ -354,7 +400,8 @@ def _find_grid_column_headers(text_blocks: list[dict],
     return headers
 
 
-def extract_items_widget_first(doc: fitz.Document, page_range: tuple) -> list[dict]:
+def extract_items_widget_first(doc: fitz.Document, page_range: tuple,
+                                country: str = "default") -> list[dict]:
     """Widget-first extraction: start from checkboxes, find nearby text.
 
     This replaces the old question-first approach (extract_questions_and_remarks +
@@ -405,7 +452,8 @@ def extract_items_widget_first(doc: fitz.Document, page_range: tuple) -> list[di
             if len(group) > 1:
                 grid_pairs_all.extend(group)
 
-        grid_col_headers = _find_grid_column_headers(text_blocks, grid_pairs_all)
+        grid_col_headers = _find_grid_column_headers(text_blocks, grid_pairs_all,
+                                                       country=country)
 
         # Extract question text for each pair
         for pair in pairs:
@@ -418,6 +466,7 @@ def extract_items_widget_first(doc: fitz.Document, page_range: tuple) -> list[di
                 text_blocks, pair["x"], pair["y"],
                 is_grid=is_grid,
                 grid_col_headers=grid_col_headers,
+                country=country,
             )
 
             # Clean up question text
@@ -434,13 +483,18 @@ def extract_items_widget_first(doc: fitz.Document, page_range: tuple) -> list[di
     return items
 
 
-def parse_sehra_pdf(pdf_path: str) -> dict:
+def parse_sehra_pdf(pdf_path: str, country: str = "default") -> dict:
     """Main entry point: parse a SEHRA PDF into structured data.
 
     Uses a widget-first approach:
     - PyMuPDF form fields for header info
     - Checkbox widgets as the starting point for item extraction
     - Text block proximity for question text identification
+
+    Args:
+        pdf_path: Path to the SEHRA PDF
+        country: Country key for country-specific page ranges and config.
+                 If "default", auto-detects from PDF header field.
     """
     try:
         doc = fitz.open(pdf_path)
@@ -455,6 +509,12 @@ def parse_sehra_pdf(pdf_path: str) -> dict:
         logger.info("Header extracted: country=%s, district=%s",
                      header["country"], header["district"])
 
+        # Auto-detect country from PDF header if not explicitly provided
+        detected_country = header.get("country", "").strip()
+        if country == "default" and detected_country:
+            country = detected_country
+            logger.info("Auto-detected country from PDF: %s", country)
+
         # Step 2: Extract all form fields (for text field remarks)
         form_data = extract_all_form_fields(doc)
         logger.info(
@@ -463,9 +523,10 @@ def parse_sehra_pdf(pdf_path: str) -> dict:
         )
 
         # Step 3: Widget-first extraction per component
+        page_ranges = get_page_ranges(country)
         components = {}
-        for comp_name, page_range in COMPONENT_PAGE_RANGES.items():
-            merged = extract_items_widget_first(doc, page_range)
+        for comp_name, page_range in page_ranges.items():
+            merged = extract_items_widget_first(doc, page_range, country=country)
 
             # Collect text field values as additional remarks
             text_remarks = {}
@@ -630,10 +691,16 @@ def extract_numeric_data(component_text: str, component: str) -> list[dict]:
     return results
 
 
-def parse_and_enrich(pdf_path: str, codebook_path: str = None) -> dict:
+def parse_and_enrich(pdf_path: str, codebook_path: str = None,
+                     country: str = "default") -> dict:
     """Parse PDF and enrich with codebook item IDs.
 
     This is the main function to call from the pipeline.
+
+    Args:
+        pdf_path: Path to the SEHRA PDF
+        codebook_path: Optional path to codebook JSON
+        country: Country key for country-specific configuration
     """
     logger.info("Starting parse_and_enrich for %s", pdf_path)
 
@@ -643,7 +710,7 @@ def parse_and_enrich(pdf_path: str, codebook_path: str = None) -> dict:
     with open(codebook_path) as f:
         codebook = json.load(f)
 
-    parsed = parse_sehra_pdf(pdf_path)
+    parsed = parse_sehra_pdf(pdf_path, country=country)
 
     for comp_name, comp_data in parsed["components"].items():
         if comp_data["items"]:
@@ -659,7 +726,8 @@ def parse_and_enrich(pdf_path: str, codebook_path: str = None) -> dict:
     return parsed
 
 
-def parse_and_enrich_auto(pdf_path: str, codebook_path: str = None) -> dict:
+def parse_and_enrich_auto(pdf_path: str, codebook_path: str = None,
+                          country: str = "default") -> dict:
     """Auto-detect PDF type and parse accordingly.
 
     Uses widget-first parsing for digital PDFs, Surya OCR for scanned PDFs.
@@ -668,6 +736,7 @@ def parse_and_enrich_auto(pdf_path: str, codebook_path: str = None) -> dict:
     Args:
         pdf_path: Path to the SEHRA PDF
         codebook_path: Optional path to codebook JSON
+        country: Country key for country-specific configuration
 
     Returns:
         Same structure as parse_and_enrich()
@@ -677,12 +746,12 @@ def parse_and_enrich_auto(pdf_path: str, codebook_path: str = None) -> dict:
     doc.close()
 
     if has_widgets:
-        return parse_and_enrich(pdf_path, codebook_path)
+        return parse_and_enrich(pdf_path, codebook_path, country=country)
 
     # Scanned PDF — use Surya OCR
     from core.surya_parser import surya_parse_sehra
     logger.info("No widgets detected — routing to Surya OCR parser")
-    parsed = surya_parse_sehra(pdf_path)
+    parsed = surya_parse_sehra(pdf_path, country=country)
 
     # Enrich with codebook IDs
     if codebook_path is None:

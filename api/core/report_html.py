@@ -59,6 +59,7 @@ def generate_html_report(
     requester_ip: str = "",
     exported_by: str = "",
     static_charts: bool = False,
+    country: str | None = None,
 ) -> str:
     """Generate a self-contained HTML report.
 
@@ -70,10 +71,15 @@ def generate_html_report(
         generated_at_ist: IST-formatted generation timestamp
         requester_ip: IP address of the requester
         exported_by: Username of the exporter
+        static_charts: Whether to render charts as static images
+        country: Optional country override (defaults to header_info country)
 
     Returns:
         Self-contained HTML string
     """
+    # Use explicit country param if provided, otherwise fall back to header_info
+    if country:
+        header_info["country"] = country
     if not generated_at_ist:
         generated_at_ist = _now_ist()
     logger.info("Generating HTML report for %s", header_info.get("country", ""))

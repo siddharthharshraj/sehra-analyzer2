@@ -1,0 +1,3103 @@
+{
+  "items": [
+    {
+      "id": "O1",
+      "section": "context",
+      "question": "Total population",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O2",
+      "section": "context",
+      "question": "Number of children in the following age groups",
+      "type": "categorical",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O3",
+      "section": "context",
+      "question": "Number of schools by level and school type:",
+      "type": "categorical",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O4",
+      "section": "context",
+      "question": "School enrolment by school type and gender (where school census data is available, enter Net Enrolment Rate):",
+      "type": "categorical",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O5",
+      "section": "context",
+      "question": "School attendance rate by school type and gender (where school census data is available):",
+      "type": "categorical",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O6",
+      "section": "context",
+      "question": "Important school dates  School Year (start and end)",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O7",
+      "section": "context",
+      "question": "Important school dates: Exam Periods",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O8",
+      "section": "context",
+      "question": "Important school dates:  Seasonality considerations",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O9",
+      "section": "context",
+      "question": "Primary ethnic groups (please list):",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O10",
+      "section": "context",
+      "question": "Are there any standalone school eye health programmes or initiatives within the intervention area (i.e., not part of another school based health programme)?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O11",
+      "section": "context",
+      "question": "Does a curriculum for teacher training exist for school  health and/or eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O12",
+      "section": "context",
+      "question": "Does a curriculum for nursing  training exist for school  health and/or eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O13",
+      "section": "context",
+      "question": "Do any policies or regulations limit  vision screening by teachers?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "O14",
+      "section": "context",
+      "question": "How many teachers have been  trained on school health or school  eye health in the intervention area?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O15",
+      "section": "context",
+      "question": "Prevalence of refractive errors in children of school going age in the implementation area / similar area:",
+      "type": "categorical",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O16",
+      "section": "context",
+      "question": "Specify area (Implementation area)",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O17",
+      "section": "context",
+      "question": "Are eye drops  of eye ointment  available at the School nurse level?",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O18",
+      "section": "context",
+      "question": "Are eye drops  of eye ointment  available at the Community health level?",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O19",
+      "section": "context",
+      "question": "Are eye drops  of eye ointment  available at the Primary health level?",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O20",
+      "section": "context",
+      "question": "Are eye drops  of eye ointment  available at the Secondary health level?",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O21",
+      "section": "context",
+      "question": "Are eye drops  of eye ointment  available at the Tertiary health level?",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O22",
+      "section": "context",
+      "question": "Are eye drops  of eye ointment  available at the Private pharmacies?",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O23",
+      "section": "context",
+      "question": "Availability or access to eye  health counselling and advice",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O24",
+      "section": "context",
+      "question": "Does a referral pathway exist for  school health/school eye health",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "O25",
+      "section": "context",
+      "question": "Availability of medical treatment  for child eye conditions",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O26",
+      "section": "context",
+      "question": "Availability of surgical treatment  for child eye conditions",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O27",
+      "section": "context",
+      "question": "Low vision care",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O28",
+      "section": "context",
+      "question": "Other care or cross-referral for children",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "O29",
+      "section": "context",
+      "question": "Coverage of children for eye health  in National Health Insurance",
+      "type": "categorical",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S1",
+      "section": "policy",
+      "question": "Is school health included in national legislation frameworks?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S2",
+      "section": "policy",
+      "question": "Is school health/school eye health included in the National Education Policy?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S3",
+      "section": "policy",
+      "question": "s school health/school eye health included in the Education Sector Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S4",
+      "section": "policy",
+      "question": "Is there a dedicated school health policy or plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S5",
+      "section": "policy",
+      "question": "Is school health/school eye health  included in the national health policy?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S6",
+      "section": "policy",
+      "question": "Is school health/school eye health included  in the national health strategic plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S7",
+      "section": "policy",
+      "question": "s school health included in the Eye  Health Policy or Strategic Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S8",
+      "section": "policy",
+      "question": "Is school health included in the Integrated  People-Centred Eye Care (IPEC) Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S9",
+      "section": "policy",
+      "question": "s school health included in any of the  following policies, strategies or plans:  • Primary health care  • Community health  • Non-Communicable Diseases  • Neglected Tropical Diseases  • Ear and Hearing Care  • Human Resources for Health  • Mother and child health  • Sexual and Reproductive Health  • Nutrition  •  Social behavioral change  and communication  • Water, Sanitation and Hygiene for Schools  • Other (e.g. Gender and Equity)",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S10",
+      "section": "policy",
+      "question": "Is school health/school eye health included  in the Disability Policy/Strategy/Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S11",
+      "section": "policy",
+      "question": "Is school health/school eye health included  in the Rehabilitation Policy/Strategy/plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S12",
+      "section": "policy",
+      "question": "Is school health/school eye health  included in the assistive technology  Policy/Strategy/Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S13",
+      "section": "policy",
+      "question": "Is school health/school eye health included in the Special Needs / Special Education (for primary/secondary) Policy/Strategy/Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S14",
+      "section": "policy",
+      "question": "Is school health/school eye health  included in the Social Protection  Policy or Strategy or Plan?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S15",
+      "section": "policy",
+      "question": "Any additional notes (200 words maximum):",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "S16",
+      "section": "policy",
+      "question": "Is there an allocated budget for  school health / school eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S17",
+      "section": "policy",
+      "question": "Is there an allocated budget  for assistive products?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S18",
+      "section": "policy",
+      "question": "Is there an allocated budget for eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S19",
+      "section": "policy",
+      "question": "What are the major health financing mechanisms (e.g., national budget, bilateral/ multilateral funding, NGO support, etc)?  Name these mechanisms and describe  if and how school health, eye health disability and/or special needs is included",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "S20",
+      "section": "policy",
+      "question": "Are eye health or eyeglasses  included in a national health or social  protection insurance scheme?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S21",
+      "section": "policy",
+      "question": "Which ministry/ministries is/are responsible for school health and/or school eye health in the country?  If multiple, is there a primary or lead Ministry?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "S22",
+      "section": "policy",
+      "question": "Is there a designated unit or officer  for school health and/or school eye  health within the ministry structure?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S23",
+      "section": "policy",
+      "question": "Is there any mechanism for coordination of school health and/ or school eye health between the ministries of health and education?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "S24",
+      "section": "policy",
+      "question": "Reflections: 3 key points which may make implementing  school eye health programmes challenging",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "S25",
+      "section": "policy",
+      "question": "Reflections: 3 key points which support  the implementation of school  eye health programmes",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I1",
+      "section": "service_delivery",
+      "question": "Main stakeholder, policy level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I2",
+      "section": "service_delivery",
+      "question": "Main stakeholder, planning level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I3",
+      "section": "service_delivery",
+      "question": "Main stakeholder, operational level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I4",
+      "section": "service_delivery",
+      "question": "Main stakeholder, what is their role?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I5",
+      "section": "service_delivery",
+      "question": "Organizational structure in health,  Central or Federal level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I6",
+      "section": "service_delivery",
+      "question": "Organizational structure in health,Regional/Provincial/  County/Governorate level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I7",
+      "section": "service_delivery",
+      "question": "Organizational structure in health,District level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I8",
+      "section": "service_delivery",
+      "question": "Organizational structure in health, Sub-district level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I9",
+      "section": "service_delivery",
+      "question": "Organizational structure in health, Community level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I10",
+      "section": "service_delivery",
+      "question": "Organizational structure in Education,  Central or Federal level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I11",
+      "section": "service_delivery",
+      "question": "Organizational structure in Education,Regional/Provincial/  County/Governorate level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I12",
+      "section": "service_delivery",
+      "question": "Organizational structure in Education,District level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I13",
+      "section": "service_delivery",
+      "question": "Organizational structure in Education, Sub-district level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I14",
+      "section": "service_delivery",
+      "question": "Organizational structure in Education, Community level",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I15",
+      "section": "service_delivery",
+      "question": "Is there a coordination mechanism  for school health and/or school eye  health within the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I16",
+      "section": "service_delivery",
+      "question": "Educational sector infrastructure in public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I17",
+      "section": "service_delivery",
+      "question": "Educational sector infrastructure in NGO",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I18",
+      "section": "service_delivery",
+      "question": "Educational sector infrastructure in private",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I19",
+      "section": "service_delivery",
+      "question": "Educational sector infrastructure in charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I20",
+      "section": "service_delivery",
+      "question": "Educational sector infrastructure in Faith-based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I21",
+      "section": "service_delivery",
+      "question": "Health sector infrastructure in public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I22",
+      "section": "service_delivery",
+      "question": "Health sector infrastructure in NGO",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I23",
+      "section": "service_delivery",
+      "question": "Health sector infrastructure in private",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I24",
+      "section": "service_delivery",
+      "question": "Health sector infrastructure in charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I25",
+      "section": "service_delivery",
+      "question": "Health sector infrastructure in Faith-based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I26",
+      "section": "service_delivery",
+      "question": "Are there any school-based specific  health programmes or initiatives within  the intervention area? (e.g, , deworming,  NTDs, Water, Sanitation and Hygiene,  handwashing, NCDs, nutrition)?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I27",
+      "section": "service_delivery",
+      "question": "If ‘Yes’:  Does the program  include school  eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I28",
+      "section": "service_delivery",
+      "question": "Is primary eye care available  in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I29",
+      "section": "service_delivery",
+      "question": "Is there a cadre available at the  primary care level who have the skill  set required to provide refraction  services to school age children?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I30",
+      "section": "service_delivery",
+      "question": "Is there a cadre available at the  primary care level who have the skill  set required to detect other eye health  conditions in school age children?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I31",
+      "section": "service_delivery",
+      "question": "Are primary eye care services, if  any, linked with school health or  a school health program?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I32",
+      "section": "service_delivery",
+      "question": "Are health screening programmes  currently being undertaken in the  community (outside of schools)?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I33",
+      "section": "service_delivery",
+      "question": "Is secondary eye care available  in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I34",
+      "section": "service_delivery",
+      "question": "Is tertiary eye care available in  the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I35",
+      "section": "service_delivery",
+      "question": "Does a referral pathway exist from: school",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I36",
+      "section": "service_delivery",
+      "question": "Does a referral pathway exist from:  Community to primary  health care",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I37",
+      "section": "service_delivery",
+      "question": "Does a referral pathway exist from: Primary health care to  secondary health care",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I38",
+      "section": "service_delivery",
+      "question": "Does a referral pathway exist from:  Secondary health care  to tertiary health care",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I39",
+      "section": "service_delivery",
+      "question": "Are there any known factors that  facilitate (enablers) referral uptake for  children with eye health conditions?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I40",
+      "section": "service_delivery",
+      "question": "Are there any indicators related to the  health of children within the Education  Management Information System (EMIS)?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I41",
+      "section": "service_delivery",
+      "question": "Are there any indicators related to the  eye health within the Health Management  Information System (HMIS) or District  Health Information System (DHIS)?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I42",
+      "section": "service_delivery",
+      "question": "Is there any coordination or data school  health sharing between education  and health authorities regarding data  about health of school children?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I43",
+      "section": "service_delivery",
+      "question": "Does a monitoring, evaluation, and/  or supportive supervision framework  for school health and/or school eye  health exist in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "I44",
+      "section": "service_delivery",
+      "question": "Reflections: 3 key points which may make implementing  school eye health programmes challenging",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "I45",
+      "section": "service_delivery",
+      "question": "Reflections: 3 key points which support  the implementation of school  eye health programmes",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H1",
+      "section": "human_resources",
+      "question": "Are essential health human resources (listed  below for ease of reference) available to  implement school health and/or school  eye health in the intervention area",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "H2",
+      "section": "human_resources",
+      "question": "Does a curriculum exist to train them /  are they trained on school eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "H3",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Community health workers that could  support eye health promotion and awareness  about school health/school eye health or  conduct initial screening of children. Public Sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H4",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Community health workers that could  support eye health promotion and awareness  about school health/school eye health or  conduct initial screening of children. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H5",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Community health workers that could  support eye health promotion and awareness  about school health/school eye health or  conduct initial screening of children. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H6",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Community health workers that could  support eye health promotion and awareness  about school health/school eye health or  conduct initial screening of children. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H7",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Community health workers that could  support eye health promotion and awareness  about school health/school eye health or  conduct initial screening of children. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H8",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect  children with vision problems and eye  conditions and refer for refraction or to  a facility for eye health assessment. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H9",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect  children with vision problems and eye  conditions and refer for refraction or to  a facility for eye health assessment. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H10",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect  children with vision problems and eye  conditions and refer for refraction or to  a facility for eye health assessment. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H11",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect  children with vision problems and eye  conditions and refer for refraction or to  a facility for eye health assessment. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H12",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Primary eye care workers that could detect  children with vision problems and eye  conditions and refer for refraction or to  a facility for eye health assessment. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H13",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that  could conduct screening and referral  in school health/school eye health. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H14",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that  could conduct screening and referral  in school health/school eye health. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H15",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that  could conduct screening and referral  in school health/school eye health. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H16",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that  could conduct screening and referral  in school health/school eye health. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H17",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Mid-level eye care personnel that  could conduct screening and referral  in school health/school eye health. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H18",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and  referral in school health/school eye health. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H19",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and  referral in school health/school eye health. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H20",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and  referral in school health/school eye health. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H21",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and  referral in school health/school eye health. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H22",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:   Nurses/school nurses to conduct screening and  referral in school health/school eye health. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H23",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Refractionists/Vision Technicians and  Optometrists to conduct refraction and  referral and provide low vision care. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H24",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Refractionists/Vision Technicians and  Optometrists to conduct refraction and  referral and provide low vision care. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H25",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Refractionists/Vision Technicians and  Optometrists to conduct refraction and  referral and provide low vision care. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H26",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Refractionists/Vision Technicians and  Optometrists to conduct refraction and  referral and provide low vision care. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H27",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Refractionists/Vision Technicians and  Optometrists to conduct refraction and  referral and provide low vision care. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H28",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Optical personnel to fit and dispense glasses. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H29",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Optical personnel to fit and dispense glasses. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H30",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Optical personnel to fit and dispense glasses. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H31",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Optical personnel to fit and dispense glasses. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H32",
+      "section": "human_resources",
+      "question": "What type and how many essential health human  resources are there in the intervention area:  Optical personnel to fit and dispense glasses. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H33",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage  children with eye conditions. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H34",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage  children with eye conditions. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H35",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage  children with eye conditions. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H36",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage  children with eye conditions. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H37",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: Ophthalmologists to treat and manage  children with eye conditions. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H38",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint  specialists to manage referral of children with  eye conditions requiring tertiary level care. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H39",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint  specialists to manage referral of children with  eye conditions requiring tertiary level care. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H40",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint  specialists to manage referral of children with  eye conditions requiring tertiary level care. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H41",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint  specialists to manage referral of children with  eye conditions requiring tertiary level care. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H42",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Paediatric ophthalmologists and squint  specialists to manage referral of children with  eye conditions requiring tertiary level care. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H43",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise,  manage and coordinate a school health/  school eye health programme. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H44",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise,  manage and coordinate a school health/  school eye health programme. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H45",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise,  manage and coordinate a school health/  school eye health programme. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H46",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise,  manage and coordinate a school health/  school eye health programme. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H47",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area:  Programme managers to operationalise,  manage and coordinate a school health/  school eye health programme. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H48",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What additional capacity development  needs are they likely to require for  school health/ school eye health? Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H49",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What additional capacity development  needs are they likely to require for  school health/ school eye health?. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H50",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What additional capacity development  needs are they likely to require for  school health/ school eye health?. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H51",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What additional capacity development  needs are they likely to require for  school health/ school eye health?. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H52",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What additional capacity development  needs are they likely to require for  school health/ school eye health?. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H53",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health?. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H54",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health?. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H55",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health?. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H56",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health?. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H57",
+      "section": "human_resources",
+      "question": "What type and how many essential health human resources are there in the intervention area: What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health?. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H58",
+      "section": "human_resources",
+      "question": "What additional capacity development  needs are they likely to require for  school health/ school eye health?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H59",
+      "section": "human_resources",
+      "question": "What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H60",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): Head teachers to facilitate school  health/school eye health. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H61",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): Head teachers to facilitate school  health/school eye health. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H62",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): Head teachers to facilitate school  health/school eye health. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H63",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): Head teachers to facilitate school  health/school eye health. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H64",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): Head teachers to facilitate school  health/school eye health. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H65",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Class teachers and Contact teachers to  conduct vision screening and referral  in school health/school eye health. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H66",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Class teachers and Contact teachers to  conduct vision screening and referral  in school health/school eye health. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H67",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Class teachers and Contact teachers to  conduct vision screening and referral  in school health/school eye health. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H68",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Class teachers and Contact teachers to  conduct vision screening and referral  in school health/school eye health. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H69",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Class teachers and Contact teachers to  conduct vision screening and referral  in school health/school eye health. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H70",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Special education teachers to conduct screening  and identification and referral of children  with vision problems and eye conditions. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H71",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Special education teachers to conduct screening  and identification and referral of children  with vision problems and eye conditions. NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H72",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Special education teachers to conduct screening  and identification and referral of children  with vision problems and eye conditions. Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H73",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Special education teachers to conduct screening  and identification and referral of children  with vision problems and eye conditions. Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H74",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan):  Special education teachers to conduct screening  and identification and referral of children  with vision problems and eye conditions. Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H75",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What additional capacity development  needs are they likely to require for  school health/ school eye health?. Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H76",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What additional capacity development  needs are they likely to require for  school health/ school eye health? NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H77",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What additional capacity development  needs are they likely to require for  school health/ school eye health? Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H78",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What additional capacity development  needs are they likely to require for  school health/ school eye health? Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H79",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What additional capacity development  needs are they likely to require for  school health/ school eye health? Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H80",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health? Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H81",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health? NGO sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H82",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health? Charity",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H83",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health? Faith based",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H84",
+      "section": "human_resources",
+      "question": "What type and how many essential education  human resources are there in the intervention  area: (If Ministry of Education does not distinguish in  this way, then only use categories that are relevant  to how the Ministry of Education would plan): What are the opportunities to enhance their  knowledge, skills and competencies for  school health and/or school eye health? Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H85",
+      "section": "human_resources",
+      "question": "Are there any capacity development needs  of local health administration personnel  regarding school health/school eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "H86",
+      "section": "human_resources",
+      "question": "Are there any capacity development needs  of local education administration personnel  regarding school health/school eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "H87",
+      "section": "human_resources",
+      "question": "Does a supportive supervision system exist  for school health and/or school eye health?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "H88",
+      "section": "human_resources",
+      "question": "Reflections: 3 key points which may make implementing  school eye health programmes challenging",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "H89",
+      "section": "human_resources",
+      "question": "Reflections: 3 key points which support  the implementation of school  eye health programmes",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C1",
+      "section": "supply_chain",
+      "question": "Are there any policy, regulations or  directives that guide or inform the  import, production, procurement or sale  of spectacle frames and lenses?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C2",
+      "section": "supply_chain",
+      "question": "Are eyeglasses included on the Ministry  of Health Essential Supplies List or  Essential List of Assistive Technologies?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C3",
+      "section": "supply_chain",
+      "question": "Are eyeglasses already included in  the government supply chain?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C4",
+      "section": "supply_chain",
+      "question": "Are there other supply chains for  optical products in the intervention  area? (i.e. what is the supply mechanism  from wholesaler to retail)",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C5",
+      "section": "supply_chain",
+      "question": "Are Children's frames available in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C6",
+      "section": "supply_chain",
+      "question": "Are the children's frames manufactured  Locally/Imported  or Both",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C7",
+      "section": "supply_chain",
+      "question": "Is a Local distributor  available for the Children's frames?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C8",
+      "section": "supply_chain",
+      "question": "Are Spherical lenses available in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C9",
+      "section": "supply_chain",
+      "question": "Are the Spherical lenses manufactured  Locally/Imported  or Both",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C10",
+      "section": "supply_chain",
+      "question": "Is a Local distributor  available for the Spherical lenses?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C11",
+      "section": "supply_chain",
+      "question": "Are Cylindrical lenses available in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C12",
+      "section": "supply_chain",
+      "question": "Are the Cylindrical lenses manufactured  Locally/Imported  or Both",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C13",
+      "section": "supply_chain",
+      "question": "Is a Local distributor  available for the Cylindrical lenses?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C14",
+      "section": "supply_chain",
+      "question": "Are Ready-made distance eyeglasses available in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C15",
+      "section": "supply_chain",
+      "question": "Are the Ready-made distance eyeglasses manufactured  Locally/Imported  or Both",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C16",
+      "section": "supply_chain",
+      "question": "Is a Local distributor  available for the Ready-made distance eyeglasses?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C17",
+      "section": "supply_chain",
+      "question": "Are Ready-to-clip lenses and frames available in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C18",
+      "section": "supply_chain",
+      "question": "Are the Ready-to-clip lenses and frames manufactured  Locally/Imported  or Both",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C19",
+      "section": "supply_chain",
+      "question": "Is a Local distributor  available for the Ready-to-clip lenses and frames?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C20",
+      "section": "supply_chain",
+      "question": "Are frame sizes adapted to local ethnic facial features available?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C21",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Custom prescription glasses. Simple prescriptions  (e.g. up to -/+ 2D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C22",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Custom prescription glasses. Simple prescriptions  (e.g. up to -/+ 2D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C23",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Custom prescription glasses.  High-power prescription  (e.g. over -/+ 5D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C24",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Custom prescription glasses.  High-power prescription  (e.g. over -/+ 5D) Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C25",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Custom prescription glasses.   Complex prescription (e.g. any  power with astigmatism). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C26",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Custom prescription glasses.   Complex prescription (e.g. any  power with astigmatism). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C27",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made distance glasses. Simple prescriptions  (e.g. up to -/+ 2D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C28",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made distance glasses. Simple prescriptions  (e.g. up to -/+ 2D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C29",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made distance glasses. High-power prescription  (e.g. over -/+ 5D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C30",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made distance glasses. High-power prescription  (e.g. over -/+ 5D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C31`",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made distance glasses. Complex prescription (e.g. any  power with astigmatism). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C32",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made distance glasses. Complex prescription (e.g. any  power with astigmatism). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C33",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made reading glasses. Simple prescriptions  (e.g. up to -/+ 2D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C34",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made reading glasses. Simple prescriptions  (e.g. up to -/+ 2D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C35",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made reading glasses.High-power prescription  (e.g. over -/+ 5D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C36",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made reading glasses. High-power prescription  (e.g. over -/+ 5D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C37",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made reading glasses.  Complex prescription (e.g. any  power with astigmatism). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C38",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is):  Ready-made reading glasses.  Complex prescription (e.g. any  power with astigmatism). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C39",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is): Ready-to-clip lenses and frames. Simple prescriptions  (e.g. up to -/+ 2D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C40",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is): Ready-to-clip lenses and frames. Simple prescriptions  (e.g. up to -/+ 2D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C41",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is): Ready-to-clip lenses and frames. High-power prescription  (e.g. over -/+ 5D). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C42",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is): Ready-to-clip lenses and frames. High-power prescription  (e.g. over -/+ 5D). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C43",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is): Ready-to-clip lenses and frames. Complex prescription (e.g. any  power with astigmatism). Public sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C44",
+      "section": "supply_chain",
+      "question": "Costing of eyeglasses in local currency. What is the average retail cost of the  following in the intervention area (use  local currency stating what this is): Ready-to-clip lenses and frames. Complex prescription (e.g. any  power with astigmatism). Private sector",
+      "type": "numeric",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C45",
+      "section": "supply_chain",
+      "question": "Is there any information on willingness  or capacity to pay for eyeglasses  in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C46",
+      "section": "supply_chain",
+      "question": "Does social/national health insurance or  any other government mechanism cover the  cost of vision screening and/or refraction?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C47",
+      "section": "supply_chain",
+      "question": "Does social/national health insurance  or any other government mechanism  cover the cost of eyeglasses?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C48",
+      "section": "supply_chain",
+      "question": "Are anti-biotic eyedrops/ointment part of the  Ministry of Health Essential Medicines List?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C49",
+      "section": "supply_chain",
+      "question": "Are anti-biotic eyedrops/ointment  available in the public sector at  the primary health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C50",
+      "section": "supply_chain",
+      "question": "Are anti-biotic eyedrops/ointment  available in the public sector at the  secondary health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C51",
+      "section": "supply_chain",
+      "question": "Are anti-biotic eyedrops/ointment  available in the public sector at  the tertiary health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C52",
+      "section": "supply_chain",
+      "question": "To detect or diagnose and treat school  age children at school level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C53",
+      "section": "supply_chain",
+      "question": "To detect eye conditions at the community health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C54",
+      "section": "supply_chain",
+      "question": "To detect and manage simple eye conditions  at the primary health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C55",
+      "section": "supply_chain",
+      "question": "To diagnose and manage eye conditions at  the secondary health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C56",
+      "section": "supply_chain",
+      "question": "To diagnose and manage eye conditions  at the tertiary health care level?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": false,
+      "score_yes": 1,
+      "score_no": 0
+    },
+    {
+      "id": "C57",
+      "section": "supply_chain",
+      "question": "Reflections: 3 key points which may make implementing  school eye health programmes challenging",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "C58",
+      "section": "supply_chain",
+      "question": "Reflections: 3 key points which support  the implementation of school  eye health programmes",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "B1",
+      "section": "barriers",
+      "question": "Is there any evidence that the health of children  is not prioritised in the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B2",
+      "section": "barriers",
+      "question": "Is there any evidence that the health  needs of girls are not prioritised?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B3",
+      "section": "barriers",
+      "question": "Is there any evidence that the health needs of specific  ethnic groups in the intervention area are not prioritised?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B4",
+      "section": "barriers",
+      "question": "Is information available on barriers faced by  children and/or their carers which limit to  spectacle wear among children which that may  be applicable to the intervention area?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B5",
+      "section": "barriers",
+      "question": "Fears about wearing eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B6",
+      "section": "barriers",
+      "question": "Unacceptable colour, style or quality",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B7",
+      "section": "barriers",
+      "question": "Low literacy levels of parents",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B8",
+      "section": "barriers",
+      "question": "Lack of information about screening  and use of eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B9",
+      "section": "barriers",
+      "question": "No felt need by parents",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B10",
+      "section": "barriers",
+      "question": "Misinformation and misconceptions about eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B11",
+      "section": "barriers",
+      "question": "Cultural beliefs and practices about",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B12",
+      "section": "barriers",
+      "question": "Eye health and use of eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B13",
+      "section": "barriers",
+      "question": "Traditional/religious beliefs prevent or delay  treatment of children who need eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B14",
+      "section": "barriers",
+      "question": "Child’s vision affected by witchcraft",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B15",
+      "section": "barriers",
+      "question": "Bullying and teasing",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B16",
+      "section": "barriers",
+      "question": "Other stigma",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B17",
+      "section": "barriers",
+      "question": "Lack of clear messaging on the benefits of eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B18",
+      "section": "barriers",
+      "question": "Lack of clear communication on the processes  involved in a school eye health programme",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B19",
+      "section": "barriers",
+      "question": "Fear of loss of earning/daily wages by  parents to access eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B20",
+      "section": "barriers",
+      "question": "Limited availability of financial resources  in family to procure eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B21",
+      "section": "barriers",
+      "question": "Travel cost to point of referral",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B22",
+      "section": "barriers",
+      "question": "Cost of eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B23",
+      "section": "barriers",
+      "question": "Cost of eye care treatment",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B24",
+      "section": "barriers",
+      "question": "Long distance to point of referral to obtain eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B25",
+      "section": "barriers",
+      "question": "Long distance to point of referral for eye care treatment",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B26",
+      "section": "barriers",
+      "question": "Delay in dispensing of eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B27",
+      "section": "barriers",
+      "question": "Lack of person to accompany child to referral  centre for eyeglasses or eye care treatment",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B28",
+      "section": "barriers",
+      "question": "Waiting time between screening and eye care  treatment or provision of eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B29",
+      "section": "barriers",
+      "question": "Seasonal variation that limits access  to eye health services",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B30",
+      "section": "barriers",
+      "question": "Lack of trust by parents in personnel  conducting screening",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B31",
+      "section": "barriers",
+      "question": "Lack of trust by parents in eye care  service provider at referral centre",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B32",
+      "section": "barriers",
+      "question": "Children with disabilities cannot access screening",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B33",
+      "section": "barriers",
+      "question": "Children with disabilities cannot access referral centre",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B34",
+      "section": "barriers",
+      "question": "Other",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B35",
+      "section": "barriers",
+      "question": "Are there barriers within the health or education  system that prevent uptake of eyeglasses and /  or eye health services by school age children?",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B36",
+      "section": "barriers",
+      "question": "Screeners (e.g. teachers or nurses) inadequately trained",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B37",
+      "section": "barriers",
+      "question": "Teachers do not have time to screen",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B38",
+      "section": "barriers",
+      "question": "Lack of eye care professionals to  receive and attend to referrals",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B39",
+      "section": "barriers",
+      "question": "Poor attitude / behaviours of education  personnel at the point of screening",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B40",
+      "section": "barriers",
+      "question": "Poor attitude and behaviours of eye health  personnel at referral centres",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B41",
+      "section": "barriers",
+      "question": "No eyeglasses suitable for children  available within the intervention area",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B42",
+      "section": "barriers",
+      "question": "Inadequate state investment in school health services",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B43",
+      "section": "barriers",
+      "question": "Eyeglasses not included in health insurance  or other state financing mechanism",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B44",
+      "section": "barriers",
+      "question": "Poor integration of school eye health in  other health screening programmes",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B45",
+      "section": "barriers",
+      "question": "Lack of support services for children  with vision impairment",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B46",
+      "section": "barriers",
+      "question": "Inadequate referral pathway between  schools and eye health services",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B47",
+      "section": "barriers",
+      "question": "Delays in providing eyeglasses",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B48",
+      "section": "barriers",
+      "question": "Other",
+      "type": "categorical_text",
+      "has_scoring": true,
+      "is_reverse": true,
+      "score_yes": 0,
+      "score_no": 1
+    },
+    {
+      "id": "B49",
+      "section": "barriers",
+      "question": "Reflections: 3 key points which may make implementing  school eye health programmes challenging",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "B50",
+      "section": "barriers",
+      "question": "Reflections: 3 key points which support  the implementation of school  eye health programmes",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M1",
+      "section": "summary",
+      "question": "Key points which may make implementing school eye health programmes challenging:  Component 1: Sectoral Legislation, Policy and Strategy",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M2",
+      "section": "summary",
+      "question": "Key points which may make implementing school eye health programmes challenging:  Component 2: Institutional and Service  Delivery Environment",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M3",
+      "section": "summary",
+      "question": "Key points which may make implementing school eye health programmes challenging:  Component 3: Human Resources",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M4",
+      "section": "summary",
+      "question": "Key points which may make implementing school eye health programmes challenging:  Component 4: Supply Chain",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M5",
+      "section": "summary",
+      "question": "Key points which may make implementing school eye health programmes challenging: Component 5: Barriers",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M6",
+      "section": "summary",
+      "question": "Key points which support the implementation of school eye health programmes:  Component 1: Sectoral Legislation, Policy and Strategy",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M7",
+      "section": "summary",
+      "question": "Key points which support the implementation of school eye health programmes: Component 2: Institutional and Service  Delivery Environment",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M8",
+      "section": "summary",
+      "question": "Key points which support the implementation of school eye health programmes:  Component 3: Human Resources",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M9",
+      "section": "summary",
+      "question": "Key points which support the implementation of school eye health programmes:  Component 4: Supply Chain",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M10",
+      "section": "summary",
+      "question": "Key points which support the implementation of school eye health programmes:  Component 5: Barriers",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M11",
+      "section": "summary",
+      "question": "Additional items to be filled manually:  Were there any evidence gaps/research questions  relevant to school health/school eye health that were  noted when the Scoping exercise was conducted?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M12",
+      "section": "summary",
+      "question": "Additional items to be filled manually:  Was any additional information available on parent  teachers associations; child to child or child to  community groups/activities; groups which could  be useful e.g. girl guides, boys scouts etc",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    },
+    {
+      "id": "M13",
+      "section": "summary",
+      "question": "Additional items to be filled manually:  Did the Scoping exercise identify groups for whom there  is no eye health screening service e.g. street children?  If ‘Yes’, is it possible to estimate the numbers  of such children in the Intervention Area?",
+      "type": "text",
+      "has_scoring": false,
+      "is_reverse": false,
+      "score_yes": null,
+      "score_no": null
+    }
+  ],
+  "section_mapping": {
+    "Context": "context",
+    "Sectoral Legislation, Policy and Strategy": "policy",
+    "Institutional and Service Delivery Environment": "service_delivery",
+    "Human Resources": "human_resources",
+    "Supply Chain": "supply_chain",
+    "Barriers": "barriers",
+    "Summary": "summary"
+  }
+}

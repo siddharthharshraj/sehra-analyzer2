@@ -1,0 +1,8 @@
+{
+  "context": {"enablers": 8, "barriers": 4},
+  "policy": {"enablers": 17, "barriers": 3},
+  "service_delivery": {"enablers": 13, "barriers": 2},
+  "human_resources": {"enablers": 2, "barriers": 3},
+  "supply_chain": {"enablers": 27, "barriers": 5},
+  "barriers": {"enablers": 10, "barriers": 38}
+}

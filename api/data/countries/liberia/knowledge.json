@@ -1,0 +1,58 @@
+{
+  "country": "Liberia",
+  "region": "West Africa",
+  "context": "West African country with post-conflict health system. SHIP (School Health Integrated Program) implemented by Sightsavers in partnership with Ministries of Education and Health. Limited eye health workforce. NGO-dependent eye health services.",
+  "key_programmes": {
+    "SHIP": {
+      "name": "School Health Integrated Program",
+      "implementer": "Sightsavers",
+      "partners": ["Ministry of Education", "Ministry of Health"],
+      "description": "Improves health and educational outcomes of school-aged children in Liberia. Trains schoolteachers to deliver eye vision screening and provide deworming tablets in intervention areas.",
+      "components": ["Vision screening", "Deworming", "Teacher training", "Referral pathways"]
+    }
+  },
+  "key_stakeholders": {
+    "ministries": ["Ministry of Education (primary lead)", "Ministry of Health"],
+    "ngos": ["Sightsavers", "OneSight", "Samaritan Purse", "EyeAlliance"],
+    "coordination": "Eye Health Technical Working Group (TWG) at national level",
+    "departments": {
+      "education": "Department of School Health under Student Personnel Services",
+      "health": "Department of School Health under Community Health"
+    }
+  },
+  "policy_alignment": [
+    "Liberia Education Sector Plan",
+    "Government of Liberia NTD Master Plan",
+    "Eye Health Policy and Strategic Plan",
+    "School Health Policy",
+    "National Education Policy",
+    "Disability Policy",
+    "Social Protection Policy",
+    "Nutrition, Sexual and Reproductive Health and WASH for Schools"
+  ],
+  "health_facilities": {
+    "referral_center": "Phebe Hospital and Eye Clinic",
+    "national_referral": "JFK Hospital in Monrovia",
+    "regulatory": "Liberia Health Regulatory Agency"
+  },
+  "key_challenges": [
+    "Limited eye health workforce and aging health workers",
+    "Eyeglasses not on MoH Essential Supplies List",
+    "No IPEC Plan exists",
+    "No Rehabilitation or Assistive Technology policy",
+    "Underfunded EMIS system",
+    "Supply chain issues - glasses imported, not produced in country",
+    "Limited financial resources and competing priorities",
+    "Low literacy levels affecting compliance",
+    "Cultural beliefs and misconceptions about eyeglasses"
+  ],
+  "training": {
+    "teachers_trained": "Over 2000 teachers and support staff",
+    "manual": "Integrated training manual covering vision screening and deworming",
+    "workforce": ["Optometric Technicians", "Vision Technicians", "Ophthalmic Nurses", "Cataract Surgeons"]
+  },
+  "financing": {
+    "mechanisms": ["National budget", "Bilateral/multilateral funding", "NGO support"],
+    "challenges": ["Limited budget allocation", "Eyeglasses not in health insurance", "Most people struggle to pay for glasses"]
+  }
+}

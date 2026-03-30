@@ -18,7 +18,7 @@ from datetime import datetime
 from pathlib import Path
 
 from core.exceptions import PDFParsingError
-from core.pdf_parser import COMPONENT_PAGE_RANGES
+from core.pdf_parser import COMPONENT_PAGE_RANGES, get_page_ranges
 
 logger = logging.getLogger("sehra.surya_parser")
 
@@ -544,7 +544,7 @@ def _clean_question_text(text: str) -> str:
     return text.strip()
 
 
-def surya_parse_sehra(pdf_path: str) -> dict:
+def surya_parse_sehra(pdf_path: str, country: str = "default") -> dict:
     """Parse a scanned SEHRA PDF using Surya OCR.
 
     This is the main entry point for the Surya parser. It produces the same
@@ -553,6 +553,7 @@ def surya_parse_sehra(pdf_path: str) -> dict:
 
     Args:
         pdf_path: Path to the scanned SEHRA PDF
+        country: Country key for country-specific page ranges and config
 
     Returns:
         Dict with same structure as parse_sehra_pdf():
@@ -601,9 +602,16 @@ def surya_parse_sehra(pdf_path: str) -> dict:
                         full_text_parts.append(line.text)
         full_text = "\n".join(full_text_parts)
 
+        # Auto-detect country from header if not explicitly provided
+        detected_country = header.get("country", "").strip()
+        if country == "default" and detected_country:
+            country = detected_country
+            logger.info("Auto-detected country from OCR header: %s", country)
+
         # Extract items per component
+        page_ranges = get_page_ranges(country)
         components = {}
-        for comp_name, page_range in COMPONENT_PAGE_RANGES.items():
+        for comp_name, page_range in page_ranges.items():
             comp_images = _load_pdf_images(pdf_path, page_range=page_range)
 
             items = _extract_items_ocr(comp_images, predictors, page_range)

@@ -433,10 +433,13 @@ def get_sehra_with_relations(sehra_id: str) -> dict | None:
         return result
 
 
-def list_sehras() -> list[dict]:
-    """List all SEHRAs (summary only)."""
+def list_sehras(country: str | None = None) -> list[dict]:
+    """List all SEHRAs (summary only), optionally filtered by country."""
     with get_session() as session:
-        sehras = session.query(SEHRA).order_by(SEHRA.upload_date.desc()).all()
+        query = session.query(SEHRA).order_by(SEHRA.upload_date.desc())
+        if country:
+            query = query.filter(SEHRA.country == country)
+        sehras = query.all()
         return [
             {
                 "id": s.id,
@@ -795,23 +798,45 @@ def delete_form_draft(user: str):
 
 # --- Codebook Override Operations ---
 
-def save_codebook_override(codebook_data: dict):
-    """Save codebook to DB so edits persist across deploys."""
+def save_codebook_override(codebook_data: dict, country: str = "default"):
+    """Save codebook to DB so edits persist across deploys.
+
+    Args:
+        codebook_data: Full codebook JSON
+        country: Country identifier for country-specific overrides (default: "default")
+    """
+    override_id = f"codebook_{country}" if country != "default" else "current"
     with get_session() as session:
         override = session.query(CodebookOverride).filter(
-            CodebookOverride.id == "current"
+            CodebookOverride.id == override_id
         ).first()
         if override:
             override.data = codebook_data
             override.updated_at = datetime.utcnow()
         else:
-            override = CodebookOverride(id="current", data=codebook_data)
+            override = CodebookOverride(id=override_id, data=codebook_data)
             session.add(override)
 
 
-def get_codebook_override() -> dict | None:
-    """Get the DB-stored codebook override, if any."""
+def get_codebook_override(country: str = "default") -> dict | None:
+    """Get the DB-stored codebook override, if any.
+
+    Args:
+        country: Country identifier for country-specific overrides (default: "default")
+
+    Returns:
+        Codebook dict or None. Tries country-specific first, then falls back to "current".
+    """
     with get_session() as session:
+        if country and country != "default":
+            # Try country-specific override first
+            override = session.query(CodebookOverride).filter(
+                CodebookOverride.id == f"codebook_{country}"
+            ).first()
+            if override and override.data:
+                return override.data
+
+        # Fall back to the default "current" override
         override = session.query(CodebookOverride).filter(
             CodebookOverride.id == "current"
         ).first()

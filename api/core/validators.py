@@ -5,24 +5,26 @@ import logging
 import fitz  # PyMuPDF
 
 from core.exceptions import ValidationError
+from core.pdf_parser import get_min_page_count
 
 logger = logging.getLogger("sehra.validators")
 
 MAX_PDF_SIZE = 10 * 1024 * 1024  # 10 MB
-MIN_PAGE_COUNT = 40
+MIN_PAGE_COUNT = 40  # Default; use get_min_page_count(country) for country-specific
 
 
-def validate_sehra_pdf(uploaded_file) -> dict:
+def validate_sehra_pdf(uploaded_file, country: str = "default") -> dict:
     """Validate an uploaded file is a valid SEHRA PDF.
 
     Checks:
     - File size <= 10 MB
     - File is a PDF (by type attribute)
-    - Page count >= 40 (SEHRA PDFs have 44+ pages)
+    - Page count >= min_page_count (country-configurable, default 40)
     - Has form widgets on page 1 (SEHRA PDFs have header form fields)
 
     Args:
         uploaded_file: Streamlit UploadedFile object
+        country: Country key for country-specific validation thresholds
 
     Returns:
         dict with validation details: {pages, widgets_on_page1}
@@ -51,9 +53,10 @@ def validate_sehra_pdf(uploaded_file) -> dict:
 
     try:
         page_count = len(doc)
-        if page_count < MIN_PAGE_COUNT:
+        min_pages = get_min_page_count(country)
+        if page_count < min_pages:
             raise ValidationError(
-                f"PDF has {page_count} pages (expected >= {MIN_PAGE_COUNT} for SEHRA)"
+                f"PDF has {page_count} pages (expected >= {min_pages} for SEHRA)"
             )
 
         # Check for form widgets on page 1

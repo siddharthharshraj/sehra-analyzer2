@@ -38,10 +38,14 @@ router = APIRouter()
 
 
 @router.get("/sehras", response_model=list[SEHRASummary])
-def list_all_sehras(response: Response, user: dict = Depends(get_current_user)):
-    """List all SEHRA assessments."""
+def list_all_sehras(
+    response: Response,
+    country: Optional[str] = None,
+    user: dict = Depends(get_current_user),
+):
+    """List all SEHRA assessments, optionally filtered by country."""
     response.headers["Cache-Control"] = "private, max-age=10, stale-while-revalidate=30"
-    results = list_sehras()
+    results = list_sehras(country=country)
     return [SEHRASummary(**s) for s in results]
 
 

@@ -7,7 +7,7 @@ import tempfile
 import asyncio
 from typing import AsyncGenerator
 
-from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException
+from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, Query
 from sse_starlette.sse import EventSourceResponse
 
 from api.deps import get_current_user
@@ -48,8 +48,14 @@ def _emit_error(message: str) -> str:
     return json.dumps({"event": "error", "message": message})
 
 
-def _run_upload_pipeline(pdf_bytes: bytes, filename: str):
-    """Synchronous pipeline that yields SSE event strings."""
+def _run_upload_pipeline(pdf_bytes: bytes, filename: str, country: str | None = None):
+    """Synchronous pipeline that yields SSE event strings.
+
+    Args:
+        pdf_bytes: Raw PDF file bytes
+        filename: Original filename
+        country: Optional country override. If not provided, auto-detected from PDF header.
+    """
     total_steps = 10
 
     # Step 1: Validate
@@ -79,12 +85,17 @@ def _run_upload_pipeline(pdf_bytes: bytes, filename: str):
 
     header = parsed["header"]
 
+    # Resolve country: use provided value, fall back to PDF header, then "default"
+    resolved_country = country or header.get("country", "default")
+    header["country"] = resolved_country
+    logger.info("Analysis using country config: %s", resolved_country)
+
     # Step 3: Score
     yield _emit(3, total_steps, "Scoring items...", 0.3)
     all_items = []
     for comp_data in parsed["components"].values():
         all_items.extend(comp_data.get("items", []))
-    scores = score_all_items(all_items)
+    scores = score_all_items(all_items, country=resolved_country)
 
     # Step 4: AI Analysis
     yield _emit(4, total_steps, "Analyzing components with AI...", 0.4)
@@ -195,15 +206,21 @@ def _run_upload_pipeline(pdf_bytes: bytes, filename: str):
 @router.post("/analyze/upload")
 async def analyze_upload(
     file: UploadFile = File(...),
+    country: str | None = Form(default=None),
     user: dict = Depends(get_current_user),
 ):
-    """Upload a PDF and run the full analysis pipeline via SSE."""
+    """Upload a PDF and run the full analysis pipeline via SSE.
+
+    Args:
+        file: The SEHRA PDF file
+        country: Optional country override. Auto-detected from PDF header if not provided.
+    """
     pdf_bytes = await file.read()
     filename = file.filename or "upload.pdf"
 
     async def event_generator() -> AsyncGenerator[str, None]:
         loop = asyncio.get_event_loop()
-        gen = _run_upload_pipeline(pdf_bytes, filename)
+        gen = _run_upload_pipeline(pdf_bytes, filename, country=country)
 
         for event_data in gen:
             yield event_data
@@ -212,8 +229,14 @@ async def analyze_upload(
     return EventSourceResponse(event_generator())
 
 
-def _run_form_pipeline(form_data: dict, username: str):
-    """Synchronous pipeline for form-submitted data."""
+def _run_form_pipeline(form_data: dict, username: str, country: str | None = None):
+    """Synchronous pipeline for form-submitted data.
+
+    Args:
+        form_data: Form submission data with header and responses
+        username: Submitting user's username
+        country: Optional country override. Falls back to form header, then "default".
+    """
     total_steps = 8
 
     yield _emit(1, total_steps, "Processing form data...", 0.1)
@@ -221,9 +244,14 @@ def _run_form_pipeline(form_data: dict, username: str):
     header = form_data.get("header", {})
     responses = form_data.get("responses", {})
 
+    # Resolve country: use provided value, fall back to form header, then "default"
+    resolved_country = country or header.get("country", "default")
+    header["country"] = resolved_country
+    logger.info("Form analysis using country config: %s", resolved_country)
+
     # Build items from form responses
     all_items = []
-    codebook = load_codebook()
+    codebook = load_codebook(country=resolved_country)
     for item in codebook.get("items", []):
         item_id = item["id"]
         if item_id in responses:
@@ -240,7 +268,7 @@ def _run_form_pipeline(form_data: dict, username: str):
 
     # Score
     yield _emit(2, total_steps, "Scoring items...", 0.2)
-    scores = score_all_items(all_items)
+    scores = score_all_items(all_items, country=resolved_country)
 
     # Build parsed-like structure for AI analysis
     parsed = {"header": header, "components": {}}
@@ -336,11 +364,15 @@ async def analyze_form(
     form_data: dict,
     user: dict = Depends(get_current_user),
 ):
-    """Submit form data and run the full analysis pipeline via SSE."""
+    """Submit form data and run the full analysis pipeline via SSE.
+
+    The form_data dict may include a top-level "country" key or a "header.country" key.
+    """
     username = user["sub"]
+    country = form_data.get("country") or form_data.get("header", {}).get("country")
 
     async def event_generator() -> AsyncGenerator[str, None]:
-        gen = _run_form_pipeline(form_data, username)
+        gen = _run_form_pipeline(form_data, username, country=country)
         for event_data in gen:
             yield event_data
             await asyncio.sleep(0)

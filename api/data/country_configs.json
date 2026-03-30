@@ -1,0 +1,86 @@
+{
+  "default": {
+    "page_ranges": {
+      "context": [10, 15],
+      "policy": [16, 20],
+      "service_delivery": [21, 26],
+      "human_resources": [27, 30],
+      "supply_chain": [31, 35],
+      "barriers": [36, 41],
+      "summary": [42, 44]
+    },
+    "min_page_count": 40,
+    "language": "en",
+    "noise_texts": ["yes", "no", "remarks", "lines of enquiry", "response", "page"]
+  },
+  "liberia": {
+    "page_ranges": {
+      "context": [10, 15],
+      "policy": [16, 20],
+      "service_delivery": [21, 26],
+      "human_resources": [27, 30],
+      "supply_chain": [31, 35],
+      "barriers": [36, 41],
+      "summary": [42, 44]
+    },
+    "min_page_count": 40,
+    "language": "en",
+    "noise_texts": ["yes", "no", "remarks", "lines of enquiry", "response", "page"]
+  },
+  "india": {
+    "page_ranges": {
+      "context": [10, 15],
+      "policy": [16, 20],
+      "service_delivery": [21, 26],
+      "human_resources": [27, 30],
+      "supply_chain": [31, 35],
+      "barriers": [36, 41],
+      "summary": [42, 44]
+    },
+    "min_page_count": 40,
+    "language": "en",
+    "noise_texts": ["yes", "no", "remarks", "lines of enquiry", "response", "page"]
+  },
+  "laos": {
+    "page_ranges": {
+      "context": [10, 15],
+      "policy": [16, 20],
+      "service_delivery": [21, 26],
+      "human_resources": [27, 30],
+      "supply_chain": [31, 35],
+      "barriers": [36, 41],
+      "summary": [42, 44]
+    },
+    "min_page_count": 40,
+    "language": "en",
+    "noise_texts": ["yes", "no", "remarks", "lines of enquiry", "response", "page"]
+  },
+  "uganda": {
+    "page_ranges": {
+      "context": [10, 15],
+      "policy": [16, 20],
+      "service_delivery": [21, 26],
+      "human_resources": [27, 30],
+      "supply_chain": [31, 35],
+      "barriers": [36, 41],
+      "summary": [42, 44]
+    },
+    "min_page_count": 40,
+    "language": "en",
+    "noise_texts": ["yes", "no", "remarks", "lines of enquiry", "response", "page"]
+  },
+  "kenya": {
+    "page_ranges": {
+      "context": [10, 15],
+      "policy": [16, 20],
+      "service_delivery": [21, 26],
+      "human_resources": [27, 30],
+      "supply_chain": [31, 35],
+      "barriers": [36, 41],
+      "summary": [42, 44]
+    },
+    "min_page_count": 40,
+    "language": "en",
+    "noise_texts": ["yes", "no", "remarks", "lines of enquiry", "response", "page"]
+  }
+}

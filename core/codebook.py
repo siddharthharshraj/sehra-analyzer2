@@ -38,23 +38,37 @@ ITEM_PREFIX_TO_COMPONENT = {
 }
 
 
-def load_codebook() -> dict:
-    """Load codebook: DB override first, then on-disk fallback."""
+def load_codebook(country: str = "default") -> dict:
+    """Load codebook: DB override first (country-specific), then country file, then default file."""
+    country_key = country.lower().strip() if country else "default"
+
     # Try DB-backed codebook (persists admin edits across deploys)
     try:
         from core.db import get_codebook_override
-        override = get_codebook_override()
+        override = get_codebook_override(country_key)
         if override:
-            logger.info("Codebook loaded from DB: %d items", len(override.get("items", [])))
+            logger.info("Codebook loaded from DB for %s: %d items", country_key, len(override.get("items", [])))
             return override
     except Exception:
         pass  # DB not available, fall back to file
 
-    codebook_path = DATA_DIR / "codebook.json"
+    # Try country-specific file
+    country_path = DATA_DIR / "countries" / country_key / "codebook.json"
+    if country_path.exists():
+        try:
+            with open(country_path) as f:
+                data = json.load(f)
+            logger.info("Codebook loaded from country file (%s): %d items", country_key, len(data.get("items", [])))
+            return data
+        except Exception as e:
+            logger.warning("Failed to load country codebook for %s: %s", country_key, e)
+
+    # Fall back to default codebook
+    default_path = DATA_DIR / "codebook.json"
     try:
-        with open(codebook_path) as f:
+        with open(default_path) as f:
             data = json.load(f)
-        logger.info("Codebook loaded from file: %d items", len(data.get("items", [])))
+        logger.info("Codebook loaded from default file: %d items", len(data.get("items", [])))
         return data
     except Exception as e:
         raise ScoringError(f"Failed to load codebook: {e}") from e
@@ -119,12 +133,13 @@ def score_item(item_id: str, answer: str | bool | None, scoring_lookup: dict) ->
     }
 
 
-def score_all_items(parsed_items: list[dict]) -> dict:
+def score_all_items(parsed_items: list[dict], country: str = "default") -> dict:
     """Score all items from parsed PDF data.
 
     Args:
         parsed_items: List of {item_id, question, answer, remark, component}
             where answer is "yes", "no", or None
+        country: Country identifier for loading country-specific codebook
 
     Returns:
         {
@@ -136,7 +151,7 @@ def score_all_items(parsed_items: list[dict]) -> dict:
             "totals": {"enabler_count": 77, "barrier_count": 55}
         }
     """
-    codebook = load_codebook()
+    codebook = load_codebook(country=country)
     scoring_lookup = build_scoring_lookup(codebook)
 
     by_component = {}
@@ -196,12 +211,102 @@ def score_all_items(parsed_items: list[dict]) -> dict:
     }
 
 
-# Expected Liberia counts for validation (ground truth from data analysis)
-LIBERIA_EXPECTED = {
-    "context": {"enablers": 8, "barriers": 4},
-    "policy": {"enablers": 17, "barriers": 3},
-    "service_delivery": {"enablers": 13, "barriers": 2},
-    "human_resources": {"enablers": 2, "barriers": 3},
-    "supply_chain": {"enablers": 27, "barriers": 5},
-    "barriers": {"enablers": 10, "barriers": 38},
-}
+def load_keyword_patterns(country: str = "default") -> dict:
+    """Load keyword patterns: country-specific first, then default."""
+    country_key = country.lower().strip() if country else "default"
+
+    country_path = DATA_DIR / "countries" / country_key / "keyword_patterns.json"
+    if country_path.exists():
+        try:
+            with open(country_path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load keyword patterns for %s: %s", country_key, e)
+
+    default_path = DATA_DIR / "keyword_patterns.json"
+    if default_path.exists():
+        try:
+            with open(default_path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load default keyword patterns: %s", e)
+    return {}
+
+
+def load_few_shot_examples(country: str = "default") -> dict:
+    """Load few-shot examples: country-specific first, then default."""
+    country_key = country.lower().strip() if country else "default"
+
+    country_path = DATA_DIR / "countries" / country_key / "few_shot_examples.json"
+    if country_path.exists():
+        try:
+            with open(country_path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load few-shot examples for %s: %s", country_key, e)
+
+    default_path = DATA_DIR / "few_shot_examples.json"
+    if default_path.exists():
+        try:
+            with open(default_path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load default few-shot examples: %s", e)
+    return {}
+
+
+def load_knowledge_base(country: str = "default") -> dict:
+    """Load SEHRA knowledge base: country-specific first, then default."""
+    country_key = country.lower().strip() if country else "default"
+
+    country_path = DATA_DIR / "countries" / country_key / "knowledge.json"
+    if country_path.exists():
+        try:
+            with open(country_path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load knowledge base for %s: %s", country_key, e)
+
+    default_path = DATA_DIR / "sehra_knowledge.json"
+    if default_path.exists():
+        try:
+            with open(default_path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load default knowledge base: %s", e)
+    return {}
+
+
+def load_expected_counts(country: str) -> dict | None:
+    """Load expected counts for validation (if available for country)."""
+    country_key = country.lower().strip() if country else ""
+    if not country_key:
+        return None
+    path = DATA_DIR / "countries" / country_key / "expected_counts.json"
+    if path.exists():
+        try:
+            with open(path) as f:
+                return json.load(f)
+        except Exception as e:
+            logger.warning("Failed to load expected counts for %s: %s", country_key, e)
+    return None
+
+
+# Backward-compatible alias: load from Liberia expected_counts.json
+def _load_liberia_expected() -> dict:
+    """Load Liberia expected counts for backward compatibility."""
+    counts = load_expected_counts("liberia")
+    if counts:
+        return counts
+    # Hardcoded fallback if file not found
+    return {
+        "context": {"enablers": 8, "barriers": 4},
+        "policy": {"enablers": 17, "barriers": 3},
+        "service_delivery": {"enablers": 13, "barriers": 2},
+        "human_resources": {"enablers": 2, "barriers": 3},
+        "supply_chain": {"enablers": 27, "barriers": 5},
+        "barriers": {"enablers": 10, "barriers": 38},
+    }
+
+# Keep as module-level variable for backward compatibility with tests
+LIBERIA_EXPECTED = _load_liberia_expected()

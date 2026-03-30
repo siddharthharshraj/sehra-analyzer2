@@ -1,0 +1,135 @@
+{
+  "classification_examples": {
+    "context": [
+      {
+        "remark": "The school eye health program is implemented by the Ministries of Education and Health with support from implementing partners.",
+        "theme": "Institutional Structure and Stakeholders",
+        "classification": "enabler",
+        "confidence": 0.95,
+        "reasoning": "Government ministries actively implementing with partner support indicates strong institutional backing."
+      },
+      {
+        "remark": "The nursing curriculum for nursing training does not include a dedicated section on school health and/or eye health.",
+        "theme": "Operationalization Strategies",
+        "classification": "barrier",
+        "confidence": 0.9,
+        "reasoning": "Absence of eye health in nursing curriculum indicates gap in operationalization of training."
+      },
+      {
+        "remark": "Children who are found to have more serious eye conditions are referred to an appropriate health facility for advanced treatment and care.",
+        "theme": "Services at Higher Levels of Health System",
+        "classification": "enabler",
+        "confidence": 0.92,
+        "reasoning": "Functional referral pathway from school screening to higher-level care exists."
+      }
+    ],
+    "policy": [
+      {
+        "remark": "The programme is delivered in partnership with the Ministry of Education and Ministry of Health and is aligned with national sector plans.",
+        "theme": "Institutional Structure and Stakeholders",
+        "classification": "enabler",
+        "confidence": 0.95,
+        "reasoning": "Programme aligned with national plans and delivered through government partnerships."
+      },
+      {
+        "remark": "No IPEC Plan exists.",
+        "theme": "Coordination and Integration",
+        "classification": "barrier",
+        "confidence": 0.92,
+        "reasoning": "Absence of Integrated People-Centred Eye Care plan indicates gap in policy framework."
+      },
+      {
+        "remark": "School health is included in the National Education Policy.",
+        "theme": "Operationalization Strategies",
+        "classification": "enabler",
+        "confidence": 0.88,
+        "reasoning": "Inclusion in national policy provides legal/policy framework for implementation."
+      }
+    ],
+    "service_delivery": [
+      {
+        "remark": "A Technical Working Group is set up that is comprised of Education, Health workers and community representatives.",
+        "theme": "Operationalization Strategies",
+        "classification": "enabler",
+        "confidence": 0.9,
+        "reasoning": "Multi-stakeholder working group provides operational coordination mechanism."
+      },
+      {
+        "remark": "Through coordination meetings at the national level where data is shared between departments.",
+        "theme": "Data Considerations",
+        "classification": "enabler",
+        "confidence": 0.88,
+        "reasoning": "Data sharing through coordination mechanism enables evidence-based planning."
+      }
+    ],
+    "human_resources": [
+      {
+        "remark": "Over 2000 teachers and support staff have benefited from school eye health training on how to implement screening.",
+        "theme": "Local Capacity and Service Delivery",
+        "classification": "enabler",
+        "confidence": 0.93,
+        "reasoning": "Large-scale teacher training builds local capacity for school-based screening."
+      },
+      {
+        "remark": "There are limited number of existing eye health workers in the country.",
+        "theme": "Local Capacity and Service Delivery",
+        "classification": "barrier",
+        "confidence": 0.92,
+        "reasoning": "Shortage of eye health workforce is a key barrier to service delivery."
+      }
+    ],
+    "supply_chain": [
+      {
+        "remark": "Eyeglasses not included in health insurance or other state financing mechanism.",
+        "theme": "Cost, Availability and Affordability",
+        "classification": "barrier",
+        "confidence": 0.94,
+        "reasoning": "Lack of financial coverage for eyeglasses creates affordability barrier."
+      },
+      {
+        "remark": "The project has established procurement systems for quality-assured eyeglasses through approved suppliers.",
+        "theme": "Procuring Eyeglasses",
+        "classification": "enabler",
+        "confidence": 0.91,
+        "reasoning": "Established procurement system with quality assurance enables eyeglasses supply."
+      }
+    ],
+    "barriers": [
+      {
+        "remark": "Despite the inclusion of eye health or providing glasses, implementation has been a challenge nationally, due to limited financial resources and other competing priorities.",
+        "theme": "Funding",
+        "classification": "barrier",
+        "confidence": 0.95,
+        "reasoning": "Limited financial resources and competing priorities directly hinder implementation."
+      },
+      {
+        "remark": "Inadequate state investment in school health services.",
+        "theme": "Funding",
+        "classification": "barrier",
+        "confidence": 0.93,
+        "reasoning": "Insufficient government investment is a systemic funding barrier."
+      }
+    ]
+  },
+  "summary_examples": {
+    "enabler_summary": {
+      "component": "policy",
+      "themes": ["Institutional Structure and Stakeholders", "Coordination and Integration"],
+      "summary": "The policy environment for school eye health is supported by strong institutional frameworks. The programme is delivered in partnership with both the Ministry of Education and Ministry of Health, with alignment to national education and health sector plans. School health is included in the National Education Policy, Disability Policy, and Social Protection Policy, providing a comprehensive policy foundation. A dedicated Technical Working Group facilitates coordination between the ministries, ensuring integrated planning and monitoring of school eye health activities.",
+      "action_points": [
+        "Leverage existing policy alignment to advocate for increased budget allocation for school eye health",
+        "Use the Technical Working Group as a platform to expand school eye health indicators in national monitoring frameworks"
+      ]
+    },
+    "barrier_summary": {
+      "component": "policy",
+      "themes": ["Coordination and Integration", "Funding"],
+      "summary": "Despite strong policy alignment, significant gaps remain in the policy framework. No Integrated People-Centred Eye Care (IPEC) Plan exists, and school eye health is not included in Rehabilitation or Assistive Technology policies. These gaps limit integration of eye health into broader disability and rehabilitation frameworks. Financial barriers are also evident, with inadequate state investment and limited budget allocation for school health services, making the programme heavily dependent on NGO and donor funding.",
+      "action_points": [
+        "Advocate for development of an IPEC Plan that includes school eye health",
+        "Include school eye health in the next revision of Rehabilitation and Assistive Technology policies",
+        "Develop a costed implementation plan to support budget advocacy with government"
+      ]
+    }
+  }
+}
